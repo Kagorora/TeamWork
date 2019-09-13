@@ -10,9 +10,7 @@ const logincontainer = document.querySelector('.login-container');
 const signupBtn = document.querySelector('#signupBtn');
 const loginBtn = document.querySelector('#loginBtn');
 const gotologinBtn = document.querySelector('.gotologinBtn');
-const createacct = document.querySelector('.createacct');
 
-createacct.addEventListener('click', displaySignUp);
 signupBtn.addEventListener('click', displaySignUp);
 
 function displaySignUp() {
