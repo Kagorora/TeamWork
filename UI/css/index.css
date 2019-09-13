@@ -1,0 +1,474 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Assistant', sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.navbar {
+    color: #151515;
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 0px !important;
+    height: 72px !important;
+    background: linear-gradient(to right, #eff5fa, #ffffff) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+    box-shadow: 0 1px 1rem rgba(0, 0, 0, .11);
+    line-height: 1488px 73px;
+}
+
+.navbarContent{
+    line-height: 25px;
+}
+
+.content {
+    width: 100%;
+    height: 90%;
+    background: linear-gradient(to right, #eff5fa, #ffffff);
+}
+
+#logoImg{
+    height: 2rem;
+    margin-top: 1.2rem; 
+    margin-left: 2.7rem;  
+}
+
+#mainLogo{
+    font-size: px;
+    color: #000000;
+    font-weight: bolder;
+    line-height: 1px;
+    padding-left: 4%;
+    margin-top: -20px;
+    position: absolute;
+}
+
+.RegistrationButtons{
+    float: right;
+    /* height: 2rem; */
+    margin-top: -2rem; 
+    margin-right: 2.7rem;  
+}
+
+.RegistrationButtons button{
+    background: none;
+    border: none;
+    font-weight: 800;
+    line-height: 1px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+#signupBtn{
+    display: inline-block;
+    height: 20px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#loginBtn{
+    display: inline-block;
+    height: 20px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;  
+}
+
+.content{
+    background-image: linear-gradient(rgb(186, 167, 240), rgb(241, 201, 223));
+    object-fit: cover;
+    height: 95vh;
+}
+
+.content img{
+    float: right;
+    width: 400px;
+    margin: 10% 17% 0 0;
+    /* display: none; */
+}
+
+.content .description{
+    float: left;
+    margin: 14% 0 0 15%;
+}
+
+.description{
+    margin: 10% 5%;
+    /* display: none; */
+}
+
+#descriptionHeader{
+    display: inline-block;
+    height: 38px;
+    padding: 0 5px;
+    /* text-align: center; */
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;  
+}
+
+#descriptionContent{
+    font-size: 22px;
+    margin-top: 2rem
+}
+
+.StartNow button {
+    border: none;
+    background: #145599;
+    color: white;
+    padding: 0px;
+    width: 20rem;
+    font-size: 14px;
+    font-family: 'Assistant', sans-serif;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 1rem;
+    border: .2rem solid #8fafda;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/* ===========================================  SignUp ===================== */
+
+
+.container-signup {
+    background: #ffffff;
+    height: 35rem;
+    width: 35%;
+    position: absolute;
+    margin-left: 35%;
+    border-radius: 10px;
+    box-shadow: 0 1px 1rem rgba(0, 0, 0, .11);
+    margin-top: 6%;
+    display: none;
+    animation-name: move-Signup;
+    animation-duration: 3s;
+    overflow-y: hidden;
+}
+
+@keyframes move-Signup {
+    0% {
+        top: 20px;
+    }
+    25% {
+        top: 72.9px
+    }
+}
+
+.inputside-signup {
+    width: 90%;
+    outline: none;
+    height: 75vh;
+    margin: 1rem auto;
+    margin-top: -4%;
+}
+
+.all-inputside-signup p:hover {
+    color: #1c5597;
+}
+
+.all-inputside-signup input:hover {
+    box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, .075), 0 0 5px rgb(104, 145, 162);
+}
+
+.all-inputside-signup {
+    margin: 60px 45px 0px 45px;
+}
+
+.inputside-signup p label {
+    margin-bottom: 10rem;
+}
+
+.all-inputside-signup p input {
+    box-sizing: border-box;
+    border: 1px solid #9e9e9e;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    background: #eaeef1;
+    outline: none;
+}
+
+.names {
+    display: flex;
+}
+
+.names .Firstname {
+    margin-right: 3%;
+}
+
+#side {
+    width: 48%;
+}
+
+.passwords {
+    display: flex
+}
+
+.passwords .passwordSgnup {
+    margin-right: 3%;
+}
+
+.all-inputside-signup h2 {
+    margin-bottom: 20px;
+}
+
+.all-inputside-signup button {
+    padding: 1px;
+    width: 100%;
+    display: block;
+    border: 1px solid #1c5597;
+    background: #1c5597;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 1rem;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.all-inputside-signup button:hover {
+    box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, .075), 0 0 5px rgb(104, 145, 162)
+}
+
+.all-inputside-signup a {
+    display: block;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #1c5597;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.gotologin {
+    color: black;
+}
+
+/* ============================================ LOGIN FORM  ============================================ */
+
+.login-container {
+    background: #ffffff;
+    height: 28rem;
+    width: 32rem;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 35%;
+    border-radius: 10px;
+    box-shadow: 0 1px 1rem rgba(0, 0, 0, .11);
+    animation-name: Login-animation;
+    animation-duration: 2s;
+    display: none;
+}
+
+@keyframes Login-animation {
+    0% {
+        top: 20px;
+    }
+    25% {
+        top: 72.9px
+    }
+}
+
+.login-inputside {
+    margin-top: 2.5rem;
+    width: 90%;
+    margin-left: 8%;
+}
+
+.form_id {
+    margin-left: 16%;
+}
+
+.form_id h2 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #002044;
+    width: 75%;
+    margin-top: 2rem;
+}
+
+.LogContent{
+    margin-top: 3rem;
+}
+
+.Logincontent {
+    margin-top: 3rem;
+}
+
+.username label i {
+    margin-right: .8rem;
+}
+
+.password label i {
+    margin-right: .8rem;
+}
+
+.username label, input {
+    display: block;
+}
+
+.username label {
+    margin-bottom: 8px;
+}
+
+.password label {
+    margin-bottom: 8px;
+}
+
+#passwrde {
+    color: #707070;
+}
+
+#usernme {
+    color: #707070;
+}
+
+.username input {
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 20px;
+    outline: none;
+    background: #eaeef1;
+}
+
+.username input:hover {
+    border: 1px solid #1c5597;
+    box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, .075), 0 0 5px rgb(104, 145, 162);
+}
+
+.username:hover {
+    color: #1c5597;
+}
+
+.password {
+    margin-bottom: 20px;
+}
+
+.password label, input {
+    display: block;
+}
+
+.password input {
+    padding: 10px;
+    width: 90%;
+    outline: none;
+    border: 1px solid #383838;
+    background: #eaeef1;
+}
+
+.password input:hover {
+    border: 1px solid #1c5597;
+    box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, .075), 0 0 5px rgb(104, 145, 162);
+}
+
+.password:hover {
+    color: #1c5597;
+}
+
+.login-inputside p input {
+    box-sizing: border-box;
+    border: 1px solid #9e9e9e;
+    border-radius: 5px;
+}
+
+#submit {
+    padding: 2px;
+    width: 90%;
+    display: block;
+    border: 1px solid #1c5597;
+    background: #1c5597;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+
+.login-inputside button:hover {
+    box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, .075), 0 0 5px rgb(104, 145, 162);
+}
+
+.login-inputside a {
+    display: block;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #1c5597;
+    font-size: 12px;
+}
+
+.login-inputside .forgotPsw {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 75%;
+    font-size: 13px;
+    text-align: left;
+}
+
+.login-inputside .createacct {
+    width: 75%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-inputside .createacct span {
+    color: black;
+}
+
+.ToResetPasswordBtn {
+    margin: 1rem 0;
+}
