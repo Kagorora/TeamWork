@@ -37,56 +37,81 @@
             </div>
             <img class="person" src="./images/person.png" alt="">
 
-                        <!-- =====================        Sign Up       =================================== -->
-                        <div class="container-signup">
+            <!-- =====================        Sign Up       =================================== -->
+            <div class="container-signup">
 
-                            <div class="inputside-signup">
-                                <div class="all-inputside-signup">
-                                    <h2>Sign up</h2>
-                                    <div class="names">
-                                        <p class="Firstname" id="side">
-                                            <label for="">LastName</label>
-                                            <input type="text">
-                                        </p>
-                                        <p class="lastname" id="side">
-                                            <label for="">First Name</label>
-                                            <input type="text">
-                                        </p>
-                                    </div>
-            
-            
-                                    <p class="email">
-                                        <label for="">Email address</label>
-                                        <input type="text">
-                                    </p>
-            
-                                    <p class="phone">
-                                        <label for="">Phone Number</label>
-                                        <input type="text">
-                                    </p>
-            
-                                    <p class="usernameSign">
-                                        <label for="">username</label>
-                                        <input type="text">
-                                    </p>
-            
-                                    <div class="passwords">
-                                        <p class="passwordSgnup" id="side">
-                                            <label for="">Password</label>
-                                            <input type="password">
-                                        </p>
-                                        <p class="confirmpassword" id="side">
-                                            <label for="">Confirm Password</label>
-                                            <input type="password">
-                                        </p>
-                                    </div>
-                                    <button class="signuponBtnSignupFrom">sign up</button>
-                                    <a class="gotologinBtn" href="#"><span class="gotologin">Already have an account?</span>Sign
-                                        in</a>
-                                </div>
-                            </div>
+                <div class="inputside-signup">
+                    <div class="all-inputside-signup">
+                        <h2>Sign up</h2>
+                        <div class="names">
+                            <p class="Firstname" id="side">
+                                <label for="">LastName</label>
+                                <input type="text">
+                            </p>
+                            <p class="lastname" id="side">
+                                <label for="">First Name</label>
+                                <input type="text">
+                            </p>
                         </div>
-                        <!-- ================================== ***** ====================================-->
+
+
+                        <p class="email">
+                            <label for="">Email address</label>
+                            <input type="text">
+                        </p>
+
+                        <p class="phone">
+                            <label for="">Phone Number</label>
+                            <input type="text">
+                        </p>
+
+                        <p class="usernameSign">
+                            <label for="">username</label>
+                            <input type="text">
+                        </p>
+
+                        <div class="passwords">
+                            <p class="passwordSgnup" id="side">
+                                <label for="">Password</label>
+                                <input type="password">
+                            </p>
+                            <p class="confirmpassword" id="side">
+                                <label for="">Confirm Password</label>
+                                <input type="password">
+                            </p>
+                        </div>
+                        <button class="signuponBtnSignupFrom">sign up</button>
+                        <a class="gotologinBtn" href="#"><span class="gotologin">Already have an account?</span>Sign
+                            in</a>
+                    </div>
+                </div>
+            </div>
+            <!-- ================================== ***** ====================================-->
+            
+            <!-- ================================== Login =================================== -->
+            <div class="login-container">
+                <div class="login-inputside">
+                    <form class="all-login-inputside" method="post" name="myform">
+                        <h2 id="LoginFormHeader">Login in</h2>
+                        <div class="LogContent">
+                            <p class="username">
+                                <label for="">Username <span id="usernme"></span></label>
+                                <input type="text" name="username" id="usernameField"
+                                    placeholder="username: employee" />
+                            </p>
+                            <p class="password">
+                                <label for="">Password <span id="passwrde"></span></label>
+                                <input type="password" name="password" id="passwordField"
+                                    placeholder="password: employee" />
+                            </p>
+                            <input type="button" value="Login" id="submit" onclick="validate()" />
+                            <a class="createacct" href="#"><span>Don't have an account? </span> Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- ================================== *****  =================================  -->
     </div>
 
     <script src="./js/index.js"></script>
