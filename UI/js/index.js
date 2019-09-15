@@ -11,6 +11,7 @@ const signupBtn = document.querySelector('#signupBtn');
 const loginBtn = document.querySelector('#loginBtn');
 const gotologinBtn = document.querySelector('.gotologinBtn');
 const createacct = document.querySelector('.createacct');
+const logoSide = document.querySelector('.logoSide');
 
 createacct.addEventListener('click', displaySignUp);
 signupBtn.addEventListener('click', displaySignUp);
@@ -42,4 +43,13 @@ function validate() {
     window.location = './admin.html';
     return false;
   }
+}
+
+logoSide.addEventListener('click', cleanLanding);
+
+function cleanLanding() {
+  logincontainer.style.display = 'none';
+  containersignup.style.display = 'none';
+  description.style.display = 'block';
+  person.style.display = 'block';
 }
