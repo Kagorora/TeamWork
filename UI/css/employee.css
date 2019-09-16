@@ -1,0 +1,601 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Assistant', sans-serif;
+    color: rgb(116, 116, 116);
+    outline: none;
+}
+
+.wrapper{
+    width: 100%;
+    height: auto;
+    background: rgb(248, 246, 246);
+}
+
+.header{
+    width: 100%;
+    height: 7vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.content{
+    width: 100%;
+    height: auto;
+    background: rgb(248, 246, 246);
+}
+
+.logoSide{
+    float: left;
+    cursor: pointer;
+}
+
+#logo{
+    margin: 0.8rem 1rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.logoSide h3{
+    line-height: 71.48px;
+    position: absolute;
+    height: 3rem;
+    display: inline-block;
+    color: rgb(116, 116, 116);
+}
+
+.writeNow{
+    float: right;
+    cursor: pointer;
+}
+
+#writeBtn{
+    margin-right: 3rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    color: rgb(116, 116, 116);
+    line-height: 71.48px; 
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+#flyer{
+    height: 1rem;
+    line-height: 71.48px; 
+}
+
+.user{
+    float: right;
+}
+
+.sort{
+    float: right;
+    line-height: 71.48px; 
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.sort h3{
+    font-size: 1rem;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    color: rgb(116, 116, 116);
+    line-height: 71.48px; 
+    font-weight: 600;
+    outline: none;
+    display: inline-block;
+}
+
+.sort img{
+    height: 0.6rem;
+    line-height: 71.48px; 
+    display: inline-block;
+}
+
+.myArticle{
+    float: right;
+    line-height: 71.48px; 
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.myArticle img{
+    height: 1rem;
+    line-height: 71.48px; 
+}
+
+#myArticlesBtn{
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    color: rgb(116, 116, 116);
+    line-height: 71.48px; 
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+#drop{
+    position: absolute;
+    height: auto;
+    width: 9rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    float: right;
+    right: 0;
+    margin-right: 7rem;
+    top: 3rem;
+    animation-name: move-drop;
+    animation-duration: 0.5s;
+    border-radius: 3px;
+    display: none;
+  }
+
+  @keyframes move-drop {
+    0% {
+        top: 25px;
+    }
+    25% {
+        top: 45px
+    }
+}
+  
+  ul li{
+    list-style: none;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    height: 1.5rem;
+    color: rgb(116, 116, 116);
+    font-weight: 400;
+    cursor: pointer;
+    text-align: center;
+  }
+
+ul li:hover {
+    background: #fafafa;
+}
+
+#drop_LogOut{
+    position: absolute;
+    height: auto;
+    width: 7rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    float: right;
+    right: 0;
+    margin-right: 1.5rem;
+    top: 3rem;
+    animation-name: move-drop;
+    animation-duration: 0.5s;
+    border-radius: 3px;
+    display: none;
+}
+
+.line{
+    height: 0.8rem;
+    width: 0.15rem;
+    background: rgba(0, 0, 0, 0.08);
+    display: inline-block;
+}
+
+.user{
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.user h4{
+    line-height: 71.48px;
+    display: inline-block;
+}
+
+.user img{
+    height: 0.6rem;
+    line-height: 71.48px; 
+    cursor: pointer;
+    display: inline-block; 
+}
+
+.one{
+    width: 60%;
+    height: 40vh;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto;
+}
+
+.fullArticle{
+    padding: 3rem 3rem;
+    width: 40%;
+    height: auto;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto;  
+    display: none;
+}
+
+.fullArticle img {
+    height: 20rem;
+    margin: 2rem 0 2rem 1rem;
+}
+
+.gerneFull{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    color: #1a8100;
+    font-weight: 600;
+}
+
+.authorFull {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.author span{
+    font-weight: 550;
+}
+
+.picSide img{
+    height: 23rem;
+    width: 80%;
+    margin: 1rem;
+}
+
+.goBack{
+    float: right;
+    margin-right: 2rem;
+    width: 8rem;
+    height: 2.5rem;
+    margin-top: -1rem;
+    background: transparent;
+    border: 1px solid rgba(30, 180, 0, 0.5);
+    border-radius: 3px;
+    color: #1a8100;
+    cursor: pointer;
+}
+
+.picSide {
+    height: 40vh;
+    width: 30%;
+    float: left;
+    /* display: inline-block; */
+}
+
+.words{
+    height: 40vh;
+    width: 70%;
+    float: right;
+    margin: 1.7rem auto;
+    cursor: pointer;
+}
+
+.one:hover ,.two:hover ,.three:hover ,.four:hover ,.five:hover {
+    border: 1px solid #6FBF6F;
+    background: #fafafa;
+}
+
+.title{
+    color:rgba(0, 0, 0, 0.84);
+    cursor:pointer;
+    display:block;
+    font-family:medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+    font-size:34px;
+    font-style:normal;
+    font-weight:600;
+    height:84px;
+    letter-spacing:normal;
+    line-height:34px;
+    margin-block-end:0px;
+    margin-block-start:0px;
+    margin-bottom:0px;
+    margin-inline-end:0px;
+    margin-inline-start:0px;
+    margin-left: 1rem;
+    margin-right:0px;
+    margin-top:0px;
+    text-rendering:optimizelegibility;
+    text-size-adjust:100%;
+    visibility:visible;
+    width:328px;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);    
+}
+
+.titleFullArticle{
+    color:rgba(0, 0, 0, 0.84);
+    cursor:pointer;
+    display:block;
+    font-family:medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+    font-size:34px;
+    font-style:normal;
+    font-weight:600;
+    height:84px;
+    letter-spacing:normal;
+    line-height:34px;
+    margin-block-end:0px;
+    margin-block-start:0px;
+    margin-bottom:0px;
+    margin-inline-end:0px;
+    margin-inline-start:0px;
+    margin-left: 1rem;
+    margin-right:0px;
+    margin-top:0px;
+    text-align: center;
+    /* text-rendering:optimizelegibility;
+    text-size-adjust:100%;
+    visibility:visible;
+    width:328px;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0); */
+
+}
+
+.gerne{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    color: #1a8100;
+    font-weight: 600;
+}
+
+.author {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.author span{
+    font-weight: 550;
+}
+
+.shortdescription{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;  
+}
+
+.reaction{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;  
+}
+
+.reaction img{
+    height: 1rem;
+    cursor: pointer;
+}
+
+.reaction button{
+    float: right;
+    margin-right: 2rem;
+    width: 8rem;
+    height: 2.5rem;
+    margin-top: -1rem;
+    background: transparent;
+    border: 1px solid rgba(30, 180, 0, 0.5);
+    border-radius: 3px;
+    color: #1a8100;
+    cursor: pointer;
+}
+
+.likeIcon{
+    margin-right: .5rem;
+    display: inline-block;
+}
+
+.commentIcon{
+    margin-right: .5rem;
+    display: inline-block;
+}
+
+.shareIcon{
+     margin-right: .5rem;
+     display: inline-block;
+}
+
+.MyOne{
+    width: 60%;
+    height: 40vh;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto;
+    display: none;
+}
+
+
+.editIcon{
+    margin-right: .8rem;
+    display: inline-block;
+}
+
+.deleteIcon{
+    margin-right: .8rem;
+    display: inline-block;
+}
+
+.warningDelete{
+    background: #ffffff;
+    width: 25rem;
+    height: 10rem;
+    margin: 10rem auto;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    display: none;
+}
+
+header{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    width: 100%;
+    height: 1rem;
+    padding: 1rem 0rem;
+    text-align: center;
+}
+
+.warningDelete h4{
+    text-align: center;
+    margin: 1.5rem auto;
+}
+
+
+.buttons{
+    float: right;
+}
+
+.warning_continue{
+    width: 5.5rem;
+    height: 2.3rem;
+    background: #6FBF6F;
+    color: white;
+    border: 1px solid #6FBF6F;
+    border-radius: 3px;
+}
+
+.warning_cancel{
+    width: 5.5rem;
+    height: 2.3rem;
+    margin-right: 2rem;
+    margin-left: 0.5rem;
+    background: rgb(191, 111, 111);
+    color: white;
+    border: 1px solid rgb(191, 111, 111);
+    border-radius: 3px;
+}
+
+.two{
+    width: 60%;
+    height: 40vh;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto; 
+}
+
+.three{
+    width: 60%;
+    height: 40vh;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto; 
+}
+
+.four{
+    width: 60%;
+    height: 40vh;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto; 
+}
+
+.five{
+    width: 60%;
+    height: 40vh;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto; 
+}
+
+.createArcticleForm{
+    width: 40%;
+    height: 80vh;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    background: white;
+    border-radius: 5px;
+    display: none;
+}
+
+.EditArcticleForm{
+    width: 40%;
+    height: 80vh;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    background: white;
+    border-radius: 5px;
+    display: none; 
+}
+
+.EditArcticleForm h1{
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.createArcticleForm h1{
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.tag{
+    display: block;
+    margin: 1rem auto;
+    width: 80%;
+}
+
+.tag label{
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.tag input{
+    width: 100%;
+    height: 2.5rem;
+    margin: 0rem auto;
+    border: 1px solid rgba(61, 61, 61, 0.1);
+    border-radius: 2.5px;
+    outline: none;
+    background: #fafafa
+}
+
+#contentInput{
+    width: 100%;
+    height: 20rem;
+    margin: 0rem auto;
+    outline: none;
+    border: 1px solid rgba(61, 61, 61, 0.1);
+    border-radius: 2.5px;
+    background: #fafafa
+}
+
+.createArcticleForm_buttons{
+    float: right;
+}
+
+.createArcticleForm_buttons button{
+    height: 2.6rem;
+    width: 7.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.createArcticleForm_buttons .share{
+    background: #6FBF6F;
+    border-radius: 2.5px;
+    color: white;
+}
+
+.createArcticleForm_buttons .cancel{
+    background: rgb(191, 111, 111);
+    border-radius: 2.5px;
+    color: white;
+    margin-right: 4rem;
+    margin-left: 1rem;
+}
+
+.createArcticleForm_buttons .cancel_Myarticle{
+    background: rgb(191, 111, 111);
+    border-radius: 2.5px;
+    color: white;
+    margin-right: 4rem;
+    margin-left: 1rem;
+}
+
+
