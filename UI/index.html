@@ -11,32 +11,29 @@
 
 <body>
     <div class="wrapper">
-        <div class="navbar">
-            <div class="navbarContent">
-                <div class="logoSide">
-                    <img id="logoImg" src="./images/logo.png" alt="">
-                    <h4 id="mainLogo">teamwork</h4>
-                </div>
-
-                <div class="RegistrationButtons">
-                    <button id="signupBtn">SignUp</button>
-                    <button id="loginBtn">Login</button>
-                </div>
+        <div class="navBar">
+            <div class="logoSide">
+                <h2>teamwork</h2>
+            </div>
+            <div class="registrationsButtons">
+                <button id="signupBtn">SignUp</button>
+                <button id="loginBtn">Login</button>
             </div>
         </div>
         <div class="content">
-            <div class="description">
-                <p id="descriptionHeader">start sharing </br>interesting articles</br> with your colleagues</p>
-                <p id="descriptionContent">Teamwork is an internal social network for organizations’ employees. </br>
-                    The
-                    goal of this
-                    application is to facilitate more interaction between</br>colleagues and facilitate team bonding</p>
-                <div class="StartNow">
-                    <button class="StartNow">START NOW</button>
+            <div class="container">
+                <div class="words">
+                    <div class="wordsSide">
+                        <h1>welcome To teamwork</h1>
+                        <p>Teamwork is an internal social network for organizations’ employees. The goal of this
+                            application is to facilitate more interaction between colleagues and facilitate team
+                            bonding.</p>
+                    </div>
+                </div>
+                <div class="image">
+                    <img id="img" src="./images/img.png" alt="">
                 </div>
             </div>
-            <img class="person" src="./images/person.png" alt="">
-
             <!-- =====================        Sign Up       =================================== -->
             <div class="container-signup">
 
@@ -46,7 +43,7 @@
                         <div class="names">
                             <p class="Firstname" id="side">
                                 <label for="">LastName</label>
-                                <input type="text">
+                                <input type="text" id="lname">
                             </p>
                             <p class="lastname" id="side">
                                 <label for="">First Name</label>
@@ -87,7 +84,6 @@
                 </div>
             </div>
             <!-- ================================== ***** ====================================-->
-            
             <!-- ================================== Login =================================== -->
             <div class="login-container">
                 <div class="login-inputside">
@@ -113,7 +109,7 @@
         </div>
         <!-- ================================== *****  =================================  -->
     </div>
-
+    </div>
     <script src="./js/index.js"></script>
 </body>
 

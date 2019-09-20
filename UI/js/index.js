@@ -3,8 +3,6 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-undef */
 /* eslint-disable eqeqeq */
-const description = document.querySelector('.description');
-const person = document.querySelector('.person');
 const containersignup = document.querySelector('.container-signup');
 const logincontainer = document.querySelector('.login-container');
 const signupBtn = document.querySelector('#signupBtn');
@@ -12,14 +10,14 @@ const loginBtn = document.querySelector('#loginBtn');
 const gotologinBtn = document.querySelector('.gotologinBtn');
 const createacct = document.querySelector('.createacct');
 const logoSide = document.querySelector('.logoSide');
+const container = document.querySelector('.container');
 
 createacct.addEventListener('click', displaySignUp);
 signupBtn.addEventListener('click', displaySignUp);
 
 function displaySignUp() {
   containersignup.style.display = 'block';
-  description.style.display = 'none';
-  person.style.display = 'none';
+  container.style.display = 'none';
   logincontainer.style.display = 'none';
 }
 
@@ -29,8 +27,7 @@ loginBtn.addEventListener('click', displayLogin);
 function displayLogin() {
   logincontainer.style.display = 'block';
   containersignup.style.display = 'none';
-  description.style.display = 'none';
-  person.style.display = 'none';
+  container.style.display = 'none';
 }
 
 function validate() {
@@ -50,6 +47,5 @@ logoSide.addEventListener('click', cleanLanding);
 function cleanLanding() {
   logincontainer.style.display = 'none';
   containersignup.style.display = 'none';
-  description.style.display = 'block';
-  person.style.display = 'block';
+  container.style.display = 'block';
 }

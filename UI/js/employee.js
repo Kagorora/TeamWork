@@ -28,13 +28,13 @@ const MyOne = document.querySelector('.MyOne');
 const editIcon = document.querySelector('.editIcon');
 const EditArcticleForm = document.querySelector('.EditArcticleForm');
 const cancelMyarticle = document.querySelector('.cancel_Myarticle');
-const deleteIcon = document.querySelector('.deleteIcon');
+// const deleteIcon = document.querySelector('.deleteIcon');
 const warningDelete = document.querySelector('.warningDelete');
 
-deleteIcon.addEventListener('click', DisplayWarning);
-function DisplayWarning() {
-  warningDelete.style.display = 'block';
-}
+// deleteIcon.addEventListener('click', DisplayWarning);
+// function DisplayWarning() {
+//   warningDelete.style.display = 'block';
+// }
 
 cancelMyarticle.addEventListener('click', closeEditMyArticleForm);
 function closeEditMyArticleForm() {
@@ -53,7 +53,7 @@ function closeEditMyArticleForm() {
 
 
 
-editIcon.addEventListener('click', displayEditMyArticleForm);
+// editIcon.addEventListener('click', displayEditMyArticleForm);
 function displayEditMyArticleForm() {
   EditArcticleForm.style.display = 'block';
   createArcticleForm.style.display = 'none';
