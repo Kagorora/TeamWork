@@ -28,20 +28,15 @@
 .logoSide{
     float: left;
     cursor: pointer;
-}
-
-#logo{
-    margin: 0.8rem 1rem;
-    cursor: pointer;
-    display: inline-block;
+    margin-left: 5vh;
 }
 
 .logoSide h3{
-    line-height: 71.48px;
+    line-height: 7vh;
     position: absolute;
     height: 3rem;
     display: inline-block;
-    color: rgb(116, 116, 116);
+    color: #00C89B;
 }
 
 .writeNow{
@@ -51,12 +46,12 @@
 
 #writeBtn{
     margin-right: 3rem;
-    font-size: 1rem;
+    font-size: 2.2vh;
     height: 2.5rem;
     background: transparent;
     border: none;
     color: rgb(116, 116, 116);
-    line-height: 71.48px; 
+    line-height: 7vh; 
     font-weight: 600;
     outline: none;
     cursor: pointer;
@@ -64,7 +59,7 @@
 
 #flyer{
     height: 1rem;
-    line-height: 71.48px; 
+    line-height: 7vh; 
 }
 
 .user{
@@ -73,7 +68,7 @@
 
 .sort{
     float: right;
-    line-height: 71.48px; 
+    line-height: 7vh; 
     margin-right: 3rem;
     cursor: pointer;
 }
@@ -84,7 +79,7 @@
     background: transparent;
     border: none;
     color: rgb(116, 116, 116);
-    line-height: 71.48px; 
+    line-height: 7vh; 
     font-weight: 600;
     outline: none;
     display: inline-block;
@@ -92,20 +87,20 @@
 
 .sort img{
     height: 0.6rem;
-    line-height: 71.48px; 
+    line-height: 7vh; 
     display: inline-block;
 }
 
 .myArticle{
     float: right;
-    line-height: 71.48px; 
+    line-height: 7vh; 
     margin-right: 3rem;
     cursor: pointer;
 }
 
 .myArticle img{
     height: 1rem;
-    line-height: 71.48px; 
+    line-height: 7vh; 
 }
 
 #myArticlesBtn{
@@ -115,7 +110,7 @@
     background: transparent;
     border: none;
     color: rgb(116, 116, 116);
-    line-height: 71.48px; 
+    line-height: 7vh; 
     font-weight: 600;
     outline: none;
     cursor: pointer;
@@ -195,24 +190,167 @@ ul li:hover {
 }
 
 .user h4{
-    line-height: 71.48px;
+    line-height: 7vh;
     display: inline-block;
 }
 
 .user img{
     height: 0.6rem;
-    line-height: 71.48px; 
+    line-height: 7vh; 
     cursor: pointer;
     display: inline-block; 
 }
 
-.one{
-    width: 60%;
-    height: 40vh;
-    background: white;
+.one, .two, .three, .four, .five{
+    width: 80%;
+    height: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 3rem auto;
+    padding: 1rem;
+    background-color: white;
 }
+
+.MyOne{
+    width: 80%;
+    height: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 3rem auto;
+    padding: 1rem;
+    background-color: white;
+}
+
+.one_conatiner{
+    width: 98%;
+    height: 45vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.picSide {
+    flex: 3;
+}
+
+.picSide img{
+    height: 100%; 
+    width: 100%; 
+    object-fit: contain;
+}
+
+.words{
+    flex: 5;
+}
+
+.words_container{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    flex: 2;
+}
+
+.gerne{
+    flex: 1;
+    margin-left: 2.3vh;
+}
+
+.gerne span{
+    line-height: 5vh;
+    font-size: 2.3vh;
+    font-weight: 100;
+}
+
+.gerne h3{
+    color: #1a8100;
+    font-weight: 600;
+    line-height: 5vh;
+    font-size: 2.3vh;
+}
+
+.author {
+    flex: 1;
+    margin-left: 2.3vh;
+}
+
+.author h4{
+    font-weight: 600;
+    line-height: 5vh;
+    font-size: 2.3vh;
+}
+
+.author span{
+    line-height: 5vh;
+    font-size: 2.3vh;
+    font-weight: 100;
+}
+
+.shortdescription{
+    flex: 3;
+    padding: 10px;
+    margin-left: 1.2vh;
+}
+
+.reaction{
+    flex: 1;
+    margin-left: 3vh;
+    /* background: red */
+}
+
+.reactionContainer{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.reaction button{
+    float: right;
+    margin-right: 2rem;
+    width: 8rem;
+    height: 2rem;
+    background: transparent;
+    border: 1px solid rgba(30, 180, 0, 0.5);
+    border-radius: 3px;
+    color: #1a8100;
+    cursor: pointer;
+}
+
+.reaction img{
+    height: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 5vh;
+}
+
+.reaction p{
+    font-size: 2vh;
+    font-weight: 600;
+    height: 1.5rem;
+    cursor: pointer;
+    /* position: absolute; */
+    /* margin: 1vh 2vh; */
+    display: inline-block;
+}
+
+.likeIcon{
+    flex: 1;
+}
+
+.commentIcon{
+    flex: 1;
+}
+
+.shareIcon{
+    flex: 1;
+}
+
+.more{
+    flex: 6;
+}
+
 
 .fullArticle{
     padding: 3rem 3rem;
@@ -246,12 +384,6 @@ ul li:hover {
     font-weight: 550;
 }
 
-.picSide img{
-    height: 23rem;
-    width: 80%;
-    margin: 1rem;
-}
-
 .goBack{
     float: right;
     margin-right: 2rem;
@@ -265,21 +397,6 @@ ul li:hover {
     cursor: pointer;
 }
 
-.picSide {
-    height: 40vh;
-    width: 30%;
-    float: left;
-    /* display: inline-block; */
-}
-
-.words{
-    height: 40vh;
-    width: 70%;
-    float: right;
-    margin: 1.7rem auto;
-    cursor: pointer;
-}
-
 .one:hover ,.two:hover ,.three:hover ,.four:hover ,.five:hover {
     border: 1px solid #6FBF6F;
     background: #fafafa;
@@ -290,7 +407,7 @@ ul li:hover {
     cursor:pointer;
     display:block;
     font-family:medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
-    font-size:34px;
+    font-size:28px;
     font-style:normal;
     font-weight:600;
     height:84px;
@@ -332,65 +449,6 @@ ul li:hover {
     margin-right:0px;
     margin-top:0px;
     text-align: center;
-    /* text-rendering:optimizelegibility;
-    text-size-adjust:100%;
-    visibility:visible;
-    width:328px;
-    -webkit-font-smoothing:antialiased;
-    -webkit-tap-highlight-color:rgba(0, 0, 0, 0); */
-
-}
-
-.gerne{
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-    color: #1a8100;
-    font-weight: 600;
-}
-
-.author {
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-    display: block;
-}
-
-.author span{
-    font-weight: 550;
-}
-
-.shortdescription{
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 0.5rem;  
-}
-
-.reaction{
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 2rem;  
-}
-
-.reaction img{
-    height: 1rem;
-    cursor: pointer;
-}
-
-.reaction button{
-    float: right;
-    margin-right: 2rem;
-    width: 8rem;
-    height: 2.5rem;
-    margin-top: -1rem;
-    background: transparent;
-    border: 1px solid rgba(30, 180, 0, 0.5);
-    border-radius: 3px;
-    color: #1a8100;
-    cursor: pointer;
-}
-
-.likeIcon{
-    margin-right: .5rem;
-    display: inline-block;
 }
 
 .commentIcon{
@@ -403,13 +461,50 @@ ul li:hover {
      display: inline-block;
 }
 
-.MyOne{
-    width: 60%;
-    height: 40vh;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 3rem auto;
-    display: none;
+
+.reaction button{
+    float: right;
+    margin-right: 2rem;
+    width: 8rem;
+    height: 2rem;
+    background: transparent;
+    border: 1px solid rgba(30, 180, 0, 0.5);
+    border-radius: 3px;
+    color: #1a8100;
+    cursor: pointer;
+}
+
+.reaction img{
+    height: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 5vh;
+}
+
+.reaction p{
+    font-size: 2vh;
+    font-weight: 600;
+    height: 1.5rem;
+    cursor: pointer;
+    /* position: absolute; */
+    /* margin: 1vh 2vh; */
+    display: inline-block;
+}
+
+.likeIcon{
+    flex: 1;
+}
+
+.commentIcon{
+    flex: 1;
+}
+
+.shareIcon{
+    flex: 1;
+}
+
+.more{
+    flex: 6;
 }
 
 
@@ -471,41 +566,11 @@ header{
     border-radius: 3px;
 }
 
-.two{
-    width: 60%;
-    height: 40vh;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 3rem auto; 
-}
 
-.three{
-    width: 60%;
-    height: 40vh;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 3rem auto; 
-}
-
-.four{
-    width: 60%;
-    height: 40vh;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 3rem auto; 
-}
-
-.five{
-    width: 60%;
-    height: 40vh;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 3rem auto; 
-}
 
 .createArcticleForm{
     width: 40%;
-    height: 80vh;
+    height: 64vh;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 2rem auto;
     background: white;
@@ -530,7 +595,8 @@ header{
 
 .createArcticleForm h1{
     text-align: center;
-    margin: 2rem auto;
+    margin: 1rem auto;
+    font-size: 25px;
 }
 
 .tag{
@@ -541,12 +607,13 @@ header{
 
 .tag label{
     display: block;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.2rem;
+    font-size: 15px;
 }
 
 .tag input{
     width: 100%;
-    height: 2.5rem;
+    height: 2.1rem;
     margin: 0rem auto;
     border: 1px solid rgba(61, 61, 61, 0.1);
     border-radius: 2.5px;
@@ -556,7 +623,7 @@ header{
 
 #contentInput{
     width: 100%;
-    height: 20rem;
+    height: 15rem;
     margin: 0rem auto;
     outline: none;
     border: 1px solid rgba(61, 61, 61, 0.1);
@@ -598,4 +665,381 @@ header{
     margin-left: 1rem;
 }
 
+@media screen and (max-width: 768px ) {    
+    .content{
+        width: 100%;
+        height: auto;
+        background: rgb(248, 246, 246);
+    }
+    
+    .logoSide{
+        margin-left: 2.5vh;
+    }
+    
+    .logoSide h3{
+        line-height: 7vh;
+        position: absolute;
+        font-size: 1.5vh;
+        display: inline-block;
+        color: #00C89B;
+    }
 
+    #writeBtn{
+        margin-right: 2vh;
+        font-size: 1.3vh;
+        height: 2.5rem;
+        background: transparent;
+        border: none;
+        color: rgb(116, 116, 116);
+        line-height: 7vh; 
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+    }
+    
+    #flyer{
+        height: 0.8rem;
+        line-height: 7vh; 
+    }
+    
+    .user{
+        float: right;
+    }
+    
+    .sort{
+        float: right;
+        line-height: 7vh; 
+        margin-right: 2vh;
+        cursor: pointer;
+    }
+    
+    .sort h3{
+        font-size: 1.3vh;
+        height: 2.5rem;
+        background: transparent;
+        border: none;
+        color: rgb(116, 116, 116);
+        line-height: 7vh; 
+        font-weight: 600;
+        outline: none;
+        display: inline-block;
+    }
+    
+    .sort img{
+        height: 0.6rem;
+        line-height: 7vh; 
+        display: inline-block;
+    }
+    
+    .myArticle{
+        margin-right: 1.5vh;
+    }
+    
+    .myArticle img{
+        height: 1rem;
+    }
+    
+    #myArticlesBtn{
+        font-size: 1.3vh;
+        height: 2.5rem;
+        background: transparent;
+        border: none;
+        color: rgb(116, 116, 116);
+        line-height: 7vh; 
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+    }   
+
+    .user h4{
+        font-size: 1.3vh;
+    }
+
+    .createArcticleForm h1{
+        text-align: center;
+        margin: 1rem auto;
+        font-size: 25px;
+    }
+    
+    .tag{
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+    }
+    .createArcticleForm{
+        width: 70%;
+        height: 65vh;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        background: white;
+        border-radius: 5px;
+        display: none;
+    }
+
+    .createArcticleForm h1{
+        margin: 3vh auto;
+    }
+    
+    .tag label{
+        display: block;
+        margin-bottom: 0.2rem;
+        font-size: 15px;
+    }
+    
+    .tag input{
+        width: 100%;
+        height: 2.1rem;
+        margin: 0rem auto;
+        border: 1px solid rgba(61, 61, 61, 0.1);
+        border-radius: 2.5px;
+        outline: none;
+        background: #fafafa
+    }
+    
+    #contentInput{
+        width: 100%;
+        height: 15rem;
+        margin: 0rem auto;
+        outline: none;
+        border: 1px solid rgba(61, 61, 61, 0.1);
+        border-radius: 2.5px;
+        background: #fafafa
+    }
+
+    
+    .createArcticleForm_buttons{
+        float: right;
+    }
+    
+    .createArcticleForm_buttons button{
+        height: 2.6rem;
+        width: 7.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .createArcticleForm_buttons .share{
+        background: #6FBF6F;
+        border-radius: 2.5px;
+        color: white;
+    }
+    
+    .createArcticleForm_buttons .cancel{
+        background: rgb(191, 111, 111);
+        border-radius: 2.5px;
+        color: white;
+        margin-right: 4rem;
+        margin-left: 1rem;
+    }
+    
+    .createArcticleForm_buttons .cancel_Myarticle{
+        background: rgb(191, 111, 111);
+        border-radius: 2.5px;
+        color: white;
+        margin-right: 4rem;
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 375px ) { 
+    
+    .one{
+        height: 61vh;
+    }
+    
+    .two{
+        height: 61vh;
+    }
+
+    .three{
+        height: 61vh;
+    }
+
+    .four{
+        height: 61vh;
+    }
+
+    .five{
+        height: 61vh;
+    }
+
+    .reaction{
+        width: 75%;
+    }
+
+    .one_conatiner{
+        height: 100%;
+        width: 100%;
+    }
+
+    .shortdescription{
+        font-size: 2vh;
+        width: 75%;
+    }
+
+    .reaction button{
+        float: right;
+        width: 4rem;
+        height: 1.5rem;
+        background: transparent;
+        border: 1px solid rgba(30, 180, 0, 0.5);
+        border-radius: 3px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 10px;
+        /* padding: 10px; */
+        color: #1a8100;
+    }
+
+    .reaction img, .reaction p{
+        display: none;
+    }
+    
+    .logoSide h3{
+        font-size: 1.2vh;
+    }
+
+    #writeBtn{
+        margin-right: 0vh;
+        font-size: 1.2vh;
+        background: transparent;
+        border: none;
+        color: rgb(116, 116, 116);
+        line-height: 7vh; 
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+    }
+
+    
+    #flyer{
+        height: 0.4rem;
+        line-height: 7vh; 
+    }
+    
+    .user{
+        float: right;
+        margin-left: 0.7vh;
+    }
+    
+    .sort{
+        float: right;
+        line-height: 7vh; 
+        margin-right: 1vh;
+        cursor: pointer;
+        font-size: 1.2vh;
+    }
+    
+    .sort{
+        margin-left: 0.0vh;
+    }
+
+    .sort img{
+        height: 0.3rem;
+        line-height: 7vh; 
+        display: inline-block;
+    }
+    
+    .myArticle{
+        margin-right: 1.5vh;
+        font-size: 1.2vh;
+    }
+    
+    .myArticle img{
+        margin-left: 1vh;
+        height: 0.5rem;
+    }
+
+    .user img{
+        height: 0.3rem; 
+        margin-left: -2px;  
+    }
+    
+    #myArticlesBtn{
+        font-size: 1.2vh;
+        height: 2.5rem;
+        background: transparent;
+        border: none;
+        color: rgb(116, 116, 116);
+        line-height: 7vh; 
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+    }   
+
+    .user h4{
+        font-size: 1.2vh;
+    }
+
+    .line{
+        display: none;
+    }
+
+    .createArcticleForm{
+        width: 80%;
+        height: 80vh;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        background: white;
+        border-radius: 5px;
+        display: none;
+    }
+
+    .createArcticleForm h1{
+        margin: 2vh auto;
+        font-size: 20px;
+    }
+    
+    .tag label{
+        display: block;
+        margin-bottom: 0.2rem;
+        font-size: 13px;
+    }
+    
+    .tag input{
+        width: 100%;
+        height: 1.8rem;
+        margin: 0rem auto;
+    }
+
+    #contentInput{
+        width: 100%;
+        height: 12rem;
+    }
+
+    
+    .createArcticleForm_buttons{
+        float: right;
+    }
+    
+    .createArcticleForm_buttons button{
+        height: 2rem;
+        width: 5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .createArcticleForm_buttons .share{
+        background: #6FBF6F;
+        border-radius: 2.5px;
+        color: white;
+    }
+    
+    .createArcticleForm_buttons .cancel{
+        background: rgb(191, 111, 111);
+        border-radius: 2.5px;
+        color: white;
+        margin-right: 1.5rem;
+        margin-left: 0.5rem;
+    }
+    
+    .createArcticleForm_buttons .cancel_Myarticle{
+        background: rgb(191, 111, 111);
+        border-radius: 2.5px;
+        color: white;
+        margin-right: 4rem;
+        margin-left: 1rem;
+    }
+}
