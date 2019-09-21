@@ -31,9 +31,16 @@ const cancelMyarticle = document.querySelector('.cancel_Myarticle');
 const deleteIcon = document.querySelector('.deleteIcon');
 const warningDelete = document.querySelector('.warningDelete');
 
-deleteIcon.addEventListener('click', DisplayWarning);
-function DisplayWarning() {
-  warningDelete.style.display = 'block';
+deleteIcon.addEventListener('click', deleteArticle);
+// function DisplayWarning() {
+//   warningDelete.style.display = 'block';
+//   MyOne.style.background = 'rgba(0,0,0,0.5)';
+//   fullArticle.style.display = 'none';
+// }
+
+function deleteArticle() {
+  MyOne.style.display = 'none';
+  fullArticle.style.display = 'none';
 }
 
 cancelMyarticle.addEventListener('click', closeEditMyArticleForm);
@@ -82,6 +89,7 @@ function displayCreateArticleForm() {
   dropLogOut.style.display = 'none';
   MyOne.style.display = 'none';
   fullArticle.style.display = 'none';
+  EditArcticleForm.style.display = 'none';
 }
 
 myArticle.addEventListener('click', displayMyArticles);
@@ -96,6 +104,7 @@ function displayMyArticles() {
   dropLogOut.style.display = 'none';
   createArcticleForm.style.display = 'none';
   fullArticle.style.display = 'none';
+  EditArcticleForm.style.display = 'none';
 }
 
 cancel.addEventListener('click', closeCreateArticleForm);
@@ -116,9 +125,9 @@ function openTechArticle() {
   createArcticleForm.style.display = 'none';
   one.style.display = 'block';
   two.style.display = 'none';
-  three.style.display = 'none';
+  three.style.display = 'block';
   four.style.display = 'none';
-  five.style.display = 'none';
+  five.style.display = 'block';
   drop.style.display = 'none';
   fullArticle.style.display = 'none';
 }
@@ -128,9 +137,9 @@ socialBtn.addEventListener('click', openSocialArticle);
 function openSocialArticle() {
   createArcticleForm.style.display = 'none';
   one.style.display = 'none';
-  two.style.display = 'block';
-  three.style.display = 'block';
-  four.style.display = 'none';
+  two.style.display = 'none';
+  three.style.display = 'none';
+  four.style.display = 'block';
   five.style.display = 'none';
   drop.style.display = 'none';
   fullArticle.style.display = 'none';
@@ -141,10 +150,10 @@ entertaimnent.addEventListener('click', openEntertainment);
 function openEntertainment() {
   createArcticleForm.style.display = 'none';
   one.style.display = 'none';
-  two.style.display = 'none';
+  two.style.display = 'block';
   three.style.display = 'none';
   four.style.display = 'none';
-  five.style.display = 'block';
+  five.style.display = 'none';
   drop.style.display = 'none';
   fullArticle.style.display = 'none';
 }
@@ -187,7 +196,6 @@ function backToMain() {
   three.style.display = 'block';
   four.style.display = 'block';
   five.style.display = 'block';
-  myArticle.style.display = 'none';
   dropLogOut.style.display = 'none';
   drop.style.display = 'none';
 }
@@ -204,6 +212,7 @@ function OpenDetails() {
   three.style.display = 'none';
   four.style.display = 'none';
   five.style.display = 'none';
+  MyOne.style.display = 'none';
   createArcticleForm.style.display = 'none';
   fullArticle.style.display = 'block';
 }
@@ -217,5 +226,5 @@ function openLogOutDropdown() {
 LogOutBtn.addEventListener('click', logOut);
 
 function logOut() {
-  window.location = '../../index.html';
+  window.location = '../index.html';
 }

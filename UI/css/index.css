@@ -1,176 +1,147 @@
-* {
+*{
     margin: 0;
     padding: 0;
+    color: rgb(46, 46, 46);
     font-family: 'Assistant', sans-serif;
+    outline: none;
 }
 
-.wrapper {
-    width: 100%;
+.wrapper{
     height: 100vh;
-    box-sizing: border-box;
-    position: relative;
-    overflow-y: hidden;
-}
-
-.navbar {
-    color: #151515;
-    margin-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    border-radius: 0px !important;
-    height: 72px !important;
-    background: linear-gradient(to right, #eff5fa, #ffffff) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.11);
-    box-shadow: 0 1px 1rem rgba(0, 0, 0, .11);
-    line-height: 1488px 73px;
-}
-
-.navbarContent{
-    line-height: 25px;
-}
-
-.content {
     width: 100%;
-    height: 90%;
-    background: linear-gradient(to right, #eff5fa, #ffffff);
+    background: #fafafa;
 }
 
-#logoImg{
-    height: 2rem;
-    margin-top: 1.2rem; 
-    margin-left: 2.7rem;  
+.navBar{
+    height: 7vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    background: white;
 }
-
-#mainLogo{
-    font-size: px;
-    color: #000000;
-    font-weight: bolder;
-    line-height: 1px;
-    padding-left: 4%;
-    margin-top: -20px;
-    position: absolute;
-}
-
-.RegistrationButtons{
-    float: right;
-    /* height: 2rem; */
-    margin-top: -2rem; 
-    margin-right: 2.7rem;  
-}
-
-.RegistrationButtons button{
-    background: none;
-    border: none;
-    font-weight: 800;
-    line-height: 1px;
-    margin-right: 1rem;
+.logoSide{
+    float: left;
+    margin-left: 2.5rem;
+    width: 2rem;
+    height: 2.5rem;
     cursor: pointer;
+}
+
+.navBar h2{
+    /* height: 2rem; */
+    line-height: 7vh;
+    color: #00C89B;
+}
+
+
+.registrationsButtons{
+    float: right;
+    line-height: 7vh;
+    margin-right: 2.5rem;
+}
+
+.registrationsButtons button{
+    width: 7rem;
+    height: 2.2rem;
+    color: white;
+    text-align: center; 
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid #00C89B; 
+    cursor: pointer; 
 }
 
 #signupBtn{
-    display: inline-block;
-    height: 20px;
-    padding: 0 10px;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 20px;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 4px;
-    cursor: pointer;
-    box-sizing: border-box;
-    outline: none;
+    background: #00C89B;
 }
 
 #loginBtn{
-    display: inline-block;
-    height: 20px;
-    padding: 0 10px;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 20px;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    outline: none;  
+    background: transparent;
+    color: black;
+    margin-left: 1rem;
 }
+
+
 
 .content{
-    background-image: linear-gradient(rgb(186, 167, 240), rgb(241, 201, 223));
-    object-fit: cover;
-    height: 95vh;
+    height: 92.9vh;
+    background: #fafafa;
+    height: 92.9vh;
+    width: 100%;
+    position: relative;
 }
 
-.content img{
-    float: right;
-    width: 400px;
-    margin: 10% 17% 0 0;
+.container{
+    border: 1px solid rgba(0, 0, 0, 0.1);  
+    background: white;
+    width: 45%;
+    height: 70vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 5px;
     /* display: none; */
 }
 
-.content .description{
-    float: left;
-    margin: 14% 0 0 15%;
+.words{
+    width: 100%;
+    height: 38%;
+    display: block;
+    position: relative;
+    /* background: #00C89B; */
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.description{
-    margin: 10% 5%;
-    /* display: none; */
+.wordsSide{
+
+    width: 90%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
 }
 
-#descriptionHeader{
-    display: inline-block;
-    height: 38px;
-    padding: 0 5px;
-    /* text-align: center; */
-    font-size: 35px;
-    font-weight: 600;
-    line-height: 38px;
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    outline: none;  
+.wordsSide h1{
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 550;
+    color: rgb(80, 80, 80);
 }
 
-#descriptionContent{
-    font-size: 22px;
-    margin-top: 2rem
+.wordsSide p{
+    font-family:Slack-Lato, appleLogo, sans-serif;
+    line-height: 1.4;
+    color: rgb(80, 80, 80);
+    align-items: center;
+    text-align: center;
 }
 
-.StartNow button {
-    border: none;
-    background: #145599;
-    color: white;
-    padding: 0px;
-    width: 20rem;
-    font-size: 14px;
-    font-family: 'Assistant', sans-serif;
-    border-radius: 30px;
-    font-weight: bold;
-    margin-top: 1rem;
-    border: .2rem solid #8fafda;
-    cursor: pointer;
-    outline: none;
-    font-weight: 600;
-    line-height: 38px;
-    letter-spacing: .1rem;
-    text-transform: uppercase;
-    text-decoration: none;
+.image{
+    width: 100%;
+    height: 64.9%;
+    position: relative;
 }
 
-.logoSide{
-    cursor: pointer;
+#img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 85%;
 }
+
+/* /* @media screen and (max-width: 1558px) {
+#img{
+    height: 18rem;
+   } 
+} */
 
 /* ===========================================  SignUp ===================== */
 
@@ -185,18 +156,7 @@
     box-shadow: 0 1px 1rem rgba(0, 0, 0, .11);
     margin-top: 6%;
     display: none;
-    animation-name: move-Signup;
-    animation-duration: 3s;
     overflow-y: hidden;
-}
-
-@keyframes move-Signup {
-    0% {
-        top: 20px;
-    }
-    25% {
-        top: 72.9px
-    }
 }
 
 .inputside-signup {
@@ -296,6 +256,12 @@
     color: black;
 }
 
+/* ====================================== responsiveness 1366px 768px  */
+
+/* .logoSide h2{
+    line-height: 7vh;
+} */
+
 /* ============================================ LOGIN FORM  ============================================ */
 
 .login-container {
@@ -307,18 +273,7 @@
     margin-left: 35%;
     border-radius: 10px;
     box-shadow: 0 1px 1rem rgba(0, 0, 0, .11);
-    animation-name: Login-animation;
-    animation-duration: 2s;
     display: none;
-}
-
-@keyframes Login-animation {
-    0% {
-        top: 20px;
-    }
-    25% {
-        top: 72.9px
-    }
 }
 
 .login-inputside {
@@ -475,4 +430,187 @@
 
 .ToResetPasswordBtn {
     margin: 1rem 0;
+}
+
+
+/* ============================================ Responsiveness for 768px view =================== */
+
+@media screen and (max-width: 768px ) {
+
+.content{
+    position: relative;
+}
+
+.container{
+        width: 85%;
+ 
+    }
+.container-signup{
+    width: 80%;
+    height: 68vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.names {
+    display: block;
+}
+
+#side {
+    width: 100%;
+}
+
+.passwords{
+    display: block;
+}
+
+/* ================= login ======== */
+.login-container{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    margin: auto;
+}
+} 
+
+/* ============================================ Responsiveness for 360px view =================== */
+
+@media screen and (max-width: 360px) {
+    
+    .image{
+        display: none;
+    }
+
+    #img{
+        display: none;
+    }
+    .words{
+        height: 100%;
+    }
+    .wordsSide{
+        border-bottom: none;
+    }
+
+    .logoSide h2 {
+        font-size: 15px;
+        line-height: 45.8px;
+    }
+
+    .registrationsButtons{
+        line-height: 45.8px;
+        margin-right: 20px;
+    }
+
+    .registrationsButtons button{
+        width: 4.5rem;
+        font-size: 10px;
+        height: 25px;
+    }
+    #loginBtn{
+        margin-left: 2px;
+    }
+
+    /* ================================== sign up ========= */
+    .container-signup{
+        background: #ffffff;
+        height: 70vh;
+        width: 90%;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        border-radius: 10px;
+        box-shadow: 0 1px 1rem rgba(0, 0, 0, .11);
+        margin-top: 6vh;
+        overflow-y: hidden;
+    }
+
+    .inputside-signup {
+        width: 90%;
+        outline: none;
+        height: 75vh;
+        margin: 1rem auto;
+        margin-top: -4%;
+    }
+
+    .all-inputside-signup {
+        margin: 2.5rem auto;
+    }
+
+    .all-inputside-signup{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 90%;
+        height: 95vh;
+        margin: auto;
+    }
+
+    .confirmpassword{
+        display: none;
+    }
+
+    #lname{
+        display: none;
+    }
+
+    .Firstname label{
+        display: none
+    }
+
+    .all-inputside-signup{
+        margin-top: 1.5vh;
+        height: 66vh;
+    }
+
+    .all-inputside-signup h2{
+        font-size: 15px;
+    }
+
+    .all-inputside-signup input{
+        height: 30px;
+        width: 100%;
+
+    }
+
+    .signuponBtnSignupFrom{
+        height: 40px;
+    }
+
+    .login-container{
+        margin-top: 20%;
+        width: 90%;
+        height: 55%;
+    }
+
+    .login-inputside{
+        width: 100%;
+        margin-left: 15px;
+        margin-top: 35px;
+    }
+
+    .all-login-inputside h2{
+        font-size: 15px;
+    }
+
+    .LogContent{
+        margin-top: 10px;
+    }
+    .LogContent label{
+        font-size: 12px;
+    }
+
+    #submit{
+        margin-bottom: 10px;
+    }
 }
