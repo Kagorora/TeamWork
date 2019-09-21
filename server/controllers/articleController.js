@@ -3,6 +3,8 @@ import moment from 'moment';
 import newArticle from '../helpers/new';
 import articles from '../models/articles';
 import findArticle from '../helpers/search';
+import comments from '../models/comments';
+import commentValidation from '../helpers/commentValidation';
 
 class articleController {
   static createArticle(req, res) {
@@ -72,6 +74,36 @@ class articleController {
       status: 200,
       message: 'article successfully deleted',
       data: articles,
+    });
+  }
+
+  static createComments(req, res) {
+    const foundArticle = findArticle.searchArtById(parseInt(req.params.id));
+    if (foundArticle) {
+      const newComment = commentValidation.validate({
+        createdOn: foundArticle.createdOn,
+        commentId: comments.length + 1,
+        articleTitle: foundArticle.title,
+        article: foundArticle.article,
+        comment: req.body.comment,
+        flag: 'normal',
+      });
+      if (!newComment.error) {
+        comments.push(newComment.value);
+        return res.status(201).json({
+          status: 201,
+          data: newComment.value,
+        });
+      }
+      const wrongInput = newComment.error.details[0].message.replace('"', ' ').replace('"', '');
+      return res.status(400).json({
+        status: 400,
+        error: wrongInput,
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      error: 'article not found',
     });
   }
 }

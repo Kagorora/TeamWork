@@ -23,6 +23,24 @@ const updatedArticle = {
   category: 'tech',
 };
 
+const newComment = {
+  createdOn: '2019-09-17',
+  commentId: 1,
+  articleTitle: 'hbljhbj',
+  article: 'aaaaaaaaaaaaaaaaaaaaa',
+  comment: 'alcnskkkkkkkkkkkacsk a csh cs',
+  flag: 'normal',
+};
+
+const invalidComment = {
+  createdOn: '2019-09-17',
+  commentId: 1,
+  articleTitle: 'hbljhbj',
+  article: 'aaaaaaaaaaaaaaaaaaaaa',
+  comment: 55555555,
+  flag: 'normal',
+};
+
 const correctToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heGltZUBnbWFpbC5jb20iLCJpYXQiOjE1Njg0NDYzODJ9.K8WOsJtVVk5u5ECCDbiubQanrl3hvUaNjVthUyV41bQ';
 const wrongToken = 'thisIsAWrongToken';
 
@@ -106,6 +124,42 @@ describe('article tests', () => {
       });
     done();
   });
+
+  //  =============================== comment on article ============================
+  it('should be able to comment articles ', (done) => {
+    chai.request(server)
+      .post('/api/v1/articles/1/comments')
+      .send(newComment)
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(201);
+      });
+    done();
+  });
+
+  it('should not be able to comment articles for nonfound articles ', (done) => {
+    chai.request(server)
+      .post('/api/v1/articles/9999/comments')
+      .send(newComment)
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+      });
+    done();
+  });
+
+  it('should not be able to comment articles for invalid comment ', (done) => {
+    chai.request(server)
+      .post('/api/v1/articles/1/comments')
+      .send(invalidComment)
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+      });
+    done();
+  });
+
+
 
   //= =============================== delete article ================================
   it('should be able to delete new article', (done) => {
