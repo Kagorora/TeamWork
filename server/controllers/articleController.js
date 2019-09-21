@@ -106,6 +106,21 @@ class articleController {
       error: 'article not found',
     });
   }
+
+  static viewAllArticles(req, res) {
+    const arrayLength = articles.length;
+    if (arrayLength === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'no article found',
+      });
+    }
+    articles.reverse();
+    return res.status(404).json({
+      status: 200,
+      data: articles,
+    });
+  }
 }
 
 export default articleController;
