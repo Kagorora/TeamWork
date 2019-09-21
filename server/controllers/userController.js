@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt-nodejs';
 import users from '../models/users';
 import findUser from '../helpers/search';
-import newUser from '../helpers/newUser';
+import newUser from '../helpers/new';
 import description from '../helpers/message';
 
 class userController {
