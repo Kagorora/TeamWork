@@ -34,6 +34,22 @@ const message = `Teamwork is an internal social network for organizations’ emp
 The goal of this application is to facilitate more interaction between
 ${''} colleagues and facilitate team bonding.`;
 
+const signedUser = {
+  email: 'kagororaxll@gmail.com',
+  password: 'Niyonkuru@1',
+};
+
+const NonsignedUser = {
+  email: 'blaise@gmail.com',
+  password: 'Niyonkuru@1',
+};
+
+const wrongData = {
+  email: 'kagororaxll@gmail.com',
+  password: 'Niyonkuru1',
+};
+
+
 describe('User tests', () => {
   it('should be able to welcome', (done) => {
     chai.request(server)
@@ -74,6 +90,36 @@ describe('User tests', () => {
       .send(wrongUser)
       .end((err, res) => {
         res.body.status.should.be.equal(400);
+      });
+    done();
+  });
+
+  it('should be able to login', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(signedUser)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
+  it('should be not able to login when user not found', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(NonsignedUser)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+      });
+    done();
+  });
+
+  it('should be not able to login when user not found', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(wrongData)
+      .end((err, res) => {
+        res.body.status.should.be.equal(403);
       });
     done();
   });
