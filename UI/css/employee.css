@@ -217,6 +217,7 @@ ul li:hover {
     margin: 3rem auto;
     padding: 1rem;
     background-color: white;
+    display: none;
 }
 
 .one_conatiner{
@@ -522,9 +523,11 @@ ul li:hover {
     background: #ffffff;
     width: 25rem;
     height: 10rem;
-    margin: 10rem auto;
+    margin: 0rem auto;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 3px;
+    margin-top: -20rem;
+    z-index: 1;
     display: none;
 }
 
