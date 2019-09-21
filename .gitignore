@@ -1,3 +1,13 @@
 node_modules
 
+coverage
+
+.nyc_output
+
+.env
+
+README.md
+
+build
+
 package-lock.json
