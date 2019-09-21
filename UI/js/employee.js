@@ -53,7 +53,7 @@ function closeEditMyArticleForm() {
 
 
 
-// editIcon.addEventListener('click', displayEditMyArticleForm);
+editIcon.addEventListener('click', displayEditMyArticleForm);
 function displayEditMyArticleForm() {
   EditArcticleForm.style.display = 'block';
   createArcticleForm.style.display = 'none';
@@ -82,6 +82,7 @@ function displayCreateArticleForm() {
   dropLogOut.style.display = 'none';
   MyOne.style.display = 'none';
   fullArticle.style.display = 'none';
+  EditArcticleForm.style.display = 'none';
 }
 
 myArticle.addEventListener('click', displayMyArticles);
@@ -96,6 +97,7 @@ function displayMyArticles() {
   dropLogOut.style.display = 'none';
   createArcticleForm.style.display = 'none';
   fullArticle.style.display = 'none';
+  EditArcticleForm.style.display = 'none';
 }
 
 cancel.addEventListener('click', closeCreateArticleForm);

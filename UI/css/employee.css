@@ -570,7 +570,7 @@ header{
 
 .createArcticleForm{
     width: 40%;
-    height: 64vh;
+    height: 80vh;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 2rem auto;
     background: white;
@@ -580,7 +580,7 @@ header{
 
 .EditArcticleForm{
     width: 40%;
-    height: 80vh;
+    height: 85vh;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 2rem auto;
     background: white;
@@ -665,10 +665,18 @@ header{
     margin-left: 1rem;
 }
 
-@media screen and (max-width: 768px ) {    
-    .content{
+@media screen and (max-width: 768px ) { 
+    
+    .wrapper{
         width: 100%;
         height: auto;
+        background: rgb(248, 246, 246);
+        overflow-y: scroll
+    }
+    
+    .content{
+        width: 100%;
+        height: 100vh;
         background: rgb(248, 246, 246);
     }
     
@@ -839,6 +847,52 @@ header{
         color: white;
         margin-right: 4rem;
         margin-left: 1rem;
+    }
+
+    .EditArcticleForm{
+        width: 70%;
+        height: 64vh;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        background: white;
+        border-radius: 5px;
+        display: none; 
+    }
+    
+    .EditArcticleForm h1{
+        text-align: center;
+        margin: 2rem auto;
+    }
+    
+    .createArcticleForm h1{
+        text-align: center;
+        margin: 1rem auto;
+        font-size: 25px;
+    }
+    
+    .tag{
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+    }
+    
+    .tag label{
+        display: block;
+        margin-bottom: 0.2rem;
+        font-size: 15px;
+    }
+    
+    .tag input{
+        width: 100%;
+        height: 2.1rem;
+        margin: 0rem auto;
+        border: 1px solid rgba(61, 61, 61, 0.1);
+        border-radius: 2.5px;
+        outline: none;
+        background: #fafafa
+    }
+    #contentInput{
+        text-align: left;
     }
 }
 
@@ -1041,5 +1095,54 @@ header{
         color: white;
         margin-right: 4rem;
         margin-left: 1rem;
+    }
+
+
+    .EditArcticleForm{
+        width: 80%;
+        height: 78vh;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        background: white;
+        border-radius: 5px;
+        display: none; 
+    }
+    
+    .EditArcticleForm h1{
+        text-align: center;
+        margin: 2rem auto;
+    }
+    
+    .EditArcticleForm h1{
+        text-align: center;
+        margin: 1rem auto;
+        font-size: 18px;
+    }
+    
+    .EditArcticleForm .tag{
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+    }
+    
+    .EditArcticleForm .tag label{
+        display: block;
+        margin-bottom: 0.2rem;
+        font-size: 12px;
+    }
+    
+    .EditArcticleForm .tag input{
+        width: 100%;
+        height: 1.8rem;
+        margin: 0rem auto;
+        border: 1px solid rgba(61, 61, 61, 0.1);
+        border-radius: 2.5px;
+        outline: none;
+        background: #fafafa;
+        font-size: 10px;
+    }
+
+    .EditArcticleForm .tag textarea{
+        font-size: 10px;
     }
 }
