@@ -17,6 +17,12 @@ const wrongArticle = {
   title: 'hello',
 };
 
+const updatedArticle = {
+  title: 'Rwanda',
+  article: 'lorem ispum',
+  category: 'tech',
+};
+
 const correctToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heGltZUBnbWFpbC5jb20iLCJpYXQiOjE1Njg0NDYzODJ9.K8WOsJtVVk5u5ECCDbiubQanrl3hvUaNjVthUyV41bQ';
 const wrongToken = 'thisIsAWrongToken';
 
@@ -63,6 +69,40 @@ describe('article tests', () => {
       .end((err, res) => {
         res.body.status.should.be.equal(403);
         res.body.error.should.be.equal('Authentication failed');
+      });
+    done();
+  });
+
+  // ================================ edit article =================================
+  it('should be able to edit article', (done) => {
+    chai.request(server)
+      .patch('/api/v1/article/1')
+      .send(updatedArticle)
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
+  it('should not be able to edit article when nothing changed', (done) => {
+    chai.request(server)
+      .patch('/api/v1/article/1')
+      .send(updatedArticle)
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(401);
+      });
+    done();
+  });
+
+  it('should not be able to edit article for non found article', (done) => {
+    chai.request(server)
+      .patch('/api/v1/article/9999')
+      .send(updatedArticle)
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
       });
     done();
   });
