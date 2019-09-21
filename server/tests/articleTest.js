@@ -106,4 +106,25 @@ describe('article tests', () => {
       });
     done();
   });
+
+  //= =============================== delete article ================================
+  it('should be able to delete new article', (done) => {
+    chai.request(server)
+      .delete('/api/v1/article/1')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
+  it('should not be able to delete unfound article', (done) => {
+    chai.request(server)
+      .delete('/api/v1/article/10')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+      });
+    done();
+  });
 });
