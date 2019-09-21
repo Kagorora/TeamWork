@@ -125,6 +125,16 @@ describe('article tests', () => {
     done();
   });
 
+  //  =============================== view all articles ============================
+  it('should be able to view all articles ', (done) => {
+    chai.request(server)
+      .get('/api/v1/article')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
   //  =============================== comment on article ============================
   it('should be able to comment articles ', (done) => {
     chai.request(server)
@@ -159,8 +169,6 @@ describe('article tests', () => {
     done();
   });
 
-
-
   //= =============================== delete article ================================
   it('should be able to delete new article', (done) => {
     chai.request(server)
@@ -178,6 +186,17 @@ describe('article tests', () => {
       .set('token', correctToken)
       .end((err, res) => {
         res.body.status.should.be.equal(404);
+      });
+    done();
+  });
+  //  =============================== view all articles ============================
+  it('should not be able to view all articles ', (done) => {
+    chai.request(server)
+      .get('/api/v1/article')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+        res.body.error.should.be.equal('no article found');
       });
     done();
   });
