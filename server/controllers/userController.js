@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt-nodejs';
 import users from '../models/users';
 import findUser from '../helpers/search';
 import newUser from '../helpers/newUser';
@@ -31,6 +32,28 @@ class userController {
     return res.status(400).json({
       status: 400,
       error: wrongInput,
+    });
+  }
+
+  static login(req, res) {
+    const foundUser = findUser.searchUser(req.body.email);
+    if (foundUser) {
+      const comparePassword = bcrypt.compareSync(req.body.password, foundUser.password);
+      if (!comparePassword) {
+        return res.status(403).json({
+          status: 403,
+          error: 'incorect email or password',
+        });
+      }
+      return res.status(200).json({
+        status: 200,
+        message: `${foundUser.firstName}  is successfully logged in”`,
+        data: foundUser,
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      error: 'user not found',
     });
   }
 }
