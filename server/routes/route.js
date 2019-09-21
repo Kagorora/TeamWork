@@ -11,5 +11,6 @@ app.post('/api/v1/auth/signup', userController.signup);
 app.post('/api/v1/auth/login', userController.login);
 
 app.post('/api/v1/createArticle', auth, articleController.createArticle);
+app.patch('/api/v1/article/:id', auth, articleController.editArticle);
 
 export default app;
