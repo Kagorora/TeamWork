@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import users from '../models/users';
 import articles from '../models/articles';
+import comments from '../models/comments';
 
 class search {
   static searchUser(email) {
@@ -21,6 +22,11 @@ class search {
   static searchByCategory(category) {
     const findArticle = articles.filter(a => a.category === category);
     return findArticle;
+  }
+
+  static searchComment(commentId) {
+    const findComments = comments.find(c => c.commentId === commentId);
+    return findComments;
   }
 }
 

@@ -10,17 +10,20 @@ const newArticle = {
   title: 'hello',
   article: 'aaaaaaaaaaaaaaaaaaaaa',
   category: 'tech',
+  tag: 'normal',
 };
 
 const wrongArticle = {
   id: 1,
   title: 'hello',
+  tag: 'normal',
 };
 
 const updatedArticle = {
   title: 'Rwanda',
   article: 'lorem ispum',
   category: 'tech',
+  tag: 'normal',
 };
 
 const newComment = {
@@ -177,6 +180,30 @@ describe('article tests', () => {
       });
     done();
   });
+
+
+  // ================================ mark as inapropriate ==========================
+
+  it('should be able to mark as inapropiate ', (done) => {
+    chai.request(server)
+      .patch('/api/v1/articles/1')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
+  it('should be able to mark as inapropiate ', (done) => {
+    chai.request(server)
+      .patch('/api/v1/articles/99999')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+      });
+    done();
+  });
+
   //  =============================== comment on article ============================
   it('should be able to comment articles ', (done) => {
     chai.request(server)
@@ -207,6 +234,28 @@ describe('article tests', () => {
       .set('token', correctToken)
       .end((err, res) => {
         res.body.status.should.be.equal(400);
+      });
+    done();
+  });
+
+  // ================================ mark comment as inapropriate ==========================
+
+  it('should be able to mark comments as inapropiate ', (done) => {
+    chai.request(server)
+      .patch('/api/v1/comments/1')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
+  it('should not be able to mark as inapropiate ', (done) => {
+    chai.request(server)
+      .patch('/api/v1/comments/9999')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
       });
     done();
   });
