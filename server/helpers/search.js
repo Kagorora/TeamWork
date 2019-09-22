@@ -17,6 +17,11 @@ class search {
     const findArticle = articles.find(a => a.id === id);
     return findArticle;
   }
+
+  static searchByCategory(category) {
+    const findArticle = articles.filter(a => a.category === category);
+    return findArticle;
+  }
 }
 
 export default search;

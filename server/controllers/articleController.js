@@ -136,6 +136,22 @@ class articleController {
       data: desiredArticle,
     });
   }
+
+  static viewByCategories(req, res) {
+    const { category } = req.params;
+    const desiredArticle = findArticle.searchByCategory(category);
+    if (desiredArticle.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'article not found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: 'articles found',
+      data: desiredArticle,
+    });
+  }
 }
 
 export default articleController;
