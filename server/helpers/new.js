@@ -31,6 +31,7 @@ class newUser {
       article: req.body.article,
       createdOn: moment().format('YYYY-MM-DD'),
       category: req.body.category,
+      tag: 'normal',
     });
     return newArt;
   }

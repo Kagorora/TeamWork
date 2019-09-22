@@ -2,7 +2,7 @@
 import moment from 'moment';
 import newArticle from '../helpers/new';
 import articles from '../models/articles';
-import findArticle from '../helpers/search';
+import find from '../helpers/search';
 import comments from '../models/comments';
 import commentValidation from '../helpers/commentValidation';
 
@@ -10,7 +10,7 @@ class articleController {
   static createArticle(req, res) {
     if (!newArticle.newA(req).error) {
       const article = newArticle.newA(req).value;
-      const foundArticle = findArticle.searchArt(article.title);
+      const foundArticle = find.searchArt(article.title);
       if (!foundArticle) {
         articles.push(article);
         return res.status(201).json({
@@ -32,7 +32,7 @@ class articleController {
 
   static editArticle(req, res) {
     const articId = parseInt(req.params.id);
-    const desiredArticle = findArticle.searchArtById(articId);
+    const desiredArticle = find.searchArtById(articId);
     if (!desiredArticle) {
       return res.status(404).json({
         status: 404,
@@ -61,7 +61,7 @@ class articleController {
 
   static deleteArticle(req, res) {
     const articleId = parseInt(req.params.id);
-    const foundArticle = findArticle.searchArtById(articleId);
+    const foundArticle = find.searchArtById(articleId);
     if (!foundArticle) {
       return res.status(404).json({
         status: 404,
@@ -78,7 +78,7 @@ class articleController {
   }
 
   static createComments(req, res) {
-    const foundArticle = findArticle.searchArtById(parseInt(req.params.id));
+    const foundArticle = find.searchArtById(parseInt(req.params.id));
     if (foundArticle) {
       const newComment = commentValidation.validate({
         createdOn: foundArticle.createdOn,
@@ -123,7 +123,7 @@ class articleController {
   }
 
   static findArticle(req, res) {
-    const desiredArticle = findArticle.searchArtById(parseInt(req.params.id));
+    const desiredArticle = find.searchArtById(parseInt(req.params.id));
     if (!desiredArticle) {
       return res.status(404).json({
         status: 404,
@@ -139,7 +139,7 @@ class articleController {
 
   static viewByCategories(req, res) {
     const { category } = req.params;
-    const desiredArticle = findArticle.searchByCategory(category);
+    const desiredArticle = find.searchByCategory(category);
     if (desiredArticle.length === 0) {
       return res.status(404).json({
         status: 404,
@@ -150,6 +150,40 @@ class articleController {
       status: 200,
       message: 'articles found',
       data: desiredArticle,
+    });
+  }
+
+  static FlagArticle(req, res) {
+    const desiredArticle = find.searchArtById(parseInt(req.params.id));
+    if (!desiredArticle) {
+      return res.status(404).json({
+        status: 404,
+        error: 'article not found',
+      });
+    }
+    const unwantedArticleIndex = articles.indexOf(desiredArticle);
+    articles[unwantedArticleIndex].tag = 'inappropriate';
+    return res.status(200).json({
+      status: 200,
+      message: 'marked as inappropriate',
+      data: articles,
+    });
+  }
+
+  static FlagComment(req, res) {
+    const desiredComment = find.searchComment(parseInt(req.params.id));
+    if (!desiredComment) {
+      return res.status(404).json({
+        status: 404,
+        error: 'comment not found',
+      });
+    }
+    const unwantedCommentIndex = comments.indexOf(desiredComment);
+    comments[unwantedCommentIndex].tag = 'inappropriate';
+    return res.status(200).json({
+      status: 200,
+      message: 'marked as inappropriate',
+      data: comments,
     });
   }
 }
