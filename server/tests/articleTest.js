@@ -91,6 +91,27 @@ describe('article tests', () => {
     done();
   });
 
+  //= =============================== search article ================================
+  it('should be able to search article', (done) => {
+    chai.request(server)
+      .get('/api/v1/article/1000000')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+      });
+    done();
+  });
+
+  it('should be able to search article', (done) => {
+    chai.request(server)
+      .get('/api/v1/article/1')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
   // ================================ edit article =================================
   it('should be able to edit article', (done) => {
     chai.request(server)
