@@ -121,6 +121,21 @@ class articleController {
       data: articles,
     });
   }
+
+  static findArticle(req, res) {
+    const desiredArticle = findArticle.searchArtById(parseInt(req.params.id));
+    if (!desiredArticle) {
+      return res.status(404).json({
+        status: 404,
+        error: 'article not found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: 'article found',
+      data: desiredArticle,
+    });
+  }
 }
 
 export default articleController;

@@ -15,5 +15,7 @@ app.patch('/api/v1/article/:id', auth, articleController.editArticle);
 app.delete('/api/v1/article/:id', auth, articleController.deleteArticle);
 app.post('/api/v1/articles/:id/comments', auth, articleController.createComments);
 app.get('/api/v1/article/', auth, articleController.viewAllArticles);
+app.get('/api/v1/article/:id', auth, articleController.findArticle);
+
 
 export default app;
