@@ -20,5 +20,6 @@ app.get('/api/v1/article/:id', auth, articleController.findArticle);
 app.get('/api/v1/articles/:category', auth, articleController.viewByCategories);
 app.patch('/api/v1/articles/:id', auth, articleController.FlagArticle);
 app.patch('/api/v1/comments/:id', auth, articleController.FlagComment);
+// app.delete('/api/v1/article/flaged/:id', auth, articleController.RemoveFlagedArticles);
 
 export default app;

@@ -19,7 +19,7 @@ class newUser {
       jobRole: req.body.jobRole,
       departement: req.body.departement,
       address: req.body.address,
-      isAdmin: 'false',
+      isAdmin: req.body.isAdmin,
     });
     return newUsr;
   }
