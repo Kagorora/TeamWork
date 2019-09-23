@@ -93,7 +93,6 @@ describe('article tests', () => {
       });
     done();
   });
-
   //= =============================== search article ================================
   it('should not be able to search article', (done) => {
     chai.request(server)
@@ -203,7 +202,6 @@ describe('article tests', () => {
       });
     done();
   });
-
   //  =============================== comment on article ============================
   it('should be able to comment articles ', (done) => {
     chai.request(server)

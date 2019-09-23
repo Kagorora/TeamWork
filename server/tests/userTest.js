@@ -14,7 +14,7 @@ const newUser = {
   jobRole: 'System Administrator',
   firstName: 'macll',
   address: 'KN12',
-  isAdmin: true,
+  isAdmin: false,
   departement: 'IT',
 };
 
@@ -26,7 +26,7 @@ const wrongUser = {
   gender: 'male',
   jobRole: 'System Administrator',
   address: 'KN12',
-  isAdmin: true,
+  isAdmin: false,
   departement: 'IT',
 };
 

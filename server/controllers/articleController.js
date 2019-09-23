@@ -6,6 +6,7 @@ import find from '../helpers/search';
 import comments from '../models/comments';
 import commentValidation from '../helpers/commentValidation';
 
+
 class articleController {
   static createArticle(req, res) {
     if (!newArticle.newA(req).error) {
@@ -186,6 +187,36 @@ class articleController {
       data: comments,
     });
   }
+
+  // static RemoveFlagedArticles(req, res) {
+  //   const findUser = find.searchUser(req.user.email);
+  //   if (findUser.isAdmin === true) {
+  //     const desiredArticle = find.searchArtById(parseInt(req.params.id));
+  //     if (!desiredArticle) {
+  //       return res.status(404).json({
+  //         status: 404,
+  //         error: 'article not found',
+  //       });
+  //     }
+  //     if (desiredArticle.tag === 'inappropriate') {
+  //       const unwantedArticle = articles.indexOf(desiredArticle);
+  //       articles.splice(unwantedArticle, 1);
+  //       return res.status(200).json({
+  //         status: 200,
+  //         message: 'article successfully deleted',
+  //         data: articles,
+  //       });
+  //     }
+  //     return res.status(400).json({
+  //       status: 400,
+  //       error: 'article is normal',
+  //     });
+  //   }
+  //   return res.status(403).json({
+  //     status: 403,
+  //     error: 'Only admin has access',
+  //   });
+  // }
 }
 
 export default articleController;
