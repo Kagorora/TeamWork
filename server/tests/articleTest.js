@@ -13,6 +13,13 @@ const newArticle = {
   tag: 'normal',
 };
 
+const newArticle2 = {
+  title: 'hello2',
+  article: 'aaaaaaaaaaaaaaaaaaaaa',
+  category: 'tech',
+  tag: 'normal',
+};
+
 const wrongArticle = {
   id: 1,
   title: 'hello',
@@ -32,7 +39,7 @@ const newComment = {
   articleTitle: 'hbljhbj',
   article: 'aaaaaaaaaaaaaaaaaaaaa',
   comment: 'alcnskkkkkkkkkkkacsk a csh cs',
-  flag: 'normal',
+  tag: 'normal',
 };
 
 const invalidComment = {
@@ -41,10 +48,11 @@ const invalidComment = {
   articleTitle: 'hbljhbj',
   article: 'aaaaaaaaaaaaaaaaaaaaa',
   comment: 55555555,
-  flag: 'normal',
+  tag: 'normal',
 };
 
-const correctToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heGltZUBnbWFpbC5jb20iLCJpYXQiOjE1Njg0NDYzODJ9.K8WOsJtVVk5u5ECCDbiubQanrl3hvUaNjVthUyV41bQ';
+const adminToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJrYWdvcm9yYW1heGltZW1hQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTU2OTI4MTg1OH0.kDIL6WByXGfNEW2aukkxfz56DRtIZ7T9chlVpjfqRa4';
+const correctToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJrYWdvcm9yYW1heGltZW1hQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE1NjkyODE2NDR9.JaXtPrfpCGqEtp9jMZUJ6Dmg5n2zMDHMpLUQz-dinPw';
 const wrongToken = 'thisIsAWrongToken';
 
 describe('article tests', () => {
@@ -180,8 +188,19 @@ describe('article tests', () => {
     done();
   });
 
+  // =============================== not delete article marked not  inappropiate ================
+  it('should not be able to delete articles marked as inapropiate when not found ', (done) => {
+    chai.request(server)
+      .delete('/api/v1/article/flaged/1')
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('article is normal');
+      });
+    done();
+  });
 
-  // ================================ mark as inapropriate ==========================
+  // ================================ mark article as inapropriate ==========================
 
   it('should be able to mark as inapropiate ', (done) => {
     chai.request(server)
@@ -202,6 +221,31 @@ describe('article tests', () => {
       });
     done();
   });
+
+  // ================================ not delete marked articles as inappropriate ===============
+
+  it('should not be able to delete articles marked as inapropiate when not admin ', (done) => {
+    chai.request(server)
+      .delete('/api/v1/article/flaged/1')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(403);
+        res.body.error.should.be.equal('Only admin has access');
+      });
+    done();
+  });
+
+  it('should not be able to delete articles marked as inapropiate when not found ', (done) => {
+    chai.request(server)
+      .delete('/api/v1/article/flaged/99999')
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+        res.body.error.should.be.equal('article not found');
+      });
+    done();
+  });
+
   //  =============================== comment on article ============================
   it('should be able to comment articles ', (done) => {
     chai.request(server)
@@ -236,6 +280,17 @@ describe('article tests', () => {
     done();
   });
 
+  it('should not be able to delete comment when not marked', (done) => {
+    chai.request(server)
+      .delete('/api/v1/commente/flaged/1')
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('article is normal');
+      });
+    done();
+  });
+
   // ================================ mark comment as inapropriate ==========================
 
   it('should be able to mark comments as inapropiate ', (done) => {
@@ -258,17 +313,17 @@ describe('article tests', () => {
     done();
   });
 
-  //= =============================== delete article ================================
-  it('should be able to delete new article', (done) => {
+  // ============================== delete articles when marked as inapropiate
+
+  it('should be able to delete articles when marked as inapropiate', (done) => {
     chai.request(server)
-      .delete('/api/v1/article/1')
-      .set('token', correctToken)
+      .delete('/api/v1/article/flaged/1')
+      .set('token', adminToken)
       .end((err, res) => {
         res.body.status.should.be.equal(200);
       });
     done();
   });
-
   it('should not be able to delete unfound article', (done) => {
     chai.request(server)
       .delete('/api/v1/article/10')
@@ -286,6 +341,94 @@ describe('article tests', () => {
       .end((err, res) => {
         res.body.status.should.be.equal(404);
         res.body.error.should.be.equal('no article found');
+      });
+    done();
+  });
+
+  //= ===================================== delete marked comment ==============================
+  it('should be able to create new article', (done) => {
+    chai.request(server)
+      .post('/api/v1/createArticle')
+      .send(newArticle2)
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(201);
+      });
+    done();
+  });
+
+  it('should be able to comment articles ', (done) => {
+    chai.request(server)
+      .post('/api/v1/articles/1/comments')
+      .send(newComment)
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(201);
+      });
+    done();
+  });
+  it('should be able to mark comments as inapropiate ', (done) => {
+    chai.request(server)
+      .patch('/api/v1/comments/1')
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
+  it('should not be able to delete comment when not found', (done) => {
+    chai.request(server)
+      .delete('/api/v1/commente/flaged/9999')
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+        res.body.error.should.be.equal('comments not found');
+      });
+    done();
+  });
+
+  it('should not be able to delete comment when not found', (done) => {
+    chai.request(server)
+      .delete('/api/v1/commente/flaged/9999')
+      .set('token', correctToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(403);
+        res.body.error.should.be.equal('Only admin has access');
+      });
+    done();
+  });
+
+  it('should be able to delete comment', (done) => {
+    chai.request(server)
+      .delete('/api/v1/commente/flaged/1')
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+        res.body.message.should.be.equal('article successfully deleted');
+      });
+    done();
+  });
+
+  // ============================= delete ordinary article==================
+  it('should be able to create new article', (done) => {
+    chai.request(server)
+      .post('/api/v1/createArticle')
+      .send(newArticle)
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(201);
+      });
+    done();
+  });
+
+  it('should be delete to articles ', (done) => {
+    chai.request(server)
+      .delete('/api/v1/article/1')
+      .set('token', adminToken)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+        res.body.message.should.be.equal('article successfully deleted');
       });
     done();
   });
