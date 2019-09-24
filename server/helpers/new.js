@@ -9,7 +9,7 @@ import articles from '../models/articles';
 class newUser {
   static newU(req) {
     const newUsr = userValidation.validate({
-      token: userToken.createToken(req.body.email),
+      token: userToken.createToken(users.length + 1, req.body.email, req.body.isAdmin),
       id: users.length + 1,
       firstName: req.body.firstName,
       lastName: req.body.lastName,

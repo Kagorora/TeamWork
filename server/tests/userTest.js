@@ -46,7 +46,7 @@ const NonsignedUser = {
 
 const wrongData = {
   email: 'kagororaxll@gmail.com',
-  password: 'Niyonkuru1',
+  password: 'xxx',
 };
 
 
@@ -114,7 +114,7 @@ describe('User tests', () => {
     done();
   });
 
-  it('should be not able to login when user not found', (done) => {
+  it('should not be able to login when user not found', (done) => {
     chai.request(server)
       .post('/api/v1/auth/login')
       .send(wrongData)

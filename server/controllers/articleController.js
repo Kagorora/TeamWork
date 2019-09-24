@@ -87,7 +87,7 @@ class articleController {
         articleTitle: foundArticle.title,
         article: foundArticle.article,
         comment: req.body.comment,
-        flag: 'normal',
+        tag: 'normal',
       });
       if (!newComment.error) {
         comments.push(newComment.value);
@@ -188,35 +188,63 @@ class articleController {
     });
   }
 
-  // static RemoveFlagedArticles(req, res) {
-  //   const findUser = find.searchUser(req.user.email);
-  //   if (findUser.isAdmin === true) {
-  //     const desiredArticle = find.searchArtById(parseInt(req.params.id));
-  //     if (!desiredArticle) {
-  //       return res.status(404).json({
-  //         status: 404,
-  //         error: 'article not found',
-  //       });
-  //     }
-  //     if (desiredArticle.tag === 'inappropriate') {
-  //       const unwantedArticle = articles.indexOf(desiredArticle);
-  //       articles.splice(unwantedArticle, 1);
-  //       return res.status(200).json({
-  //         status: 200,
-  //         message: 'article successfully deleted',
-  //         data: articles,
-  //       });
-  //     }
-  //     return res.status(400).json({
-  //       status: 400,
-  //       error: 'article is normal',
-  //     });
-  //   }
-  //   return res.status(403).json({
-  //     status: 403,
-  //     error: 'Only admin has access',
-  //   });
-  // }
+  static RemoveFlagedArticles(req, res) {
+    if (req.user.isAdmin === true) {
+      const desiredArticle = find.searchArtById(parseInt(req.params.id));
+      if (!desiredArticle) {
+        return res.status(404).json({
+          status: 404,
+          error: 'article not found',
+        });
+      }
+      if (desiredArticle.tag === 'inappropriate') {
+        const unwantedArticle = articles.indexOf(desiredArticle);
+        articles.splice(unwantedArticle, 1);
+        return res.status(200).json({
+          status: 200,
+          message: 'article successfully deleted',
+          data: articles,
+        });
+      }
+      return res.status(400).json({
+        status: 400,
+        error: 'article is normal',
+      });
+    }
+    return res.status(403).json({
+      status: 403,
+      error: 'Only admin has access',
+    });
+  }
+
+  static RemoveFlagedComments(req, res) {
+    if (req.user.isAdmin === true) {
+      const commentId = parseInt(req.params.id);
+      const foundComment = find.searchComment(commentId);
+      if (!foundComment) {
+        return res.status(404).json({
+          status: 404,
+          error: 'comments not found',
+        });
+      }
+      if (foundComment.tag === 'inappropriate') {
+        const unwantedComments = comments.indexOf(foundComment);
+        comments.splice(unwantedComments, 1);
+        return res.status(200).json({
+          status: 200,
+          message: 'article successfully deleted',
+        });
+      }
+      return res.status(400).json({
+        status: 400,
+        error: 'article is normal',
+      });
+    }
+    return res.status(403).json({
+      status: 403,
+      error: 'Only admin has access',
+    });
+  }
 }
 
 export default articleController;

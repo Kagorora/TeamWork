@@ -6,7 +6,7 @@ const schema = Joi.object().keys({
   articleTitle: Joi.string().required(),
   article: Joi.string().required(),
   comment: Joi.string().required(),
-  flag: Joi.string().required(),
+  tag: Joi.string().required(),
 });
 
 export default schema;
