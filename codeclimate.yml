@@ -1,9 +1,6 @@
 exclude_patterns:
-- "UI/employee.js"
-- "UI/index.js"
+- "UI/js/employee.js"
+-  UI/js/employee.js
 - "UI/"
-- "UI/"
-- "**/UI/"
 - UI/
-
 -**/UI/
