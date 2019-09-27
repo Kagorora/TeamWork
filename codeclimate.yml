@@ -1,9 +1,26 @@
-exclude_patterns:
-- "UI/employee.js"
-- "UI/index.js"
-- "UI/"
-- "UI/"
-- "**/UI/"
-- UI/
+plugins:
+  brakeman:
+    enabled: true
+  rubocop:
+    enabled: true
+  eslint:
+    enabled: true
 
--**/UI/
+exclude_patterns:
+# examples of auto-generated exclusions
+- db/*
+- spec/*
+- tests/*
+- vendor/*
+
+# examples of third party libraries that should be excluded
+- */jquery/*
+- */bootstrap/*
+
+# examples of minified files that should be excluded
+- **.employee.js
+- **.index.js
+- **.employee.csss
+- **.index.css
+- **.employee.html
+- **.index.html
