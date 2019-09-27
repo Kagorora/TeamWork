@@ -46,7 +46,7 @@
 
 #writeBtn{
     margin-right: 3rem;
-    font-size: 2.2vh;
+    font-size: 1rem;
     height: 2.5rem;
     background: transparent;
     border: none;
@@ -252,6 +252,7 @@ ul li:hover {
 
 .title{
     flex: 2;
+    background: #00C89B;
 }
 
 .gerne{
@@ -709,7 +710,7 @@ header{
     }
     
     #flyer{
-        height: 0.8rem;
+        height: 0.4rem;
         line-height: 7vh; 
     }
     
