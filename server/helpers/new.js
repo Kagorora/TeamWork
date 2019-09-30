@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt-nodejs';
 import moment from 'moment';
 import users from '../models/users';
-import userToken from './tokenGenerator';
 import userValidation from './userValidation';
 import articleValidation from './articleValidation';
 import articles from '../models/articles';
@@ -9,7 +8,6 @@ import articles from '../models/articles';
 class newUser {
   static newU(req) {
     const newUsr = userValidation.validate({
-      token: userToken.createToken(users.length + 1, req.body.email, req.body.isAdmin),
       id: users.length + 1,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -17,7 +15,7 @@ class newUser {
       password: bcrypt.hashSync(req.body.password),
       gender: req.body.gender,
       jobRole: req.body.jobRole,
-      departement: req.body.departement,
+      department: req.body.department,
       address: req.body.address,
       isAdmin: req.body.isAdmin,
     });
