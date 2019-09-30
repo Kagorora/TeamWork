@@ -45,15 +45,16 @@ class articleController {
     } = req.body;
 
     if (desiredArticle.title === title && desiredArticle.article === article) {
-      return res.status(401).json({
-        status: 401,
+      return res.status(304).json({
+        status: 304,
         error: 'nothing to change',
       });
     }
-    desiredArticle.createdOn = moment().format('YYYY-MM-DD');
     desiredArticle.title = title;
     desiredArticle.article = article;
     desiredArticle.category = category;
+    const articleIndex = articles.indexOf(desiredArticle);
+    articles[articleIndex] = desiredArticle;
     return res.status(200).json({
       status: 200,
       data: desiredArticle,
@@ -71,10 +72,9 @@ class articleController {
     }
     const unwantedArticle = articles.indexOf(foundArticle);
     articles.splice(unwantedArticle, 1);
-    return res.status(200).json({
-      status: 200,
+    return res.status(204).json({
+      status: 204,
       message: 'article successfully deleted',
-      data: articles,
     });
   }
 
@@ -200,10 +200,8 @@ class articleController {
       if (desiredArticle.tag === 'inappropriate') {
         const unwantedArticle = articles.indexOf(desiredArticle);
         articles.splice(unwantedArticle, 1);
-        return res.status(200).json({
-          status: 200,
-          message: 'article successfully deleted',
-          data: articles,
+        return res.status(204).json({
+          status: 204,
         });
       }
       return res.status(400).json({

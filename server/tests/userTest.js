@@ -2,53 +2,14 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../api_server';
+import {
+  newUser, UserwrongFirstName, UserwrongLastName, UserwrongDepartement,
+  UserwrongJobRole, message, signedUser, NonsignedUser, wrongData,
+  missingPassword, invalidEmail, invalidPassword,
+} from './data';
 
 chai.use(chaiHttp);
 chai.should();
-
-const newUser = {
-  email: 'kagororaxll@gmail.com',
-  lastName: 'max',
-  password: 'Niyonkuru@1',
-  gender: 'male',
-  jobRole: 'System Administrator',
-  firstName: 'macll',
-  address: 'KN12',
-  isAdmin: false,
-  departement: 'IT',
-};
-
-const wrongUser = {
-  firstName: 'macll123456',
-  email: 'kagororaxll@gmail.com',
-  lastName: 'max1111',
-  password: 'Niyonkuru@1',
-  gender: 'male',
-  jobRole: 'System Administrator',
-  address: 'KN12',
-  isAdmin: false,
-  departement: 'IT',
-};
-
-const message = `Teamwork is an internal social network for organizations’ employees. ${''}
-The goal of this application is to facilitate more interaction between
-${''} colleagues and facilitate team bonding.`;
-
-const signedUser = {
-  email: 'kagororaxll@gmail.com',
-  password: 'Niyonkuru@1',
-};
-
-const NonsignedUser = {
-  email: 'blaise@gmail.com',
-  password: 'Niyonkuru@1',
-};
-
-const wrongData = {
-  email: 'kagororaxll@gmail.com',
-  password: 'xxx',
-};
-
 
 describe('User tests', () => {
   it('should be able to welcome', (done) => {
@@ -69,6 +30,17 @@ describe('User tests', () => {
       .end((err, res) => {
         res.body.status.should.be.equal(201);
         res.body.message.should.be.equal('User created successfully');
+        res.body.should.be.an('object');
+        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('firstName');
+        res.body.data.should.have.property('lastName');
+        res.body.data.should.have.property('email');
+        res.body.data.should.have.property('password');
+        res.body.data.should.have.property('gender');
+        res.body.data.should.have.property('jobRole');
+        res.body.data.should.have.property('address');
+        res.body.data.should.have.property('isAdmin');
+        res.body.data.should.have.property('department');
       });
     done();
   });
@@ -78,18 +50,63 @@ describe('User tests', () => {
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        res.body.status.should.be.equal(401);
+        res.body.status.should.be.equal(409);
         res.body.error.should.be.equal('Email already exist');
       });
     done();
   });
 
-  it('should not be able to signup for wrong or empty input', (done) => {
+  it('should not be able to signup for invalid firstName', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
-      .send(wrongUser)
+      .send(UserwrongFirstName)
       .end((err, res) => {
         res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('Invalid firstName');
+      });
+    done();
+  });
+
+  it('should not be able to signup for invalid lastName', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(UserwrongLastName)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('Invalid lastName');
+      });
+    done();
+  });
+
+  it('should not be able to signup for invalid department', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(UserwrongDepartement)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('Invalid department');
+      });
+    done();
+  });
+
+  it('should not be able to signup for invalid jobRole', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(UserwrongJobRole)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('Invalid jobRole');
+      });
+    done();
+  });
+
+  it('should not be able to signup for missing Password', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(missingPassword)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('password is required');
       });
     done();
   });
@@ -114,12 +131,34 @@ describe('User tests', () => {
     done();
   });
 
-  it('should not be able to login when user not found', (done) => {
+  it('should not be able to login when user enters incorrect password', (done) => {
     chai.request(server)
       .post('/api/v1/auth/login')
       .send(wrongData)
       .end((err, res) => {
-        res.body.status.should.be.equal(403);
+        res.body.status.should.be.equal(401);
+        res.body.error.should.be.equal('invalid credentials');
+      });
+    done();
+  });
+
+  it('should not be able to login whith an invalidEmail', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(invalidEmail)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+      });
+    done();
+  });
+
+
+  it('should not be able to login with an invalidpassword', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(invalidPassword)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
       });
     done();
   });

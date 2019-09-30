@@ -17,7 +17,6 @@ const sort = document.querySelector('.sort');
 const drop = document.querySelector('#drop');
 const logoSide = document.querySelector('.logoSide');
 const content = document.querySelector('.content');
-const goBack = document.querySelector('.goBack');
 const more = document.querySelectorAll('.more');
 const fullArticle = document.querySelector('.fullArticle');
 const LogOutBtn = document.querySelector('#LogOutBtn');
@@ -29,7 +28,19 @@ const editIcon = document.querySelector('.editIcon');
 const EditArcticleForm = document.querySelector('.EditArcticleForm');
 const cancelMyarticle = document.querySelector('.cancel_Myarticle');
 const deleteIcon = document.querySelector('.deleteIcon');
-const warningDelete = document.querySelector('.warningDelete');
+const commentIco = document.querySelectorAll('.commentIco');
+const readMore = document.querySelector('#readMore');
+const Inappropiatte = document.querySelector('#Inappropiatte');
+const flag = document.querySelectorAll('.flag');
+
+for (flg of flag) {
+  flg.addEventListener('click', markasInnapropriate);
+}
+
+function markasInnapropriate() {
+  readMore.style.display = 'none';
+  Inappropiatte.style.display = 'block';
+}
 
 deleteIcon.addEventListener('click', deleteArticle);
 // function DisplayWarning() {
@@ -57,8 +68,6 @@ function closeEditMyArticleForm() {
   dropLogOut.style.display = 'none';
   fullArticle.style.display = 'none';
 }
-
-
 
 editIcon.addEventListener('click', displayEditMyArticleForm);
 function displayEditMyArticleForm() {
@@ -186,21 +195,11 @@ function cleanEverything() {
   drop.style.display = 'none';
 }
 
-goBack.addEventListener('click', backToMain);
-
-function backToMain() {
-  fullArticle.style.display = 'none';
-  createArcticleForm.style.display = 'none';
-  one.style.display = 'block';
-  two.style.display = 'block';
-  three.style.display = 'block';
-  four.style.display = 'block';
-  five.style.display = 'block';
-  dropLogOut.style.display = 'none';
-  drop.style.display = 'none';
-}
-
 one.addEventListener('click', OpenDetails);
+
+for (comm of commentIco) {
+  comm.addEventListener('click', OpenDetails);
+}
 
 for (mr of more) {
   mr.addEventListener('click', OpenDetails);

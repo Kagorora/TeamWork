@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Assistant', sans-serif;
+    font-family: HelveticaNeueLTStd-Lt,sans-serif;
     color: rgb(116, 116, 116);
     outline: none;
 }
@@ -55,6 +55,8 @@
     font-weight: 600;
     outline: none;
     cursor: pointer;
+    text-transform: uppercase;
+    font-family: HelveticaNeueLTStd-Lt,sans-serif;
 }
 
 #flyer{
@@ -208,6 +210,7 @@ ul li:hover {
     margin: 3rem auto;
     padding: 1rem;
     background-color: white;
+    /* display: none; */
 }
 
 .MyOne{
@@ -243,7 +246,23 @@ ul li:hover {
 }
 
 .words_container{
+    width: 98%;
+    height: 100%;
+    position: relative;
+}
 
+.wordsC{
+    width: 98%;
+    height: 82%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.words-cont{
     width: 100%;
     height: 100%;
     display: flex;
@@ -251,8 +270,12 @@ ul li:hover {
 }
 
 .title{
-    flex: 2;
-    background: #00C89B;
+    flex: 1;
+    width: 100%;
+}
+
+.flag{
+    float: right;
 }
 
 .gerne{
@@ -262,12 +285,12 @@ ul li:hover {
 
 .gerne span{
     line-height: 5vh;
-    font-size: 2.3vh;
+    font-size: 2vh;
     font-weight: 100;
 }
 
 .gerne h3{
-    color: #1a8100;
+    /* color: #1a8100; */
     font-weight: 600;
     line-height: 5vh;
     font-size: 2.3vh;
@@ -279,26 +302,26 @@ ul li:hover {
 }
 
 .author h4{
-    font-weight: 600;
-    line-height: 5vh;
-    font-size: 2.3vh;
+    font-weight: 500;
+    line-height: 3vh;
+    font-size: 2vh;
 }
 
 .author span{
     line-height: 5vh;
-    font-size: 2.3vh;
-    font-weight: 100;
+    font-size: 1.8vh;
+    font-weight: 50;
 }
 
 .shortdescription{
     flex: 3;
-    padding: 10px;
-    margin-left: 1.2vh;
+    margin-left: 2.3vh;
+    width: 97.4%;
 }
 
 .reaction{
     flex: 1;
-    margin-left: 3vh;
+    margin-left: 2.3vh;
     /* background: red */
 }
 
@@ -306,6 +329,19 @@ ul li:hover {
     display: flex;
     width: 100%;
     height: 100%;
+    /* margin-left: 2.3vh; */
+    position: relative;
+}
+
+.rexCont{
+    width: 100%;
+    height: 4vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
 }
 
 .reaction button{
@@ -369,6 +405,56 @@ ul li:hover {
     margin: 2rem 0 2rem 1rem;
 }
 
+.divider{
+    margin: 2vh 0;
+}
+
+.comment{
+    margin: 1rem auto;
+    height: 8vh;
+    border: 1px solid rgba(197, 197, 197, 0.8);
+    background: #fafafa;
+    border-radius: 5px;
+
+}
+
+.otherComments{
+    width: 90%;
+    height: 10vh;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding-left: 1vh;
+}
+
+.otherComments h3{
+    font-size: 1.5vh;
+    margin: 0.5rem 0;
+}
+
+.MyComment h3{
+    font-size: 1.5vh;
+    margin-bottom: 5px;
+}
+
+.MyComment textarea{
+    width: 100%;
+    height: 8vh;
+    border: 1px solid rgba(197, 197, 197, 0.8);
+    background: #fafafa;
+    border-radius: 5px;
+}
+
+.MyComment .buttons button{
+    margin: 1rem 0;
+    width: 7rem;
+    height: 2.8rem;
+    font-size: 0.8rem;
+    background: none;
+    border: 1px solid rgba(30, 180, 0, 0.5);
+    color: #1a8100;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
 .gerneFull{
     margin-left: 1rem;
     margin-top: 0.5rem;
@@ -380,10 +466,6 @@ ul li:hover {
     margin-left: 1rem;
     margin-top: 0.5rem;
     display: block;
-}
-
-.author span{
-    font-weight: 550;
 }
 
 .goBack{
@@ -405,28 +487,28 @@ ul li:hover {
 }
 
 .title{
-    color:rgba(0, 0, 0, 0.84);
+    color:rgba(49, 49, 49, 0.84);
     cursor:pointer;
     display:block;
-    font-family:medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
-    font-size:28px;
+    font-family: 'Assistant', sans-serif;
+    font-size:25px;
     font-style:normal;
     font-weight:600;
-    height:84px;
+    height:25px;
     letter-spacing:normal;
-    line-height:34px;
+    line-height: 25px;
     margin-block-end:0px;
     margin-block-start:0px;
     margin-bottom:0px;
     margin-inline-end:0px;
     margin-inline-start:0px;
-    margin-left: 1rem;
+    margin-left: 1.1rem;
     margin-right:0px;
     margin-top:0px;
     text-rendering:optimizelegibility;
     text-size-adjust:100%;
     visibility:visible;
-    width:328px;
+    width: 97.4%;
     -webkit-font-smoothing:antialiased;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0);    
 }
@@ -507,6 +589,18 @@ ul li:hover {
 
 .more{
     flex: 6;
+}
+
+#readMore{
+    /* display: none; */
+}
+
+#Inappropiatte{
+    display: none;
+    color: red;
+    border: 1px solid #ff3a3a1a;
+    background: #ff0000;
+    color: white;
 }
 
 
