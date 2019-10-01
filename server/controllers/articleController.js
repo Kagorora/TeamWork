@@ -1,5 +1,4 @@
 /* eslint-disable radix */
-import moment from 'moment';
 import newArticle from '../helpers/new';
 import articles from '../models/articles';
 import find from '../helpers/search';

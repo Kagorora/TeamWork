@@ -225,5 +225,5 @@ function openLogOutDropdown() {
 LogOutBtn.addEventListener('click', logOut);
 
 function logOut() {
-  window.location = '../index.html';
+  window.location = './index.html';
 }

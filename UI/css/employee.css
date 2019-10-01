@@ -6,6 +6,10 @@
     outline: none;
 }
 
+html{
+    background: rgb(248, 246, 246);
+}
+
 .wrapper{
     width: 100%;
     height: auto;
@@ -221,6 +225,7 @@ ul li:hover {
     padding: 1rem;
     background-color: white;
     display: none;
+    display: flex;
 }
 
 .one_conatiner{
@@ -350,10 +355,15 @@ ul li:hover {
     width: 8rem;
     height: 2rem;
     background: transparent;
-    border: 1px solid rgba(30, 180, 0, 0.5);
+    border: 1px solid #00c48c;
     border-radius: 3px;
-    color: #1a8100;
+    color: #00c48c;
     cursor: pointer;
+}
+
+.reaction button:hover{
+    background: #00907e;
+    color: white;
 }
 
 .reaction img{
@@ -481,11 +491,6 @@ ul li:hover {
     cursor: pointer;
 }
 
-.one:hover ,.two:hover ,.three:hover ,.four:hover ,.five:hover {
-    border: 1px solid #6FBF6F;
-    background: #fafafa;
-}
-
 .title{
     color:rgba(49, 49, 49, 0.84);
     cursor:pointer;
@@ -545,19 +550,6 @@ ul li:hover {
      display: inline-block;
 }
 
-
-.reaction button{
-    float: right;
-    margin-right: 2rem;
-    width: 8rem;
-    height: 2rem;
-    background: transparent;
-    border: 1px solid rgba(30, 180, 0, 0.5);
-    border-radius: 3px;
-    color: #1a8100;
-    cursor: pointer;
-}
-
 .reaction img{
     height: 1rem;
     cursor: pointer;
@@ -589,10 +581,6 @@ ul li:hover {
 
 .more{
     flex: 6;
-}
-
-#readMore{
-    /* display: none; */
 }
 
 #Inappropiatte{
@@ -673,6 +661,7 @@ header{
     margin: 2rem auto;
     background: white;
     border-radius: 5px;
+    display: flex;
     display: none;
 }
 
@@ -731,11 +720,13 @@ header{
 
 .createArcticleForm_buttons{
     float: right;
+    display: flex;
+    flex-direction: row;
 }
 
 .createArcticleForm_buttons button{
-    height: 2.6rem;
-    width: 7.5rem;
+    height: 2rem;
+    width: 4rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -876,7 +867,7 @@ header{
         width: 70%;
         height: 65vh;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        margin: 2rem auto;
+        margin: 1rem auto;
         background: white;
         border-radius: 5px;
         display: none;
@@ -996,8 +987,13 @@ header{
 
 @media screen and (max-width: 375px ) { 
     
+    .picSide{
+        display: none;
+    }
+
     .one{
-        height: 61vh;
+        height: 75vh;
+        display: flex;
     }
     
     .two{
@@ -1025,9 +1021,18 @@ header{
         width: 100%;
     }
 
+    .title{
+        margin-bottom: 5vh;
+    }
+
     .shortdescription{
         font-size: 2vh;
         width: 75%;
+        margin-bottom: 2vh;
+    }
+
+    .readMore{
+        margin: auto;
     }
 
     .reaction button{
@@ -1242,5 +1247,21 @@ header{
 
     .EditArcticleForm .tag textarea{
         font-size: 10px;
+    }
+
+    .logoSide{
+        display: none;
+    }
+
+    .header{
+        display: flex;
+    }
+
+    .createArcticleForm{
+        margin-top: -90vh;
+    }
+
+    .MyOne{
+        margin-top: -90vh; 
     }
 }

@@ -68,6 +68,8 @@
     height: 92.9vh;
     width: 100%;
     position: relative;
+    display: flex;
+    /* justify-content: center; */
 }
 
 .container{
@@ -168,7 +170,7 @@
 }
 
 .all-inputside-signup p:hover {
-    color: #1c5597;
+    color: #00C89B;
 }
 
 .all-inputside-signup input:hover {
@@ -222,8 +224,8 @@
     padding: 1px;
     width: 100%;
     display: block;
-    border: 1px solid #1c5597;
-    background: #1c5597;
+    border: 1px solid #00C89B;
+    background: #00c48c;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -245,7 +247,7 @@
     display: block;
     text-decoration: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #1c5597;
+    color: #00C89B;
     font-size: 12px;
     margin-top: 10px;
     text-align: center;
@@ -340,12 +342,12 @@
 }
 
 .username input:hover {
-    border: 1px solid #1c5597;
+    border: 1px solid rgb(46, 46, 46);
     box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, .075), 0 0 5px rgb(104, 145, 162);
 }
 
 .username:hover {
-    color: #1c5597;
+    color: #00C89B;
 }
 
 .password {
@@ -361,21 +363,21 @@
     width: 90%;
     outline: none;
     border: 1px solid #383838;
-    background: #eaeef1;
+    background: #dbffee;
 }
 
 .password input:hover {
-    border: 1px solid #1c5597;
+    border: 1px solid #00C89B;
     box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, .075), 0 0 5px rgb(104, 145, 162);
 }
 
 .password:hover {
-    color: #1c5597;
+    color: #00C89B;
 }
 
 .login-inputside p input {
     box-sizing: border-box;
-    border: 1px solid #9e9e9e;
+    border: 1px solid #c2c2c2;
     border-radius: 5px;
 }
 
@@ -383,8 +385,8 @@
     padding: 2px;
     width: 90%;
     display: block;
-    border: 1px solid #1c5597;
-    background: #1c5597;
+    border: 1px solid #00c48c;
+    background: #00c48c;
     color: white;
     border-radius: 5px;
     outline: none;
@@ -406,7 +408,7 @@
     display: block;
     text-decoration: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #1c5597;
+    color: #00C89B;
     font-size: 12px;
 }
 
@@ -446,14 +448,21 @@
  
     }
 .container-signup{
-    width: 80%;
-    height: 68vh;
+    padding-top: 25px;
+    width: 65%;
+    height: 85vh;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     margin: auto;
+}
+
+.all-inputside-signup{
+    padding: 3vh;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .names {
@@ -468,11 +477,26 @@
     display: block;
 }
 
+.login-container{
+    width: 80%;
+}
+
+.logoSide h2{
+    font-size: 2.4vh;
+
+}
+
+.registrationsButtons button{
+    width: 4.5rem;
+    font-size: 10px;
+    height: 25px;
+}
+
 /* ================= login ======== */
 .login-container{
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 20%;
     top: 0;
     position: absolute;
     margin: auto;
@@ -516,10 +540,16 @@
         margin-left: 2px;
     }
 
+#signupBtn{
+    display: none;
+}
+#loginBtn{
+    display: none;
+}
     /* ================================== sign up ========= */
     .container-signup{
         background: #ffffff;
-        height: 70vh;
+        height: 68vh;
         width: 90%;
         position: absolute;
         margin: auto;
@@ -588,9 +618,9 @@
     }
 
     .login-container{
-        margin-top: 20%;
+        margin-top: 50%;
         width: 90%;
-        height: 55%;
+        height: 57%;
     }
 
     .login-inputside{
