@@ -53,11 +53,6 @@ function displayShortScreen() {
 
 
 deleteIcon.addEventListener('click', deleteArticle);
-// function DisplayWarning() {
-//   warningDelete.style.display = 'block';
-//   MyOne.style.background = 'rgba(0,0,0,0.5)';
-//   fullArticle.style.display = 'none';
-// }
 
 function deleteArticle() {
   MyOne.style.display = 'none';

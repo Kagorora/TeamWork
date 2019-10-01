@@ -27,7 +27,6 @@
 }
 
 .navBar h2{
-    /* height: 2rem; */
     line-height: 7vh;
     color: #00C89B;
 }
@@ -76,7 +75,6 @@
     width: 100%;
     position: relative;
     display: flex;
-    /* justify-content: center; */
 }
 
 .container{
@@ -91,7 +89,6 @@
     right: 0;
     margin: auto;
     border-radius: 5px;
-    /* display: none; */
 }
 
 .words{
@@ -99,7 +96,6 @@
     height: 38%;
     display: block;
     position: relative;
-    /* background: #00C89B; */
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
@@ -145,15 +141,6 @@
     margin: auto;
     height: 85%;
 }
-
-/* /* @media screen and (max-width: 1558px) {
-#img{
-    height: 18rem;
-   } 
-} */
-
-/* ===========================================  SignUp ===================== */
-
 
 .container-signup {
     background: #ffffff;
@@ -264,14 +251,6 @@
 .gotologin {
     color: black;
 }
-
-/* ====================================== responsiveness 1366px 768px  */
-
-/* .logoSide h2{
-    line-height: 7vh;
-} */
-
-/* ============================================ LOGIN FORM  ============================================ */
 
 .login-container {
     background: #ffffff;
@@ -441,8 +420,6 @@
     margin: 1rem 0;
 }
 
-/* ============================================ Responsiveness for 768px view =================== */
-
 @media screen and (max-width: 768px ) {
 
 .content{
@@ -498,7 +475,6 @@
     height: 25px;
 }
 
-/* ================= login ======== */
 .login-container{
     left: 0;
     right: 0;
@@ -628,8 +604,6 @@
     }
 }
 
-/* ============================================ Responsiveness for 360px view =================== */
-
 @media screen and (max-width: 360px) {
     
     .image{
@@ -671,7 +645,7 @@
 #loginBtn{
     display: none;
 }
-    /* ================================== sign up ========= */
+
     .container-signup{
         background: #ffffff;
         height: 68vh;
