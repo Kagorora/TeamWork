@@ -1,9 +1,13 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Assistant', sans-serif;
+    font-family: HelveticaNeueLTStd-Lt,sans-serif;
     color: rgb(116, 116, 116);
     outline: none;
+}
+
+html{
+    background: rgb(248, 246, 246);
 }
 
 .wrapper{
@@ -17,6 +21,14 @@
     height: 7vh;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background: white;
+}
+
+.shortScreen{
+    display: none;
+}
+
+.shortScreenMenu{
+    display: none;
 }
 
 .content{
@@ -46,7 +58,7 @@
 
 #writeBtn{
     margin-right: 3rem;
-    font-size: 2.2vh;
+    font-size: 1rem;
     height: 2.5rem;
     background: transparent;
     border: none;
@@ -55,6 +67,8 @@
     font-weight: 600;
     outline: none;
     cursor: pointer;
+    text-transform: uppercase;
+    font-family: HelveticaNeueLTStd-Lt,sans-serif;
 }
 
 #flyer{
@@ -208,6 +222,7 @@ ul li:hover {
     margin: 3rem auto;
     padding: 1rem;
     background-color: white;
+    /* display: none; */
 }
 
 .MyOne{
@@ -243,7 +258,23 @@ ul li:hover {
 }
 
 .words_container{
+    width: 98%;
+    height: 100%;
+    position: relative;
+}
 
+.wordsC{
+    width: 98%;
+    height: 82%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.words-cont{
     width: 100%;
     height: 100%;
     display: flex;
@@ -251,7 +282,12 @@ ul li:hover {
 }
 
 .title{
-    flex: 2;
+    flex: 1;
+    width: 100%;
+}
+
+.flag{
+    float: right;
 }
 
 .gerne{
@@ -261,12 +297,12 @@ ul li:hover {
 
 .gerne span{
     line-height: 5vh;
-    font-size: 2.3vh;
+    font-size: 2vh;
     font-weight: 100;
 }
 
 .gerne h3{
-    color: #1a8100;
+    /* color: #1a8100; */
     font-weight: 600;
     line-height: 5vh;
     font-size: 2.3vh;
@@ -278,33 +314,44 @@ ul li:hover {
 }
 
 .author h4{
-    font-weight: 600;
-    line-height: 5vh;
-    font-size: 2.3vh;
+    font-weight: 500;
+    line-height: 3vh;
+    font-size: 2vh;
 }
 
 .author span{
     line-height: 5vh;
-    font-size: 2.3vh;
-    font-weight: 100;
+    font-size: 1.8vh;
+    font-weight: 50;
 }
 
 .shortdescription{
     flex: 3;
-    padding: 10px;
-    margin-left: 1.2vh;
+    margin-left: 2.3vh;
+    width: 97.4%;
 }
 
 .reaction{
     flex: 1;
-    margin-left: 3vh;
-    /* background: red */
+    margin-left: 2.3vh;
 }
 
 .reactionContainer{
     display: flex;
     width: 100%;
     height: 100%;
+    position: relative;
+}
+
+.rexCont{
+    width: 100%;
+    height: 4vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
 }
 
 .reaction button{
@@ -313,10 +360,15 @@ ul li:hover {
     width: 8rem;
     height: 2rem;
     background: transparent;
-    border: 1px solid rgba(30, 180, 0, 0.5);
+    border: 1px solid #00c48c;
     border-radius: 3px;
-    color: #1a8100;
+    color: #00c48c;
     cursor: pointer;
+}
+
+.reaction button:hover{
+    background: #00907e;
+    color: white;
 }
 
 .reaction img{
@@ -331,8 +383,6 @@ ul li:hover {
     font-weight: 600;
     height: 1.5rem;
     cursor: pointer;
-    /* position: absolute; */
-    /* margin: 1vh 2vh; */
     display: inline-block;
 }
 
@@ -368,6 +418,56 @@ ul li:hover {
     margin: 2rem 0 2rem 1rem;
 }
 
+.divider{
+    margin: 2vh 0;
+}
+
+.comment{
+    margin: 1rem auto;
+    height: 8vh;
+    border: 1px solid rgba(197, 197, 197, 0.8);
+    background: #fafafa;
+    border-radius: 5px;
+
+}
+
+.otherComments{
+    width: 90%;
+    height: 10vh;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding-left: 1vh;
+}
+
+.otherComments h3{
+    font-size: 1.5vh;
+    margin: 0.5rem 0;
+}
+
+.MyComment h3{
+    font-size: 1.5vh;
+    margin-bottom: 5px;
+}
+
+.MyComment textarea{
+    width: 100%;
+    height: 8vh;
+    border: 1px solid rgba(197, 197, 197, 0.8);
+    background: #fafafa;
+    border-radius: 5px;
+}
+
+.MyComment .buttons button{
+    margin: 1rem 0;
+    width: 7rem;
+    height: 2.8rem;
+    font-size: 0.8rem;
+    background: none;
+    border: 1px solid rgba(30, 180, 0, 0.5);
+    color: #1a8100;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
 .gerneFull{
     margin-left: 1rem;
     margin-top: 0.5rem;
@@ -379,10 +479,6 @@ ul li:hover {
     margin-left: 1rem;
     margin-top: 0.5rem;
     display: block;
-}
-
-.author span{
-    font-weight: 550;
 }
 
 .goBack{
@@ -398,34 +494,29 @@ ul li:hover {
     cursor: pointer;
 }
 
-.one:hover ,.two:hover ,.three:hover ,.four:hover ,.five:hover {
-    border: 1px solid #6FBF6F;
-    background: #fafafa;
-}
-
 .title{
-    color:rgba(0, 0, 0, 0.84);
+    color:rgba(49, 49, 49, 0.84);
     cursor:pointer;
     display:block;
-    font-family:medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
-    font-size:28px;
+    font-family: 'Assistant', sans-serif;
+    font-size:25px;
     font-style:normal;
     font-weight:600;
-    height:84px;
+    height:25px;
     letter-spacing:normal;
-    line-height:34px;
+    line-height: 25px;
     margin-block-end:0px;
     margin-block-start:0px;
     margin-bottom:0px;
     margin-inline-end:0px;
     margin-inline-start:0px;
-    margin-left: 1rem;
+    margin-left: 1.1rem;
     margin-right:0px;
     margin-top:0px;
     text-rendering:optimizelegibility;
     text-size-adjust:100%;
     visibility:visible;
-    width:328px;
+    width: 97.4%;
     -webkit-font-smoothing:antialiased;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0);    
 }
@@ -462,19 +553,6 @@ ul li:hover {
      display: inline-block;
 }
 
-
-.reaction button{
-    float: right;
-    margin-right: 2rem;
-    width: 8rem;
-    height: 2rem;
-    background: transparent;
-    border: 1px solid rgba(30, 180, 0, 0.5);
-    border-radius: 3px;
-    color: #1a8100;
-    cursor: pointer;
-}
-
 .reaction img{
     height: 1rem;
     cursor: pointer;
@@ -487,8 +565,6 @@ ul li:hover {
     font-weight: 600;
     height: 1.5rem;
     cursor: pointer;
-    /* position: absolute; */
-    /* margin: 1vh 2vh; */
     display: inline-block;
 }
 
@@ -506,6 +582,14 @@ ul li:hover {
 
 .more{
     flex: 6;
+}
+
+#Inappropiatte{
+    display: none;
+    color: red;
+    border: 1px solid #ff3a3a1a;
+    background: #ff0000;
+    color: white;
 }
 
 
@@ -578,6 +662,7 @@ header{
     margin: 2rem auto;
     background: white;
     border-radius: 5px;
+    display: flex;
     display: none;
 }
 
@@ -636,11 +721,13 @@ header{
 
 .createArcticleForm_buttons{
     float: right;
+    display: flex;
+    flex-direction: row;
 }
 
 .createArcticleForm_buttons button{
-    height: 2.6rem;
-    width: 7.5rem;
+    height: 2rem;
+    width: 4rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -666,6 +753,81 @@ header{
     color: white;
     margin-right: 4rem;
     margin-left: 1rem;
+}
+
+
+@media screen and (max-width: 414px ) { 
+    .picSide{
+        display: none;
+    }
+
+    .logoSide{
+        display: none;
+    }
+
+    .title{
+        font-size: 2.2vh;
+        display: block;
+    }
+
+    .gerne{
+        font-size: 1.3vh;
+    }
+
+    .author h3 span{ 
+        font-size: 0.2vh;
+    }
+
+    .shortdescription{
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .fullArticle{
+        width: 60%;
+        margin: 2rem auto;
+    }
+    
+    .fullArticle img{
+        display: none;
+    }
+
+    .titleFullArticle{
+        margin-bottom: 1vh;
+        font-size: 20px;
+    }
+
+    .authorFull{
+        margin: 2vh;
+    }
+
+    *{
+        font-size: 12px;
+    }
+
+    .divider {
+        margin: 0.8vh 0;
+    }
+
+    .comment {
+        margin: 1rem auto;
+        height: 6vh;
+        border: 1px solid rgba(197, 197, 197, 0.8);
+        background: #fafafa;
+        border-radius: 5px;
+    }
+
+    .MyComment{
+        display: none;
+    }
+
+    .likeIcon, .commentIcon, .shareIcon, .RedFlagIcon{
+        display: none;
+    }
+
+    .MyOne{
+        height: 65%;
+    }
 }
 
 @media screen and (max-width: 768px ) { 
@@ -709,7 +871,7 @@ header{
     }
     
     #flyer{
-        height: 0.8rem;
+        height: 0.4rem;
         line-height: 7vh; 
     }
     
@@ -781,7 +943,7 @@ header{
         width: 70%;
         height: 65vh;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        margin: 2rem auto;
+        margin: 1rem auto;
         background: white;
         border-radius: 5px;
         display: none;
@@ -899,10 +1061,48 @@ header{
     }
 }
 
-@media screen and (max-width: 375px ) { 
+@media screen and (max-width: 360px ) { 
+   
+    .shortScreen{
+        display: block;
+    }
     
+    .shortScreenMenu{
+        list-style: none;
+        position: absolute;
+        background: white;
+        border: 1px solid rgba(197, 197, 197, 0.8);
+        margin-top: -7vh;
+        margin-left: 38vh;
+        height: 14vh;
+        width: 15vh;
+        font-size: 2vh;
+    }
+
+    .shortScreenMenu li{
+        padding: 3.5px;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .shortScreen img{
+        height: 3vh;
+        width: 3vh;
+        float: right;
+        margin: 2vh 5vh;
+    }
+
+    .picSide{
+        display: none;
+    }
+
     .one{
-        height: 61vh;
+        height: 75vh;
+        display: flex;
+    }
+
+    .user, #ddrop_LogOut, .sort, #drop, .myArticle, .writeNow{
+        display: none;
     }
     
     .two{
@@ -930,9 +1130,18 @@ header{
         width: 100%;
     }
 
+    .title{
+        margin-bottom: 5vh;
+    }
+
     .shortdescription{
         font-size: 2vh;
         width: 75%;
+        margin-bottom: 2vh;
+    }
+
+    .readMore{
+        margin: auto;
     }
 
     .reaction button{
@@ -945,7 +1154,6 @@ header{
         color: #ffffff;
         cursor: pointer;
         font-size: 10px;
-        /* padding: 10px; */
         color: #1a8100;
     }
 
@@ -1147,5 +1355,17 @@ header{
 
     .EditArcticleForm .tag textarea{
         font-size: 10px;
+    }
+
+    .logoSide{
+        display: block;
+    }
+
+    .createArcticleForm{
+        margin-top: -90vh;
+    }
+
+    .MyOne{
+        margin-top: -90vh; 
     }
 }
