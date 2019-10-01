@@ -32,6 +32,13 @@
     color: #00C89B;
 }
 
+.shortScreen img{
+    display: none;
+}
+
+.shortScreenMenu{
+    display: none;
+}
 
 .registrationsButtons{
     float: right;
@@ -434,7 +441,6 @@
     margin: 1rem 0;
 }
 
-
 /* ============================================ Responsiveness for 768px view =================== */
 
 @media screen and (max-width: 768px ) {
@@ -501,7 +507,126 @@
     position: absolute;
     margin: auto;
 }
-} 
+}
+
+
+@media screen and (max-width: 414px ) { 
+
+    .registrationsButtons{
+        display: none;
+    }
+
+    .login-container{
+        margin-top: 30%;
+        height: 57vh;;
+    }
+
+    .container-signup {
+        padding-top: 25px;
+        width: 80%;
+        height: 85vh;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .shortScreen img{
+        display: block;
+        float: right;
+        height: 2.8vh;
+        margin: 2vh 5vh;
+    }
+
+    .shortScreenMenu{
+        background: white;
+        border: 1px solid rgba(0, 0, 0, .075);
+        height: 11h;
+        width: 14vh;
+        z-index: 1;
+        margin-top: 1.5vh;
+        position: absolute;
+        margin-left: 35vh;
+        animation-name: moveshortScreenMenu;
+        animation-duration: 2s;
+        border-radius: 5px;
+    }
+
+
+@keyframes moveshortScreenMenu {
+    0% {
+        top: 20px;
+    }
+    20% {
+        top: 59px
+    }
+}
+
+.words {
+    width: 100%;
+    height: 38%;
+    display: block;
+    position: relative;
+    border-bottom: none;
+}
+
+.wordsSide h1{
+    font-size: 20px;
+}
+
+.wordsSide p{
+    font-size: 15px;
+}
+
+.image img{
+    width: 100%;
+    height: 80%;
+}
+
+    .shortScreenMenu ul li{
+        list-style: none;
+        text-align: center;
+        padding: 8px;
+        color: #00C89B;
+        cursor: pointer;
+    }
+
+    #smallSignUp{
+        border: 1px solid rgba(0, 0, 0, .075);
+    }
+}
+
+@media screen and (max-width: 375px ) { 
+    .inputside-signup .all-inputside-signup input{ 
+        padding: 6px;
+    }
+
+    .inputside-signup .all-inputside-signup label{
+        font-size: 15px;
+    }
+
+    .inputside-signup .all-inputside-signup .signuponBtnSignupFrom{
+        height: 35px;
+    }
+
+    .login-container{
+        margin-top: 20%;
+        padding-top: 5%;
+        height: 55vh;
+    }
+
+    .login-inputside {
+        margin-top: 0;
+        width: 90%;
+        margin-left: 8%;
+    }
+
+    .LogContent {
+        margin-top: 2rem;
+    }
+}
 
 /* ============================================ Responsiveness for 360px view =================== */
 
@@ -644,3 +769,59 @@
         margin-bottom: 10px;
     }
 }
+
+@media screen and (max-width: 360px ) { 
+
+    .login-container{
+        margin-top: 30%;
+        height: 57vh;;
+    }
+
+    .container-signup{
+        height: 78vh;
+    }
+
+    .shortScreen img{
+        display: block;
+        float: right;
+        height: 2.8vh;
+        margin: 2vh 5vh;
+    }
+
+    .shortScreenMenu{
+        background: white;
+        border: 1px solid rgba(0, 0, 0, .075);
+        height: 11h;
+        width: 20vh;
+        z-index: 1;
+        margin-top: 1.5vh;
+        position: absolute;
+        margin-left: 35vh;
+        animation-name: moveshortScreenMenu;
+        animation-duration: 2s;
+        border-radius: 5px;
+    }
+
+@keyframes moveshortScreenMenu {
+    0% {
+        top: 20px;
+    }
+    20% {
+        top: 40px
+    }
+}
+
+    .shortScreenMenu ul li{
+        list-style: none;
+        text-align: center;
+        padding: 8px;
+        color: #00C89B;
+        cursor: pointer;
+    }
+
+    #smallSignUp{
+        border: 1px solid rgba(0, 0, 0, .075);
+    }
+}
+
+

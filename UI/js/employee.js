@@ -32,6 +32,10 @@ const commentIco = document.querySelectorAll('.commentIco');
 const readMore = document.querySelector('#readMore');
 const Inappropiatte = document.querySelector('#Inappropiatte');
 const flag = document.querySelectorAll('.flag');
+const shortScreen = document.querySelector('.shortScreen');
+const shortScreenMenu = document.querySelector('.shortScreenMenu');
+const shortwriteNow = document.querySelector('#shortwriteNow');
+const shortMyArticles = document.querySelector('#shortMyArticles');
 
 for (flg of flag) {
   flg.addEventListener('click', markasInnapropriate);
@@ -41,6 +45,12 @@ function markasInnapropriate() {
   readMore.style.display = 'none';
   Inappropiatte.style.display = 'block';
 }
+
+shortScreen.addEventListener('click', displayShortScreen);
+function displayShortScreen() {
+  shortScreenMenu.style.display = 'block';
+}
+
 
 deleteIcon.addEventListener('click', deleteArticle);
 // function DisplayWarning() {
@@ -86,6 +96,7 @@ function displayEditMyArticleForm() {
 
 writeBtn.addEventListener('click', displayCreateArticleForm);
 flyer.addEventListener('click', displayCreateArticleForm);
+shortwriteNow.addEventListener('click', displayCreateArticleForm);
 
 function displayCreateArticleForm() {
   createArcticleForm.style.display = 'block';
@@ -102,6 +113,8 @@ function displayCreateArticleForm() {
 }
 
 myArticle.addEventListener('click', displayMyArticles);
+shortMyArticles.addEventListener('click', displayMyArticles);
+
 function displayMyArticles() {
   MyOne.style.display = 'block';
   one.style.display = 'none';
@@ -165,6 +178,7 @@ function openEntertainment() {
   five.style.display = 'none';
   drop.style.display = 'none';
   fullArticle.style.display = 'none';
+  MyOne.style.display = 'none';
 }
 
 sort.addEventListener('click', dropdown);

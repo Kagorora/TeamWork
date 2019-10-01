@@ -23,6 +23,14 @@ html{
     background: white;
 }
 
+.shortScreen{
+    display: none;
+}
+
+.shortScreenMenu{
+    display: none;
+}
+
 .content{
     width: 100%;
     height: auto;
@@ -225,7 +233,6 @@ ul li:hover {
     padding: 1rem;
     background-color: white;
     display: none;
-    display: flex;
 }
 
 .one_conatiner{
@@ -754,6 +761,81 @@ header{
     margin-left: 1rem;
 }
 
+
+@media screen and (max-width: 414px ) { 
+    .picSide{
+        display: none;
+    }
+
+    .logoSide{
+        display: none;
+    }
+
+    .title{
+        font-size: 2.2vh;
+        display: block;
+    }
+
+    .gerne{
+        font-size: 1.3vh;
+    }
+
+    .author h3 span{ 
+        font-size: 0.2vh;
+    }
+
+    .shortdescription{
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .fullArticle{
+        width: 60%;
+        margin: 2rem auto;
+    }
+    
+    .fullArticle img{
+        display: none;
+    }
+
+    .titleFullArticle{
+        margin-bottom: 1vh;
+        font-size: 20px;
+    }
+
+    .authorFull{
+        margin: 2vh;
+    }
+
+    *{
+        font-size: 12px;
+    }
+
+    .divider {
+        margin: 0.8vh 0;
+    }
+
+    .comment {
+        margin: 1rem auto;
+        height: 6vh;
+        border: 1px solid rgba(197, 197, 197, 0.8);
+        background: #fafafa;
+        border-radius: 5px;
+    }
+
+    .MyComment{
+        display: none;
+    }
+
+    .likeIcon, .commentIcon, .shareIcon, .RedFlagIcon{
+        display: none;
+    }
+
+    .MyOne{
+        height: 65%;
+    }
+}
+
 @media screen and (max-width: 768px ) { 
     
     .wrapper{
@@ -985,8 +1067,37 @@ header{
     }
 }
 
-@media screen and (max-width: 375px ) { 
+@media screen and (max-width: 360px ) { 
+   
+    .shortScreen{
+        display: block;
+    }
     
+    .shortScreenMenu{
+        list-style: none;
+        position: absolute;
+        background: white;
+        border: 1px solid rgba(197, 197, 197, 0.8);
+        margin-top: -7vh;
+        margin-left: 38vh;
+        height: 14vh;
+        width: 15vh;
+        font-size: 2vh;
+    }
+
+    .shortScreenMenu li{
+        padding: 3.5px;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .shortScreen img{
+        height: 3vh;
+        width: 3vh;
+        float: right;
+        margin: 2vh 5vh;
+    }
+
     .picSide{
         display: none;
     }
@@ -994,6 +1105,10 @@ header{
     .one{
         height: 75vh;
         display: flex;
+    }
+
+    .user, #ddrop_LogOut, .sort, #drop, .myArticle, .writeNow{
+        display: none;
     }
     
     .two{
@@ -1250,11 +1365,7 @@ header{
     }
 
     .logoSide{
-        display: none;
-    }
-
-    .header{
-        display: flex;
+        display: block;
     }
 
     .createArcticleForm{
