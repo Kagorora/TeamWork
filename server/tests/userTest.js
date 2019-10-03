@@ -4,25 +4,14 @@ import chaiHttp from 'chai-http';
 import server from '../api_server';
 import {
   newUser, UserwrongFirstName, UserwrongLastName, UserwrongDepartement,
-  UserwrongJobRole, message, signedUser, NonsignedUser, wrongData,
-  missingPassword, invalidEmail, invalidPassword,
+  UserwrongJobRole, missingPassword, signedUser, NonsignedUser, wrongData,
+  invalidEmail, invalidPassword,
 } from './data';
 
 chai.use(chaiHttp);
 chai.should();
 
 describe('User tests', () => {
-  it('should be able to welcome', (done) => {
-    chai.request(server)
-      .get('/')
-      .end((err, res) => {
-        res.body.status.should.be.equal(200);
-        res.body.message.should.be.equal(message);
-      });
-    done();
-  });
-
-
   it('should be able to signup', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
@@ -113,7 +102,7 @@ describe('User tests', () => {
 
   it('should be able to login', (done) => {
     chai.request(server)
-      .post('/api/v1/auth/login')
+      .post('/api/v1/auth/signin')
       .send(signedUser)
       .end((err, res) => {
         res.body.status.should.be.equal(200);
@@ -123,7 +112,7 @@ describe('User tests', () => {
 
   it('should be not able to login when user not found', (done) => {
     chai.request(server)
-      .post('/api/v1/auth/login')
+      .post('/api/v1/auth/signin')
       .send(NonsignedUser)
       .end((err, res) => {
         res.body.status.should.be.equal(404);
@@ -133,7 +122,7 @@ describe('User tests', () => {
 
   it('should not be able to login when user enters incorrect password', (done) => {
     chai.request(server)
-      .post('/api/v1/auth/login')
+      .post('/api/v1/auth/signin')
       .send(wrongData)
       .end((err, res) => {
         res.body.status.should.be.equal(401);
@@ -144,7 +133,7 @@ describe('User tests', () => {
 
   it('should not be able to login whith an invalidEmail', (done) => {
     chai.request(server)
-      .post('/api/v1/auth/login')
+      .post('/api/v1/auth/signin')
       .send(invalidEmail)
       .end((err, res) => {
         res.body.status.should.be.equal(400);
@@ -155,10 +144,10 @@ describe('User tests', () => {
 
   it('should not be able to login with an invalidpassword', (done) => {
     chai.request(server)
-      .post('/api/v1/auth/login')
+      .post('/api/v1/auth/signin')
       .send(invalidPassword)
       .end((err, res) => {
-        res.body.status.should.be.equal(400);
+        res.body.status.should.be.equal(401);
       });
     done();
   });
