@@ -33,13 +33,15 @@
     "coveralls": "^3.0.6",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "fastest-validator": "^0.6.18",
     "joi": "^14.3.1",
     "joi-password-complexity": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.2.0",
     "moment": "^2.24.0",
     "nodemon": "^1.19.1",
-    "nyc": "^14.1.1"
+    "nyc": "^14.1.1",
+    "validator": "^11.1.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

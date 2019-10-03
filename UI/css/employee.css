@@ -6,6 +6,10 @@
     outline: none;
 }
 
+html{
+    background: rgb(248, 246, 246);
+}
+
 .wrapper{
     width: 100%;
     height: auto;
@@ -17,6 +21,14 @@
     height: 7vh;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background: white;
+}
+
+.shortScreen{
+    display: none;
+}
+
+.shortScreenMenu{
+    display: none;
 }
 
 .content{
@@ -322,14 +334,12 @@ ul li:hover {
 .reaction{
     flex: 1;
     margin-left: 2.3vh;
-    /* background: red */
 }
 
 .reactionContainer{
     display: flex;
     width: 100%;
     height: 100%;
-    /* margin-left: 2.3vh; */
     position: relative;
 }
 
@@ -350,10 +360,15 @@ ul li:hover {
     width: 8rem;
     height: 2rem;
     background: transparent;
-    border: 1px solid rgba(30, 180, 0, 0.5);
+    border: 1px solid #00c48c;
     border-radius: 3px;
-    color: #1a8100;
+    color: #00c48c;
     cursor: pointer;
+}
+
+.reaction button:hover{
+    background: #00907e;
+    color: white;
 }
 
 .reaction img{
@@ -368,8 +383,6 @@ ul li:hover {
     font-weight: 600;
     height: 1.5rem;
     cursor: pointer;
-    /* position: absolute; */
-    /* margin: 1vh 2vh; */
     display: inline-block;
 }
 
@@ -481,11 +494,6 @@ ul li:hover {
     cursor: pointer;
 }
 
-.one:hover ,.two:hover ,.three:hover ,.four:hover ,.five:hover {
-    border: 1px solid #6FBF6F;
-    background: #fafafa;
-}
-
 .title{
     color:rgba(49, 49, 49, 0.84);
     cursor:pointer;
@@ -545,19 +553,6 @@ ul li:hover {
      display: inline-block;
 }
 
-
-.reaction button{
-    float: right;
-    margin-right: 2rem;
-    width: 8rem;
-    height: 2rem;
-    background: transparent;
-    border: 1px solid rgba(30, 180, 0, 0.5);
-    border-radius: 3px;
-    color: #1a8100;
-    cursor: pointer;
-}
-
 .reaction img{
     height: 1rem;
     cursor: pointer;
@@ -570,8 +565,6 @@ ul li:hover {
     font-weight: 600;
     height: 1.5rem;
     cursor: pointer;
-    /* position: absolute; */
-    /* margin: 1vh 2vh; */
     display: inline-block;
 }
 
@@ -589,10 +582,6 @@ ul li:hover {
 
 .more{
     flex: 6;
-}
-
-#readMore{
-    /* display: none; */
 }
 
 #Inappropiatte{
@@ -673,6 +662,7 @@ header{
     margin: 2rem auto;
     background: white;
     border-radius: 5px;
+    display: flex;
     display: none;
 }
 
@@ -731,11 +721,13 @@ header{
 
 .createArcticleForm_buttons{
     float: right;
+    display: flex;
+    flex-direction: row;
 }
 
 .createArcticleForm_buttons button{
-    height: 2.6rem;
-    width: 7.5rem;
+    height: 2rem;
+    width: 4rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -761,6 +753,81 @@ header{
     color: white;
     margin-right: 4rem;
     margin-left: 1rem;
+}
+
+
+@media screen and (max-width: 414px ) { 
+    .picSide{
+        display: none;
+    }
+
+    .logoSide{
+        display: none;
+    }
+
+    .title{
+        font-size: 2.2vh;
+        display: block;
+    }
+
+    .gerne{
+        font-size: 1.3vh;
+    }
+
+    .author h3 span{ 
+        font-size: 0.2vh;
+    }
+
+    .shortdescription{
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .fullArticle{
+        width: 60%;
+        margin: 2rem auto;
+    }
+    
+    .fullArticle img{
+        display: none;
+    }
+
+    .titleFullArticle{
+        margin-bottom: 1vh;
+        font-size: 20px;
+    }
+
+    .authorFull{
+        margin: 2vh;
+    }
+
+    *{
+        font-size: 12px;
+    }
+
+    .divider {
+        margin: 0.8vh 0;
+    }
+
+    .comment {
+        margin: 1rem auto;
+        height: 6vh;
+        border: 1px solid rgba(197, 197, 197, 0.8);
+        background: #fafafa;
+        border-radius: 5px;
+    }
+
+    .MyComment{
+        display: none;
+    }
+
+    .likeIcon, .commentIcon, .shareIcon, .RedFlagIcon{
+        display: none;
+    }
+
+    .MyOne{
+        height: 65%;
+    }
 }
 
 @media screen and (max-width: 768px ) { 
@@ -876,7 +943,7 @@ header{
         width: 70%;
         height: 65vh;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        margin: 2rem auto;
+        margin: 1rem auto;
         background: white;
         border-radius: 5px;
         display: none;
@@ -994,10 +1061,48 @@ header{
     }
 }
 
-@media screen and (max-width: 375px ) { 
+@media screen and (max-width: 360px ) { 
+   
+    .shortScreen{
+        display: block;
+    }
     
+    .shortScreenMenu{
+        list-style: none;
+        position: absolute;
+        background: white;
+        border: 1px solid rgba(197, 197, 197, 0.8);
+        margin-top: -7vh;
+        margin-left: 38vh;
+        height: 14vh;
+        width: 15vh;
+        font-size: 2vh;
+    }
+
+    .shortScreenMenu li{
+        padding: 3.5px;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .shortScreen img{
+        height: 3vh;
+        width: 3vh;
+        float: right;
+        margin: 2vh 5vh;
+    }
+
+    .picSide{
+        display: none;
+    }
+
     .one{
-        height: 61vh;
+        height: 75vh;
+        display: flex;
+    }
+
+    .user, #ddrop_LogOut, .sort, #drop, .myArticle, .writeNow{
+        display: none;
     }
     
     .two{
@@ -1025,9 +1130,18 @@ header{
         width: 100%;
     }
 
+    .title{
+        margin-bottom: 5vh;
+    }
+
     .shortdescription{
         font-size: 2vh;
         width: 75%;
+        margin-bottom: 2vh;
+    }
+
+    .readMore{
+        margin: auto;
     }
 
     .reaction button{
@@ -1040,7 +1154,6 @@ header{
         color: #ffffff;
         cursor: pointer;
         font-size: 10px;
-        /* padding: 10px; */
         color: #1a8100;
     }
 
@@ -1242,5 +1355,17 @@ header{
 
     .EditArcticleForm .tag textarea{
         font-size: 10px;
+    }
+
+    .logoSide{
+        display: block;
+    }
+
+    .createArcticleForm{
+        margin-top: -90vh;
+    }
+
+    .MyOne{
+        margin-top: -90vh; 
     }
 }

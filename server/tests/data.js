@@ -75,9 +75,9 @@ const missingPassword = {
   department: 'IT',
 };
 
-const message = `Teamwork is an internal social network for organizations’ employees. ${''}
-The goal of this application is to facilitate more interaction between
-${''} colleagues and facilitate team bonding.`;
+// const message = `Teamwork is an internal social network for organizations’ employees. ${''}
+// The goal of this application is to facilitate more interaction between
+// ${''} colleagues and facilitate team bonding.`;
 
 const signedUser = {
   email: 'kagororamaxime@gmail.com',
@@ -124,6 +124,11 @@ const wrongArticle = {
   tag: 'normal',
 };
 
+
+const invalidEditArticle = {
+  article: 'An application’s',
+};
+
 const newArticle2 = {
   title: 'hello',
   article: 'aaaaaaaaaaaaaaaaaaaaa',
@@ -136,7 +141,7 @@ const newComment = {
   commentId: 1,
   articleTitle: 'hbljhbj',
   article: 'aaaaaaaaaaaaaaaaaaaaa',
-  comment: 'alcnskkkkkkkkkkkacsk a csh cs',
+  comment: 'thanks',
   tag: 'normal',
 };
 
@@ -158,7 +163,7 @@ export {
   UserwrongLastName,
   UserwrongDepartement,
   UserwrongJobRole,
-  message,
+  // message,
   signedUser,
   NonsignedUser,
   wrongData,
@@ -172,5 +177,6 @@ export {
   newArticle2,
   newComment,
   invalidComment,
+  invalidEditArticle,
   adminToken,
 };

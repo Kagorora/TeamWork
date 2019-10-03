@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Joi from 'joi';
 
-const schema = Joi.object().keys({
+const SignUpschema = Joi.object().keys({
   id: Joi.number().required(),
   firstName: Joi.string().regex(/^[a-zA-Z]{3,30}$/)
     .required().error(err => ({ message: 'Invalid firstName' })),
@@ -20,4 +20,12 @@ const schema = Joi.object().keys({
   isAdmin: Joi.boolean().required(),
 });
 
-export default schema;
+const Loginschema = Joi.object().keys({
+  email: Joi.string().email().required(),
+  password: Joi.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+./]{3,3000}$/).required(),
+});
+
+export default {
+  SignUpschema,
+  Loginschema,
+};

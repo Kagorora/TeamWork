@@ -13,7 +13,7 @@ describe('token test', () => {
 
   it('should not be able to create new article for wrong token', (done) => {
     chai.request(server)
-      .post('/api/v1/createArticle')
+      .post('/api/v1/articles')
       .send(newArticle)
       .set('token', wrongToken)
       .end((err, res) => {
