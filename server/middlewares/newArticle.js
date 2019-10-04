@@ -29,6 +29,7 @@ class articleValidate {
 
   static edit(req, res, next) {
     const result = articleValidation.EditSchema.validate({
+      id: req.params.id,
       title: req.body.title,
       article: req.body.article,
     });

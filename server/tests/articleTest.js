@@ -76,7 +76,7 @@ describe('article tests', () => {
   // ============= search one article ================
   it('should not be able to search article when does not exists', (done) => {
     chai.request(server)
-      .get('/api/v1/articles/1000000')
+      .get('/api/v1/articles/999999')
       .set('token', correctToken)
       .end((err, res) => {
         res.body.status.should.be.equal(404);
@@ -216,52 +216,7 @@ describe('article tests', () => {
     done();
   });
 
-  //   // ============================== delete articles when marked as inapropiate
-  //   it('should not be able to delete article when not marked as inappropriate', (done) => {
-  //     chai.request(server)
-  //       .delete('/api/v1/article/flaged/1')
-  //       .set('token', correctToken)
-  //       .end((err, res) => {
-  //         res.body.status.should.be.equal(403);
-  //         res.body.error.should.be.equal('Only admin has access');
-  //       });
-  //     done();
-  //   });
-
-  //   it('should not be able to delete article when not marked as inappropriate', (done) => {
-  //     chai.request(server)
-  //       .delete('/api/v1/article/flaged/1')
-  //       .set('token', adminToken)
-  //       .end((err, res) => {
-  //         res.body.status.should.be.equal(400);
-  //         res.body.error.should.be.equal('article is normal');
-  //       });
-  //     done();
-  //   });
-
-  //   // ============= mark article as inapropriate ==========================
-
-  //   it('should be able article as mark as inapropiate ', (done) => {
-  //     chai.request(server)
-  //       .patch('/api/v1/articles/1')
-  //       .set('token', correctToken)
-  //       .end((err, res) => {
-  //         res.body.status.should.be.equal(200);
-  //       });
-  //     done();
-  //   });
-
-  //   it('should not be able article mark as inapropiate when not found', (done) => {
-  //     chai.request(server)
-  //       .patch('/api/v1/articles/99999')
-  //       .set('token', correctToken)
-  //       .end((err, res) => {
-  //         res.body.status.should.be.equal(404);
-  //       });
-  //     done();
-  //   });
-
-  //   // ============= delete comment marked as inapropriate ======================
+  // ============= delete comment marked as inapropriate ======================
   it('should not be able to delete comment when not marked', (done) => {
     chai.request(server)
       .delete('/api/v1/articles/1/flag/comment')
@@ -273,7 +228,7 @@ describe('article tests', () => {
     done();
   });
 
-  //   // ============= mark comment as inapropriate ==========================
+  // ============= mark comment as inapropriate ==========================
 
   it('should be able to mark comments as inapropiate ', (done) => {
     chai.request(server)
@@ -361,7 +316,6 @@ describe('article tests', () => {
   });
 
 
-
   it('should be delete to articles ', (done) => {
     chai.request(server)
       .delete('/api/v1/articles/One')
@@ -371,17 +325,6 @@ describe('article tests', () => {
     done();
   });
 
-  //   // ============================== delete articles when marked as inapropiate
-  //   it('should not be able to delete unfound article', (done) => {
-  //     chai.request(server)
-  //       .delete('/api/v1/article/flaged/99999')
-  //       .set('token', adminToken)
-  //       .end((err, res) => {
-  //         res.body.status.should.be.equal(404);
-  //         res.body.error.should.be.equal('article not found');
-  //       });
-  //     done();
-  //   });
 
   //   // ============ view all articles ====================
   it('should be able to view all articles ', (done) => {
@@ -406,17 +349,6 @@ describe('article tests', () => {
       });
     done();
   });
-
-  // it('should not be able to delete unfound article', (done) => {
-  //   chai.request(server)
-  //     .delete('/api/v1/article/flaged/1')
-  //     .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE1NzAxMDk1NzZ9.1hAWdcgKTxsYLgV4xsR1mglDX2fiN8DPx2xuTjTE-64')
-  //     .end((err, res) => {
-  //       res.body.status.should.be.equal(404);
-  //       res.body.error.should.be.equal('article is normal');
-  //     });
-  //   done();
-  // });
 
   it('should not be able to delete marked article when not admin', (done) => {
     chai.request(server)

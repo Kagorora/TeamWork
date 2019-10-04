@@ -6,6 +6,7 @@ import articleValidation from '../middlewares/newArticle';
 const app = express();
 
 app.all('*', auth);
+
 app.post('/', articleValidation.article, articleController.createArticle);
 app.patch('/:id', articleValidation.edit, articleController.editArticle);
 app.delete('/:id', articleValidation.delete, articleController.deleteArticle);
