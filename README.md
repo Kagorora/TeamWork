@@ -3,6 +3,7 @@
 Teamwork is an internal social network for organizations’ employees. The goal of this application is to facilitate more interaction between colleagues and facilitate team bonding.
 
 ## FRONT END DEMO 
+* Use the following link to view the frontend
 https://kagorora.github.io/TeamWork/UI/index.html
 
 ### BACKEND
@@ -32,14 +33,14 @@ users
 
 ##### HOSTING AND DEPLOYMENT
 
-. HOSTED on HEROKU link: https://dashboard.heroku.com/apps/teamwork2019
-. GH for demo: https://kagorora.github.io/TeamWork/UI/index.html
+* HOSTED on HEROKU link: https://dashboard.heroku.com/apps/teamwork2019<br>
+* GH for demo: https://kagorora.github.io/TeamWork/UI/index.html
 
 ###### DOCUMENTATION
 
 POSTMAN documention https://documenter.getpostman.com/view/6833415/SVtR1Vnp?version=latest
 
-####### Installation
+###### Installation
 
 * Install Node js
 * Install visual studio code or any sublime , ....
