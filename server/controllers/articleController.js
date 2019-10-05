@@ -156,15 +156,15 @@ class articleController {
 
   static RemoveFlagedArticles(req, res) {
     if (req.user.isAdmin === true) {
-      const desiredArticle = find.searchArtById(parseInt(req.params.id));
-      if (!desiredArticle) {
+      const article = find.searchArtById(parseInt(req.params.id));
+      if (!article) {
         return res.status(404).json({
           status: 404,
           error: 'article not found',
         });
       }
-      if (desiredArticle.tag === 'inappropriate') {
-        const unwantedArticle = articles.indexOf(desiredArticle);
+      if (article.tag === 'inappropriate') {
+        const unwantedArticle = articles.indexOf(article);
         articles.splice(unwantedArticle, 1);
         return res.status(204).json({
           status: 204,
