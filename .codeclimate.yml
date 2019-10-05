@@ -1,6 +1,7 @@
 exclude_patterns:
 - ".*"
 - "UI/"
+- "server/tests/"
 - "src/tests/"
 - "package.json"
 - "package-lock.json"
