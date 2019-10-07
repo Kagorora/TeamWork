@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run createTable && nodemon ./server/app.js",
     "build": "babel ./server -d build",
-    "dev": "npm run build && node build/api_server.js",
+    "dev": "npm run build && npm run createTable && node --require babel-polyfill build/api_server.js",
     "test": "NODE_ENV=TEST npm run clean && NODE_ENV=TEST npm run createTable && NODE_ENV=TEST nyc --reporter=html --reporter=text --reporter=lcov --require babel-polyfill --require babel-register mocha --timeout 15000 server/tests/ --exit",
     "createTable": "node --require babel-polyfill --require babel-core/register ./server/configurations/db.js",
     "clean": "node --require babel-polyfill --require babel-register ./server/cleanTable.js ",

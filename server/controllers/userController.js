@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt-nodejs';
 import users from '../models/users';
-import findUser from '../helpers/search';
 import userToken from '../helpers/tokenGenerator';
 import con from '../dbConnection';
 
@@ -39,11 +38,14 @@ class userController {
     });
   }
 
-  static login(req, res) {
-    const { email, password } = req.body;
-    const foundUser = findUser.searchUser(email);
-    if (foundUser) {
-      const comparePassword = bcrypt.compareSync(password, foundUser.password);
+  static async login(req, res) {
+    const { email, password } = req.user.value;
+    const findRegistedUser = await con.query(users.searchUser, [email]);
+    if (findRegistedUser.rowCount > 0) {
+      const comparePassword = bcrypt.compareSync(
+        req.body.password,
+        findRegistedUser.rows[0].password,
+      );
       if (!comparePassword) {
         return res.status(401).json({
           status: 401,
@@ -52,11 +54,11 @@ class userController {
       }
       return res.status(200).json({
         status: 200,
-        message: `${foundUser.firstName} is successfully logged in`,
+        message: `${findRegistedUser.rows[0].email} is successfully logged in`,
         token: userToken.createToken(
-          foundUser.id,
-          foundUser.email,
-          foundUser.isAdmin,
+          findRegistedUser.id,
+          findRegistedUser.email,
+          findRegistedUser.isAdmin,
         ),
       });
     }
