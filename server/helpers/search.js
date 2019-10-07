@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import users from '../models/users';
 import articles from '../models/articles';
 import comments from '../models/comments';
 
