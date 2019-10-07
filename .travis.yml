@@ -8,7 +8,7 @@ services:
   - postgresql
 
 before_script: 
-  - psql -c 'create datatabase tests;' -U postgres
+  - psql -c 'create database tests;' -U postgres
 
 script: 
   - npm run test
