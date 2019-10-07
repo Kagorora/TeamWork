@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt-nodejs';
 import users from '../models/users';
 import findUser from '../helpers/search';
 import userToken from '../helpers/tokenGenerator';
-import con from '../../dbConnection';
+import con from '../dbConnection';
 
 class userController {
   static async signup(req, res) {

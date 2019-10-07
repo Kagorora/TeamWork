@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 const createUsers = `
         CREATE TABLE IF NOT EXISTS users (
           id UUID PRIMARY KEY,

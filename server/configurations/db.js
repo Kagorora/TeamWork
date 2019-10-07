@@ -1,4 +1,4 @@
-import con from '../../dbConnection';
+import con from '../dbConnection';
 import users from '../models/users';
 
 const createTables = async () => {
