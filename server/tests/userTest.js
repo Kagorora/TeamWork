@@ -3,152 +3,58 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../api_server';
 import {
-  newUser, UserwrongFirstName, UserwrongLastName, UserwrongDepartement,
-  UserwrongJobRole, missingPassword, signedUser, NonsignedUser, wrongData,
-  invalidEmail, invalidPassword,
+  newUser, missingFirstName, missinglastName,
 } from './data';
 
 chai.use(chaiHttp);
 chai.should();
 
 describe('User tests', () => {
-  it('should be able to signup', (done) => {
-    chai.request(server)
+  it('Should be able to signup', (done) => {
+    chai
+      .request(server)
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        res.body.status.should.be.equal(201);
-        res.body.message.should.be.equal('User created successfully');
-        res.body.should.be.an('object');
-        res.body.data.should.have.property('id');
-        res.body.data.should.have.property('firstName');
-        res.body.data.should.have.property('lastName');
-        res.body.data.should.have.property('email');
-        res.body.data.should.have.property('password');
-        res.body.data.should.have.property('gender');
-        res.body.data.should.have.property('jobRole');
-        res.body.data.should.have.property('address');
-        res.body.data.should.have.property('isAdmin');
-        res.body.data.should.have.property('department');
+        chai.expect(res.statusCode).to.be.equal(201);
+        chai.expect(res.body).to.be.a('object');
+        done();
       });
-    done();
   });
 
-  it('should not be able to signup for duplicate', (done) => {
-    chai.request(server)
+  it('Should not be able to signup for duplicate', (done) => {
+    chai
+      .request(server)
       .post('/api/v1/auth/signup')
       .send(newUser)
       .end((err, res) => {
-        res.body.status.should.be.equal(409);
-        res.body.error.should.be.equal('Email already exist');
+        chai.expect(res.statusCode).to.be.equal(409);
+        chai.expect(res.body).to.be.a('object');
+        done();
       });
-    done();
   });
 
-  it('should not be able to signup for invalid firstName', (done) => {
-    chai.request(server)
+  it('Should not be able to signup for invalid FirstName', (done) => {
+    chai
+      .request(server)
       .post('/api/v1/auth/signup')
-      .send(UserwrongFirstName)
+      .send(missingFirstName)
       .end((err, res) => {
-        res.body.status.should.be.equal(400);
-        res.body.error.should.be.equal('Invalid firstName');
+        chai.expect(res.statusCode).to.be.equal(400);
+        chai.expect(res.body).to.be.a('object');
+        done();
       });
-    done();
   });
 
-  it('should not be able to signup for invalid lastName', (done) => {
-    chai.request(server)
+  it('Should not be able to signup for invalid inputs lastName', (done) => {
+    chai
+      .request(server)
       .post('/api/v1/auth/signup')
-      .send(UserwrongLastName)
+      .send(missinglastName)
       .end((err, res) => {
-        res.body.status.should.be.equal(400);
-        res.body.error.should.be.equal('Invalid lastName');
+        chai.expect(res.statusCode).to.be.equal(400);
+        chai.expect(res.body).to.be.a('object');
+        done();
       });
-    done();
-  });
-
-  it('should not be able to signup for invalid department', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signup')
-      .send(UserwrongDepartement)
-      .end((err, res) => {
-        res.body.status.should.be.equal(400);
-        res.body.error.should.be.equal('Invalid department');
-      });
-    done();
-  });
-
-  it('should not be able to signup for invalid jobRole', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signup')
-      .send(UserwrongJobRole)
-      .end((err, res) => {
-        res.body.status.should.be.equal(400);
-        res.body.error.should.be.equal('Invalid jobRole');
-      });
-    done();
-  });
-
-  it('should not be able to signup for missing Password', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signup')
-      .send(missingPassword)
-      .end((err, res) => {
-        res.body.status.should.be.equal(400);
-        res.body.error.should.be.equal('password is required');
-      });
-    done();
-  });
-
-  it('should be able to login', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signin')
-      .send(signedUser)
-      .end((err, res) => {
-        res.body.status.should.be.equal(200);
-      });
-    done();
-  });
-
-  it('should be not able to login when user not found', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signin')
-      .send(NonsignedUser)
-      .end((err, res) => {
-        res.body.status.should.be.equal(404);
-      });
-    done();
-  });
-
-  it('should not be able to login when user enters incorrect password', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signin')
-      .send(wrongData)
-      .end((err, res) => {
-        res.body.status.should.be.equal(401);
-        res.body.error.should.be.equal('invalid credentials');
-      });
-    done();
-  });
-
-  it('should not be able to login whith an invalidEmail', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signin')
-      .send(invalidEmail)
-      .end((err, res) => {
-        res.body.status.should.be.equal(400);
-      });
-    done();
-  });
-
-
-  it('should not be able to login with an invalidpassword', (done) => {
-    chai.request(server)
-      .post('/api/v1/auth/signin')
-      .send(invalidPassword)
-      .end((err, res) => {
-        res.body.status.should.be.equal(401);
-      });
-    done();
   });
 });

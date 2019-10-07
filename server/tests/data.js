@@ -1,79 +1,44 @@
+import tokenG from '../helpers/tokenGenerator';
+
 const newUser = {
-  id: 1,
-  firstName: 'max',
-  lastName: 'alain',
-  email: 'kagororamaxime@gmail.com',
-  password: 'Niyonkuru@1',
-  gender: 'male',
-  jobRole: 'System Administrator',
-  department: 'IT',
-  address: 'KN12',
-  isAdmin: true,
-};
-
-const UserwrongFirstName = {
-  id: 1,
-  firstName: '@@@',
-  lastName: 'alain',
-  email: 'kagororamaxime@gmail.com',
-  password: 'Niyonkuru@1',
-  gender: 'male',
-  jobRole: 'System Administrator',
-  department: 'IT',
-  address: 'KN12',
-  isAdmin: true,
-};
-
-const UserwrongLastName = {
-  id: 1,
-  firstName: 'maxime',
-  lastName: '@@@',
-  email: 'kagororamaxime@gmail.com',
-  password: 'Niyonkuru@1',
-  gender: 'male',
-  jobRole: 'System Administrator',
-  department: 'IT',
-  address: 'KN12',
-  isAdmin: true,
-};
-
-const UserwrongDepartement = {
-  id: 1,
   firstName: 'maxime',
   lastName: 'alain',
-  email: 'kagororamaxime@gmail.com',
+  email: 'kkx@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: 'System Administrator',
-  department: '@@@@',
-  address: 'KN12',
   isAdmin: true,
 };
 
-const UserwrongJobRole = {
-  id: 1,
+const wrongUser = {
   firstName: 'maxime',
   lastName: 'alain',
-  email: 'kagororamaxime@gmail.com',
+  email: 'kkxgmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: '@@@@',
-  department: 'IT',
-  address: 'KN12',
   isAdmin: true,
 };
 
-const missingPassword = {
-  firstName: 'maxime',
+const missingFirstName = {
   lastName: 'alain',
-  email: 'kagororamaxim@gmail.com',
-  username: 'max',
+  email: 'kkx@gmail.com',
+  password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: 'System Administrator',
-  address: 'KN12',
   isAdmin: true,
-  department: 'IT',
 };
+
+const missinglastName = {
+  firstName: 'maxime',
+  email: 'kkx@gmail.com',
+  password: 'Niyonkuru@1',
+  gender: 'male',
+  isAdmin: true,
+};
+
+const userToken = tokenG.createToken(
+  newUser.id,
+  newUser.email,
+  newUser.isAdmin,
+);
 
 // const message = `Teamwork is an internal social network for organizations’ employees. ${''}
 // The goal of this application is to facilitate more interaction between
@@ -124,7 +89,6 @@ const wrongArticle = {
   tag: 'normal',
 };
 
-
 const invalidEditArticle = {
   article: 'An application’s',
 };
@@ -159,15 +123,14 @@ const adminToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ
 
 export {
   newUser,
-  UserwrongFirstName,
-  UserwrongLastName,
-  UserwrongDepartement,
-  UserwrongJobRole,
+  wrongUser,
+  missingFirstName,
+  missinglastName,
+  userToken,
   // message,
   signedUser,
   NonsignedUser,
   wrongData,
-  missingPassword,
   invalidEmail,
   invalidPassword,
   newArticle,

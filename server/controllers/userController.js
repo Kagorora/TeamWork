@@ -2,28 +2,40 @@ import bcrypt from 'bcrypt-nodejs';
 import users from '../models/users';
 import findUser from '../helpers/search';
 import userToken from '../helpers/tokenGenerator';
+import con from '../dbConnection';
 
 class userController {
-  static signup(req, res) {
-    if (!findUser.searchUser(req.body.email)) {
-      const newEmployee = req.user.value;
-      if (!req.body.password) {
-        return res.status(400).json({
-          status: 400,
-          error: 'password is required',
-        });
-      }
-      users.push(newEmployee);
+  static async signup(req, res) {
+    const {
+      id,
+      firstName,
+      lastName,
+      email,
+      password,
+      gender,
+      isAdmin,
+    } = req.user.value;
+    const registerUser = await con.query(users.addUser, [
+      id,
+      firstName,
+      lastName,
+      email,
+      password,
+      gender,
+      isAdmin,
+    ]);
+    if (registerUser.rowCount === 1) {
+      const findRegistedUser = await con.query(users.searchUser, [email]);
       return res.status(201).json({
         status: 201,
-        token: userToken.createToken(users.length + 1, req.body.email, req.body.isAdmin),
-        message: 'User created successfully',
-        data: newEmployee,
+        message: 'user successfuly created',
+        token: userToken.createToken(id, email, isAdmin),
+        data: findRegistedUser.rows[0],
       });
     }
     return res.status(409).json({
       status: 409,
-      error: 'Email already exist',
+      error: `user with email : ${email} exists`,
     });
   }
 
@@ -41,7 +53,11 @@ class userController {
       return res.status(200).json({
         status: 200,
         message: `${foundUser.firstName} is successfully logged in`,
-        token: userToken.createToken(foundUser.id, foundUser.email, foundUser.isAdmin),
+        token: userToken.createToken(
+          foundUser.id,
+          foundUser.email,
+          foundUser.isAdmin,
+        ),
       });
     }
     return res.status(404).json({
