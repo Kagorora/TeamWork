@@ -1,9 +1,13 @@
 language: node_js
 
-node_js: "stable"
+node_js: 'stable'
 
 install: npm install
 
-script: npm test
+services: -postgresql
+
+before_script: -psql -c 'create datatabase tests;' -U postgres
+
+script: npm run test
 
 after_script: npm run coveralls

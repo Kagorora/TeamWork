@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "build": "babel ./server  -d build",
+    "build": "babel ./server -d build",
     "dev": "npm run build && node build/api_server.js",
     "test": "nyc --reporter=html --reporter=text mocha --require babel-register --timeout 10000 --exit  server/tests/",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
@@ -41,6 +41,8 @@
     "moment": "^2.24.0",
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
+    "pg": "^7.12.1",
+    "uuid": "^3.3.3",
     "validator": "^11.1.0"
   },
   "devDependencies": {
