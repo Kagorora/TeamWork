@@ -33,6 +33,7 @@ class articleValidate {
       id: req.params.id,
       title: req.body.title,
       article: req.body.article,
+      category: req.body.category,
     });
 
     if (!EditResult.error) {

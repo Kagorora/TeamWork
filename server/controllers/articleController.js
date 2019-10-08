@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable radix */
 import articles from '../models/articles';
 import find from '../helpers/search';
@@ -36,10 +37,9 @@ class articleController {
     });
   }
 
-  static editArticle(req, res) {
-    const articId = parseInt(req.params.id);
-    const desiredArticle = find.searchArtById(articId);
-    if (!desiredArticle) {
+  static async editArticle(req, res) {
+    const desiredArticle = await con.query(articles.searchArticle, [req.params.id]);
+    if (desiredArticle.rowCount === 0) {
       return res.status(404).json({
         status: 404,
         error: 'article not found',
@@ -49,20 +49,24 @@ class articleController {
       title, article, category,
     } = req.body;
 
-    if (desiredArticle.title === title && desiredArticle.article === article) {
+    await con.query(articles.updateArticle, [
+      title,
+      article,
+      category,
+      desiredArticle.rows[0].id,
+    ]);
+    const newUpdatedArticle = await con.query(articles.searchArticle, [req.params.id]);
+    if (
+      desiredArticle.rows[0].title === title && desiredArticle.rows[0].category === category && desiredArticle.rows[0].category === category
+    ) {
       return res.status(304).json({
         status: 304,
         error: 'nothing to change',
       });
     }
-    desiredArticle.title = title;
-    desiredArticle.article = article;
-    desiredArticle.category = category;
-    const articleIndex = articles.indexOf(desiredArticle);
-    articles[articleIndex] = desiredArticle;
     return res.status(200).json({
       status: 200,
-      data: desiredArticle,
+      data: newUpdatedArticle.rows[0],
     });
   }
 

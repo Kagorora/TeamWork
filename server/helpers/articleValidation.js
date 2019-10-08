@@ -10,13 +10,14 @@ const Articleschema = Joi.object().keys({
 });
 
 const EditSchema = Joi.object().keys({
-  id: Joi.number().min(1).max(9999999),
-  title: Joi.string().regex(/^[a-zA-Z0-9 '"!@#$%^&*()_+./]{3,100}$/).required(),
-  article: Joi.string().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/).required(),
+  id: Joi.string().required(),
+  title: Joi.string().regex(/^[a-zA-Z0-9 '"!@#$%^&*()_+./]{3,100}$/),
+  article: Joi.string().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/),
+  category: Joi.valid('Technology', 'Entertainment', 'Social'),
 });
 
 const articleIdSchema = Joi.object().keys({
-  id: Joi.number().min(1).max(9999999).required(),
+  id: Joi.string().required(),
 });
 
 const CommentSchema = Joi.object().keys({
@@ -30,7 +31,7 @@ const CommentSchema = Joi.object().keys({
 });
 
 const findArticleSchema = Joi.object().keys({
-  id: Joi.number().min(1).max(9999999).required(),
+  id: Joi.string().required(),
 });
 
 const findByCategory = Joi.object().keys({
@@ -38,7 +39,7 @@ const findByCategory = Joi.object().keys({
 });
 
 const findComment = Joi.object().keys({
-  commentId: Joi.number().min(1).max(9999999).required(),
+  id: Joi.string().required(),
 });
 
 export default {

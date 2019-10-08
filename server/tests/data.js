@@ -1,3 +1,4 @@
+import uuid from 'uuid';
 import tokenG from '../helpers/tokenGenerator';
 
 const newUser = {
@@ -65,6 +66,7 @@ const invalidEmail = {
 };
 
 const newArticle = {
+  id: uuid(),
   title: 'How to maka cake',
   article: 'An application’s',
   category: 'Technology',
@@ -72,10 +74,9 @@ const newArticle = {
 };
 
 const updatedArticle = {
-  title: 'How to maka pancakes',
-  article: 'An application’s',
-  category: 'Technology',
-  tag: 'normal',
+  title: 'ttttttttt',
+  article: 'updated',
+  category: 'Social',
 };
 
 const wrongArticle = {
