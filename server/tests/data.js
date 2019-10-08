@@ -45,28 +45,23 @@ const userToken = tokenG.createToken(
 // ${''} colleagues and facilitate team bonding.`;
 
 const signedUser = {
-  email: 'kagororamaxime@gmail.com',
+  email: 'kkx@gmail.com',
   password: 'Niyonkuru@1',
 };
 
 const NonsignedUser = {
-  email: 'blaise@gmail.com',
+  email: 'non@gmail.com',
   password: 'Niyonkuru@1',
 };
 
 const wrongData = {
-  email: 'kagororamaxime@gmail.com',
+  email: 'kkx@gmail.com',
   password: 'wrong',
 };
 
 const invalidEmail = {
   email: 'kagororamaximegmail.com',
   password: 'wrong',
-};
-
-const invalidPassword = {
-  email: 'kagororamaxime@gmail.com',
-  password: 'w',
 };
 
 const newArticle = {
@@ -132,7 +127,6 @@ export {
   NonsignedUser,
   wrongData,
   invalidEmail,
-  invalidPassword,
   newArticle,
   wrongArticle,
   correctToken,
