@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt-nodejs';
+import uuid from 'uuid';
 import users from '../models/users';
 import userToken from '../helpers/tokenGenerator';
 import con from '../dbConnection';
@@ -15,7 +16,7 @@ class userController {
       isAdmin,
     } = req.user.value;
     const registerUser = await con.query(users.addUser, [
-      id,
+      uuid(),
       firstName,
       lastName,
       email,
@@ -23,13 +24,13 @@ class userController {
       gender,
       isAdmin,
     ]);
+    const user = await con.query(users.withOutPsw, [email]);
     if (registerUser.rowCount === 1) {
-      const findRegistedUser = await con.query(users.searchUser, [email]);
       return res.status(201).json({
         status: 201,
         message: 'user successfuly created',
         token: userToken.createToken(id, email, isAdmin),
-        data: findRegistedUser.rows[0],
+        data: user.rows[0],
       });
     }
     return res.status(409).json({

@@ -3,7 +3,8 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../api_server';
 import {
-  newUser, missingFirstName, missinglastName, signedUser, wrongData, invalidEmail,
+  newUser, missingFirstName, missinglastName, signedUser, wrongData,
+  invalidEmail, newArticle, userToken, wrongArticle,
 } from './data';
 
 chai.use(chaiHttp);

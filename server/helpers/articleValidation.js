@@ -1,12 +1,12 @@
 import Joi from '@hapi/joi';
 
 const Articleschema = Joi.object().keys({
-  id: Joi.number().min(1).max(9999999).required(),
+  id: Joi.string().required(),
   title: Joi.string().regex(/^[a-zA-Z0-9 '"!@#$%^*()_+./]{3,100}$/).required(),
   article: Joi.string().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/).required(),
   createdOn: Joi.string().required(),
   category: Joi.valid('Technology', 'Entertainment', 'Social').required(),
-  tag: Joi.string().required(),
+  flag: Joi.string().required(),
 });
 
 const EditSchema = Joi.object().keys({

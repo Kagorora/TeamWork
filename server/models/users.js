@@ -22,10 +22,12 @@ const addUser = `insert into users (
 
 const removeUser = 'delete from users where email = ($1)';
 const searchUser = 'select * from users where email = ($1)';
+const withOutPsw = 'select id, firstName, lastName, email, gender from users where email = ($1)';
 
 export default {
   addUser,
   removeUser,
   searchUser,
+  withOutPsw,
   createUsers,
 };
