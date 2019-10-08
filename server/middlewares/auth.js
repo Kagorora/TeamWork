@@ -4,17 +4,19 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const auth = (req, res, next) => {
-  const { token } = req.headers;
-  jwt.verify(token, process.env.TOKEN_KEY, (error, data) => {
-    if (error) {
-      return res.status(403).json({
-        status: 403,
-        error: 'Authentication failed',
-      });
+  try {
+    const { token } = req.headers;
+    const userToken = jwt.verify(token, process.env.TOKEN_KEY);
+    if (userToken) {
+      req.user = userToken;
+      next();
     }
-    req.user = data;
-    next();
-  });
+  } catch (error) {
+    return res.status(403).json({
+      status: 403,
+      error: 'Authentication failed',
+    });
+  }
 };
 
 export default auth;

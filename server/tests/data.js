@@ -113,7 +113,6 @@ const invalidComment = {
   tag: 'normal',
 };
 
-const correctToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJrYWdvcm9yYW1heGltZW1hQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE1NjkyODE2NDR9.JaXtPrfpCGqEtp9jMZUJ6Dmg5n2zMDHMpLUQz-dinPw';
 const adminToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJrYWdvcm9yYW1heGltZW1hQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTU2OTI4MTg1OH0.kDIL6WByXGfNEW2aukkxfz56DRtIZ7T9chlVpjfqRa4';
 
 export {
@@ -129,7 +128,6 @@ export {
   invalidEmail,
   newArticle,
   wrongArticle,
-  correctToken,
   updatedArticle,
   newArticle2,
   newComment,

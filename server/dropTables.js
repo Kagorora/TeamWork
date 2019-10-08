@@ -1,7 +1,8 @@
 import con from './dbConnection';
 
 const dropTables = async () => {
-  await con.query('DELETE FROM users;');
+  await con.query('DROP TABLE articles;');
+  await con.query('DROP TABLE users;');
 };
 dropTables();
 

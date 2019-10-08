@@ -4,17 +4,17 @@ import comments from '../models/comments';
 
 class search {
   static searchArt(title) {
-    const findArticle = articles.find(a => a.title === title);
+    const findArticle = articles.articles.find(a => a.title === title);
     return findArticle;
   }
 
   static searchArtById(id) {
-    const findArticle = articles.find(a => a.id === id);
+    const findArticle = articles.articles.find(a => a.id === id);
     return findArticle;
   }
 
   static searchByCategory(category) {
-    const findArticle = articles.filter(a => a.category === category);
+    const findArticle = articles.articles.filter(a => a.category === category);
     return findArticle;
   }
 

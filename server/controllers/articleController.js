@@ -2,21 +2,37 @@
 import articles from '../models/articles';
 import find from '../helpers/search';
 import comments from '../models/comments';
+import con from '../dbConnection';
 
 class articleController {
-  static createArticle(req, res) {
-    const article = req.article.value;
-    const foundArticle = find.searchArt(article.title);
-    if (!foundArticle) {
-      articles.push(article);
+  static async createArticle(req, res) {
+    const {
+      id,
+      title,
+      article,
+      category,
+      flag,
+      createdOn,
+    } = req.article.value;
+
+    const registeredArticle = await con.query(articles.addArticle, [
+      id,
+      title,
+      article,
+      category,
+      flag,
+      createdOn,
+    ]);
+    if (registeredArticle.rowCount === 1) {
       return res.status(201).json({
         status: 201,
-        data: article,
+        message: 'article successfuly created',
+        data: registeredArticle.rows[0],
       });
     }
-    return res.status(401).json({
-      status: 401,
-      error: 'article exists',
+    return res.status(409).json({
+      status: 409,
+      error: `article with title : ${title} exists`,
     });
   }
 
