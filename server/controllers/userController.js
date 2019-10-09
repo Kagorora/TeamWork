@@ -6,6 +6,12 @@ import con from '../dbConnection';
 
 class userController {
   static async signup(req, res) {
+    if (!req.body.password) {
+      return res.status(400).json({
+        status: 400,
+        error: 'please insert password',
+      });
+    }
     const {
       id,
       firstName,
@@ -13,16 +19,22 @@ class userController {
       email,
       password,
       gender,
+      jobRole,
+      address,
       isAdmin,
+      department,
     } = req.user.value;
     const registerUser = await con.query(users.addUser, [
-      uuid(),
+      id,
       firstName,
       lastName,
       email,
       password,
       gender,
+      jobRole,
+      address,
       isAdmin,
+      department,
     ]);
     const user = await con.query(users.withOutPsw, [email]);
     if (registerUser.rowCount === 1) {
@@ -57,9 +69,9 @@ class userController {
         status: 200,
         message: `${findRegistedUser.rows[0].email} is successfully logged in`,
         token: userToken.createToken(
-          findRegistedUser.id,
-          findRegistedUser.email,
-          findRegistedUser.isAdmin,
+          findRegistedUser.rows[0].id,
+          findRegistedUser.rows[0].email,
+          findRegistedUser.rows[0].isadmin,
         ),
       });
     }

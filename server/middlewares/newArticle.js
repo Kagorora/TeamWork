@@ -2,6 +2,7 @@
 /* eslint-disable consistent-return */
 import moment from 'moment';
 import uuid from 'uuid';
+import validator from 'validator';
 import articles from '../models/articles';
 import articleValidation from '../helpers/articleValidation';
 import comments from '../models/comments';
@@ -15,6 +16,7 @@ class articleValidate {
       createdOn: moment().format('YYYY-MM-DD'),
       category: req.body.category,
       flag: 'normal',
+      userId: req.user.id,
     });
     if (!ArticleResult.error) {
       req.article = ArticleResult;
@@ -33,6 +35,7 @@ class articleValidate {
       id: req.params.id,
       title: req.body.title,
       article: req.body.article,
+      category: req.body.category,
     });
 
     if (!EditResult.error) {
@@ -47,101 +50,113 @@ class articleValidate {
     }
   }
 
-  static delete(req, res, next) {
-    const deleteResult = articleValidation.articleIdSchema.validate({
-      id: req.params.id,
-    });
-
-    if (!deleteResult.error) {
-      req.article = deleteResult;
+  static validateUUID(req, res, next) {
+    const articleId = validator.isUUID(req.params.id);
+    if (articleId === true) {
       next();
     } else {
-      const wrongInput = deleteResult.error.details[0].message.replace('"', ' ').replace('"', '');
       return res.status(400).json({
         status: 400,
-        error: wrongInput,
+        error: 'invalid id',
       });
     }
   }
 
-  static comment(req, res, next) {
-    const foundArticle = articles.find(a => a.id === parseInt(req.params.id));
-    if (foundArticle) {
-      const commentResult = articleValidation.CommentSchema.validate({
-        createdOn: moment().format,
-        commentId: comments.length + 1,
-        articleTitle: foundArticle.title,
-        article: foundArticle.article,
-        comment: req.body.comment,
-        tag: 'normal',
-      });
+  //   static delete(req, res, next) {
+  //     const deleteResult = articleValidation.articleIdSchema.validate({
+  //       id: req.params.id,
+  //     });
 
-      if (!commentResult.error) {
-        req.comment = commentResult;
-        next();
-        return;
-      }
-      const wrongInput = commentResult.error.details[0].message.replace('"', ' ').replace('"', '');
-      return res.status(400).json({
-        status: 400,
-        error: wrongInput,
-      });
-    }
-    return res.status(404).json({
-      status: 404,
-      error: 'article not found',
-    });
-  }
+  //     if (!deleteResult.error) {
+  //       req.article = deleteResult;
+  //       next();
+  //     } else {
+  //       const wrongInput = deleteResult.error.details[0].message.replace('"', ' ').replace('"', '');
+  //       return res.status(400).json({
+  //         status: 400,
+  //         error: wrongInput,
+  //       });
+  //     }
+  //   }
 
-  static findArticle(req, res, next) {
-    const articleResult = articleValidation.findArticleSchema.validate({
-      id: req.params.id,
-    });
-    if (!articleResult.error) {
-      req.article = articleResult;
-      next();
-    } else {
-      const wrongInput = articleResult.error.details[0].message.replace('"', ' ').replace('"', '');
-      return res.status(400).json({
-        status: 400,
-        error: wrongInput,
-      });
-    }
-  }
+  //   static comment(req, res, next) {
+  //     const foundArticle = articles.find(a => a.id === parseInt(req.params.id));
+  //     if (foundArticle) {
+  //       const commentResult = articleValidation.CommentSchema.validate({
+  //         createdOn: moment().format,
+  //         commentId: comments.length + 1,
+  //         articleTitle: foundArticle.title,
+  //         article: foundArticle.article,
+  //         comment: req.body.comment,
+  //         tag: 'normal',
+  //       });
 
-  static findByCategory(req, res, next) {
-    const categoryResult = articleValidation.findByCategory.validate({
-      category: req.params.category,
-    });
+  //       if (!commentResult.error) {
+  //         req.comment = commentResult;
+  //         next();
+  //         return;
+  //       }
+  //       const wrongInput = commentResult.error.details[0].message.replace('"', ' ').replace('"', '');
+  //       return res.status(400).json({
+  //         status: 400,
+  //         error: wrongInput,
+  //       });
+  //     }
+  //     return res.status(404).json({
+  //       status: 404,
+  //       error: 'article not found',
+  //     });
+  //   }
 
-    if (!categoryResult.error) {
-      req.article = categoryResult;
-      next();
-    } else {
-      const wrongInput = categoryResult.error.details[0].message.replace('"', ' ').replace('"', '');
-      return res.status(400).json({
-        status: 400,
-        error: wrongInput,
-      });
-    }
-  }
+  //   static findArticle(req, res, next) {
+  //     const articleResult = articleValidation.findArticleSchema.validate({
+  //       id: req.params.id,
+  //     });
+  //     if (!articleResult.error) {
+  //       req.article = articleResult;
+  //       next();
+  //     } else {
+  //       const wrongInput = articleResult.error.details[0].message.replace('"', ' ').replace('"', '');
+  //       return res.status(400).json({
+  //         status: 400,
+  //         error: wrongInput,
+  //       });
+  //     }
+  //   }
 
-  static findComment(req, res, next) {
-    const comemenResult = articleValidation.findComment.validate({
-      commentId: req.params.id,
-    });
+  //   static findByCategory(req, res, next) {
+  //     const categoryResult = articleValidation.findByCategory.validate({
+  //       category: req.params.category,
+  //     });
 
-    if (!comemenResult.error) {
-      req.article = comemenResult;
-      next();
-    } else {
-      const wrongInput = comemenResult.error.details[0].message.replace('"', ' ').replace('"', '');
-      return res.status(400).json({
-        status: 400,
-        error: wrongInput,
-      });
-    }
-  }
+  //     if (!categoryResult.error) {
+  //       req.article = categoryResult;
+  //       next();
+  //     } else {
+  //       const wrongInput = categoryResult.error.details[0].message.replace('"', ' ').replace('"', '');
+  //       return res.status(400).json({
+  //         status: 400,
+  //         error: wrongInput,
+  //       });
+  //     }
+  //   }
+
+  //   static findComment(req, res, next) {
+  //     const comemenResult = articleValidation.findComment.validate({
+  //       commentId: req.params.id,
+  //     });
+
+  //     if (!comemenResult.error) {
+  //       req.article = comemenResult;
+  //       next();
+  //     } else {
+  //       const wrongInput = comemenResult.error.details[0].message.replace('"', ' ').replace('"', '');
+  //       return res.status(400).json({
+  //         status: 400,
+  //         error: wrongInput,
+  //       });
+  //     }
+  //   }
 }
 
 export default articleValidate;

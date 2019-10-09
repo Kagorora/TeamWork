@@ -1,12 +1,19 @@
+import uuid from 'uuid';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 import tokenG from '../helpers/tokenGenerator';
 
+dotenv.config();
 const newUser = {
-  firstName: 'maxime',
-  lastName: 'alain',
-  email: 'kkx@gmail.com',
+  id: uuid(),
+  firstName: 'kagorora',
+  lastName: 'maxime',
+  email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  isAdmin: true,
+  jobRole: 'mentor',
+  address: 'KN12',
+  department: 'IT',
 };
 
 const wrongUser = {
@@ -19,19 +26,98 @@ const wrongUser = {
 };
 
 const missingFirstName = {
-  lastName: 'alain',
-  email: 'kkx@gmail.com',
+  lastName: 'maxime',
+  email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  isAdmin: true,
+  jobRole: 'mentor',
+  address: 'KN12',
+  department: 'IT',
+};
+
+const missingPassword = {
+  firstName: 'kagorora',
+  lastName: 'maxime',
+  email: 'kagororamaxime@gmail.com',
+  gender: 'male',
+  jobRole: 'mentor',
+  address: 'KN12',
+  department: 'IT',
+};
+
+const shortPassword = {
+  firstName: 'kagorora',
+  lastName: 'maxime',
+  email: 'kagororamaxime@gmail.com',
+  password: 'Ni',
+  gender: 'male',
+  jobRole: 'mentor',
+  address: 'KN12',
+  department: 'IT',
+};
+
+const invalidJobRole = {
+  firstName: 'kagorora',
+  lastName: 'maxime',
+  email: 'kagororamaxime@gmail.com',
+  password: 'Niyonkuru@1',
+  gender: 'male',
+  address: 'KN12',
+  department: 'IT',
+};
+
+const invalidAddress = {
+  firstName: 'kagorora',
+  lastName: 'maxime',
+  email: 'kagororamaxime@gmail.com',
+  password: 'Niyonkuru@1',
+  gender: 'male',
+  jobRole: 'mentor',
+  department: 'IT',
+};
+
+const invalidDepartment = {
+  firstName: 'kagorora',
+  lastName: 'maxime',
+  email: 'kagororamaxime@gmail.com',
+  password: 'Niyonkuru@1',
+  gender: 'male',
+  jobRole: 'mentor',
+  address: 'KN12',
 };
 
 const missinglastName = {
-  firstName: 'maxime',
-  email: 'kkx@gmail.com',
+  firstName: 'kagorora',
+  email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  isAdmin: true,
+  jobRole: 'mentor',
+  address: 'KN12',
+  department: 'IT',
+};
+
+// const message = `Teamwork is an internal social network for organizations’ employees. ${''}
+// The goal of this application is to facilitate more interaction between
+// ${''} colleagues and facilitate team bonding.`;
+
+const signedUser = {
+  email: 'kagororamaxime@gmail.com',
+  password: 'Niyonkuru@1',
+};
+
+const NonsignedUser = {
+  email: 'max@gmail.com',
+  password: 'Niyonkuru@1',
+};
+
+const wrongData = {
+  email: 'kagororamaxime@gmail.com',
+  password: 'Niyonkuru1',
+};
+
+const invalidEmail = {
+  email: 'kagororamaximegmail.com',
+  password: 'Niyonkuru@1',
 };
 
 const userToken = tokenG.createToken(
@@ -40,42 +126,19 @@ const userToken = tokenG.createToken(
   newUser.isAdmin,
 );
 
-// const message = `Teamwork is an internal social network for organizations’ employees. ${''}
-// The goal of this application is to facilitate more interaction between
-// ${''} colleagues and facilitate team bonding.`;
-
-const signedUser = {
-  email: 'kkx@gmail.com',
-  password: 'Niyonkuru@1',
-};
-
-const NonsignedUser = {
-  email: 'non@gmail.com',
-  password: 'Niyonkuru@1',
-};
-
-const wrongData = {
-  email: 'kkx@gmail.com',
-  password: 'wrong',
-};
-
-const invalidEmail = {
-  email: 'kagororamaximegmail.com',
-  password: 'wrong',
-};
-
 const newArticle = {
+  id: uuid(),
   title: 'How to maka cake',
   article: 'An application’s',
   category: 'Technology',
   tag: 'normal',
+  userId: newUser.id,
 };
 
 const updatedArticle = {
-  title: 'How to maka pancakes',
-  article: 'An application’s',
-  category: 'Technology',
-  tag: 'normal',
+  title: 'ttttttttt',
+  article: 'updated',
+  category: 'Social',
 };
 
 const wrongArticle = {
@@ -134,4 +197,9 @@ export {
   invalidComment,
   invalidEditArticle,
   adminToken,
+  missingPassword,
+  invalidJobRole,
+  invalidAddress,
+  invalidDepartment,
+  shortPassword,
 };
