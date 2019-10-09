@@ -13,35 +13,34 @@ class userController {
       });
     }
     const {
-      id,
       firstName,
       lastName,
       email,
       password,
       gender,
-      jobRole,
+      jRole,
       address,
       isAdmin,
       department,
     } = req.user.value;
     const registerUser = await con.query(users.addUser, [
-      id,
       firstName,
       lastName,
       email,
       password,
       gender,
-      jobRole,
+      jRole,
       address,
       isAdmin,
       department,
     ]);
     const user = await con.query(users.withOutPsw, [email]);
+    console.log(user.rows[0].id);
     if (registerUser.rowCount === 1) {
       return res.status(201).json({
         status: 201,
         message: 'user successfuly created',
-        token: userToken.createToken(id, email, isAdmin),
+        token: userToken.createToken(user.rows[0].id, user.rows[0].email, user.rows[0].isAdmin),
         data: user.rows[0],
       });
     }

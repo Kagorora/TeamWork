@@ -9,8 +9,8 @@ const app = express();
 app.all('*', auth);
 
 app.post('/', articleValidation.article, articleController.createArticle);
-app.patch('/:id', articleValidation.validateUUID, checkAuthor.checkAuthor, articleValidation.edit, articleController.editArticle);
-// app.delete('/:id', articleValidation.delete, articleController.deleteArticle);
+app.patch('/:id', articleValidation.validateId, checkAuthor.checkAuthor, articleValidation.edit, articleController.editArticle);
+app.delete('/:id', articleValidation.validateId, checkAuthor.checkAuthor, articleController.deleteArticle);
 // app.get('/feeds', articleController.viewAllArticles);
 // app.get('/:id', articleValidation.findArticle, articleController.findArticle);
 // app.get('/category/:category', articleValidation.findByCategory, articleController.viewByCategories);

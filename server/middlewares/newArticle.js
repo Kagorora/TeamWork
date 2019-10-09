@@ -10,7 +10,6 @@ import comments from '../models/comments';
 class articleValidate {
   static article(req, res, next) {
     const ArticleResult = articleValidation.Articleschema.validate({
-      id: uuid(),
       title: req.body.title,
       article: req.body.article,
       createdOn: moment().format('YYYY-MM-DD'),
@@ -32,7 +31,6 @@ class articleValidate {
 
   static edit(req, res, next) {
     const EditResult = articleValidation.EditSchema.validate({
-      id: req.params.id,
       title: req.body.title,
       article: req.body.article,
       category: req.body.category,
@@ -50,35 +48,22 @@ class articleValidate {
     }
   }
 
-  static validateUUID(req, res, next) {
-    const articleId = validator.isUUID(req.params.id);
-    if (articleId === true) {
+  static validateId(req, res, next) {
+    const deleteResult = articleValidation.articleIdSchema.validate({
+      id: parseInt(req.params.id),
+    });
+
+    if (!deleteResult.error) {
+      req.article = deleteResult;
       next();
     } else {
+      const wrongInput = deleteResult.error.details[0].message.replace('"', ' ').replace('"', '');
       return res.status(400).json({
         status: 400,
-        error: 'invalid id',
+        error: wrongInput,
       });
     }
   }
-
-  //   static delete(req, res, next) {
-  //     const deleteResult = articleValidation.articleIdSchema.validate({
-  //       id: req.params.id,
-  //     });
-
-  //     if (!deleteResult.error) {
-  //       req.article = deleteResult;
-  //       next();
-  //     } else {
-  //       const wrongInput = deleteResult.error.details[0].message.replace('"', ' ').replace('"', '');
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: wrongInput,
-  //       });
-  //     }
-  //   }
-
   //   static comment(req, res, next) {
   //     const foundArticle = articles.find(a => a.id === parseInt(req.params.id));
   //     if (foundArticle) {

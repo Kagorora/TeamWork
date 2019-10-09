@@ -6,13 +6,12 @@ import userValidation from '../helpers/userValidation';
 class userValidate {
   static signup(req, res, next) {
     const result = userValidation.SignUpschema.validate({
-      id: uuid(),
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password),
       gender: req.body.gender,
-      jobRole: req.body.jobRole,
+      jRole: req.body.jRole,
       address: req.body.address,
       isAdmin: 'false',
       department: req.body.department,
