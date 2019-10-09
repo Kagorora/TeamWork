@@ -8,7 +8,7 @@ class check {
     if (findRegistedArticle.rows[0].userid === authorId) {
       next();
     }
-    return res.status.json({
+    return res.status(403).json({
       status: 403,
       error: 'only author of article has access',
     });
