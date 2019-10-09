@@ -2,7 +2,6 @@
 import Joi from 'joi';
 
 const SignUpschema = Joi.object().keys({
-  id: Joi.string().required(),
   firstName: Joi.string()
     .regex(/^[a-zA-Z]{3,30}$/)
     .required().error(err => ({ message: 'Invalid firstName' })),
@@ -17,7 +16,7 @@ const SignUpschema = Joi.object().keys({
   gender: Joi.string()
     .valid('male', 'female')
     .required(),
-  jobRole: Joi.string()
+  jRole: Joi.string()
     .regex(/^[a-zA-Z]{3,200}$/)
     .required().error(err => ({ message: 'Invalid jobRole' })),
   address: Joi.string()

@@ -1,17 +1,15 @@
-import uuid from 'uuid';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import tokenG from '../helpers/tokenGenerator';
 
 dotenv.config();
 const newUser = {
-  id: uuid(),
   firstName: 'kagorora',
   lastName: 'maxime',
   email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: 'mentor',
+  jRole: 'mentor',
   address: 'KN12',
   department: 'IT',
 };
@@ -30,7 +28,7 @@ const missingFirstName = {
   email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: 'mentor',
+  jRole: 'mentor',
   address: 'KN12',
   department: 'IT',
 };
@@ -40,7 +38,7 @@ const missingPassword = {
   lastName: 'maxime',
   email: 'kagororamaxime@gmail.com',
   gender: 'male',
-  jobRole: 'mentor',
+  jRole: 'mentor',
   address: 'KN12',
   department: 'IT',
 };
@@ -51,7 +49,7 @@ const shortPassword = {
   email: 'kagororamaxime@gmail.com',
   password: 'Ni',
   gender: 'male',
-  jobRole: 'mentor',
+  jRole: 'mentor',
   address: 'KN12',
   department: 'IT',
 };
@@ -72,7 +70,7 @@ const invalidAddress = {
   email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: 'mentor',
+  jRole: 'mentor',
   department: 'IT',
 };
 
@@ -82,7 +80,7 @@ const invalidDepartment = {
   email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: 'mentor',
+  jRole: 'mentor',
   address: 'KN12',
 };
 
@@ -91,7 +89,7 @@ const missinglastName = {
   email: 'kagororamaxime@gmail.com',
   password: 'Niyonkuru@1',
   gender: 'male',
-  jobRole: 'mentor',
+  jRole: 'mentor',
   address: 'KN12',
   department: 'IT',
 };
@@ -120,14 +118,9 @@ const invalidEmail = {
   password: 'Niyonkuru@1',
 };
 
-const userToken = tokenG.createToken(
-  newUser.id,
-  newUser.email,
-  newUser.isAdmin,
-);
+const userToken = tokenG.createToken(1, newUser.email, newUser.isAdmin);
 
 const newArticle = {
-  id: uuid(),
   title: 'How to maka cake',
   article: 'An application’s',
   category: 'Technology',
