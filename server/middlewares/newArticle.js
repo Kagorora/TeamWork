@@ -45,15 +45,15 @@ class articleValidate {
   }
 
   static validateId(req, res, next) {
-    const deleteResult = articleValidation.articleIdSchema.validate({
+    const valideArticle = articleValidation.articleIdSchema.validate({
       id: parseInt(req.params.id),
     });
 
-    if (!deleteResult.error) {
-      req.article = deleteResult;
+    if (!valideArticle.error) {
+      req.article = valideArticle;
       next();
     } else {
-      const wrongInput = deleteResult.error.details[0].message.replace('"', ' ').replace('"', '');
+      const wrongInput = valideArticle.error.details[0].message.replace('"', ' ').replace('"', '');
       return res.status(400).json({
         status: 400,
         error: wrongInput,

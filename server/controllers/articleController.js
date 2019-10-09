@@ -103,20 +103,20 @@ class articleController {
     });
   }
 
-  //   static findArticle(req, res) {
-  //     const desiredArticle = find.searchArtById(req.article.value.id);
-  //     if (!desiredArticle) {
-  //       return res.status(404).json({
-  //         status: 404,
-  //         error: 'article not found',
-  //       });
-  //     }
-  //     return res.status(200).json({
-  //       status: 200,
-  //       message: 'article found',
-  //       data: desiredArticle,
-  //     });
-  //   }
+  static async findArticle(req, res) {
+    const foundArticle = await con.query(articles.searchArticle, [parseInt(req.params.id)]);
+    if (foundArticle.rowCount === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'article not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      message: foundArticle.rows[0],
+    });
+  }
 
   //   static viewByCategories(req, res) {
   //     const desiredArticle = find.searchByCategory(req.article.value.category);
