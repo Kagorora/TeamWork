@@ -12,7 +12,10 @@ class userValidate {
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password),
       gender: req.body.gender,
-      isAdmin: req.body.isAdmin,
+      jobRole: req.body.jobRole,
+      address: req.body.address,
+      isAdmin: 'false',
+      department: req.body.department,
     });
 
     if (!result.error) {
