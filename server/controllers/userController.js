@@ -1,5 +1,4 @@
 import bcrypt from 'bcrypt-nodejs';
-import uuid from 'uuid';
 import users from '../models/users';
 import userToken from '../helpers/tokenGenerator';
 import con from '../dbConnection';
@@ -35,7 +34,6 @@ class userController {
       department,
     ]);
     const user = await con.query(users.withOutPsw, [email]);
-    console.log(user.rows[0].id);
     if (registerUser.rowCount === 1) {
       return res.status(201).json({
         status: 201,
