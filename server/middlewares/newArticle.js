@@ -1,9 +1,6 @@
 /* eslint-disable radix */
 /* eslint-disable consistent-return */
 import moment from 'moment';
-import uuid from 'uuid';
-import validator from 'validator';
-import articles from '../models/articles';
 import articleValidation from '../helpers/articleValidation';
 import comments from '../models/comments';
 
@@ -12,7 +9,6 @@ class articleValidate {
     const ArticleResult = articleValidation.Articleschema.validate({
       title: req.body.title,
       article: req.body.article,
-      createdOn: moment().format('YYYY-MM-DD'),
       category: req.body.category,
       flag: 'normal',
       userId: req.user.id,

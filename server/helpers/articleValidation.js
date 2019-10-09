@@ -1,10 +1,8 @@
 import Joi from '@hapi/joi';
-import validator from 'validator';
 
 const Articleschema = Joi.object().keys({
   title: Joi.string().regex(/^[a-zA-Z0-9 '"!@#$%^*()_+./]{3,100}$/).required(),
   article: Joi.string().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/).required(),
-  createdOn: Joi.string().required(),
   category: Joi.valid('Technology', 'Entertainment', 'Social').required(),
   flag: Joi.string().required(),
   userId: Joi.number(),

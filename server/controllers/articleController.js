@@ -1,8 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable radix */
 import articles from '../models/articles';
-import find from '../helpers/search';
-import comments from '../models/comments';
 import con from '../dbConnection';
 
 class articleController {
@@ -12,7 +10,6 @@ class articleController {
       article,
       category,
       flag,
-      createdOn,
       userId,
     } = req.article.value;
 
@@ -21,7 +18,6 @@ class articleController {
       article,
       category,
       flag,
-      createdOn,
       userId,
     ]);
     if (registeredArticle.rowCount === 1) {
@@ -93,20 +89,19 @@ class articleController {
   //     });
   //   }
 
-  //   static viewAllArticles(req, res) {
-  //     const arrayLength = articles.length;
-  //     if (arrayLength === 0) {
-  //       return res.status(404).json({
-  //         status: 404,
-  //         error: 'no article found',
-  //       });
-  //     }
-  //     articles.reverse();
-  //     return res.status(200).json({
-  //       status: 200,
-  //       data: articles,
-  //     });
-  //   }
+  static async viewAllArticles(req, res) {
+    const allArticles = await con.query(articles.findAllArticles);
+    if (allArticles.rowCount === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'no article found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      data: allArticles.rows,
+    });
+  }
 
   //   static findArticle(req, res) {
   //     const desiredArticle = find.searchArtById(req.article.value.id);
