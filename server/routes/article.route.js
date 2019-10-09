@@ -12,7 +12,7 @@ app.post('/', articleValidation.article, articleController.createArticle);
 app.patch('/:id', articleValidation.validateId, checkAuthor.checkAuthor, articleValidation.edit, articleController.editArticle);
 app.delete('/:id', articleValidation.validateId, checkAuthor.checkAuthor, articleController.deleteArticle);
 app.get('/feeds', articleController.viewAllArticles);
-// app.get('/:id', articleValidation.findArticle, articleController.findArticle);
+app.get('/:id', articleValidation.validateId, articleController.findArticle);
 // app.get('/category/:category', articleValidation.findByCategory, articleController.viewByCategories);
 // app.patch('/:id/flag', articleValidation.findArticle, articleController.FlagArticle);
 // app.delete('/flaged/:id', articleValidation.findArticle, articleController.RemoveFlagedArticles);
