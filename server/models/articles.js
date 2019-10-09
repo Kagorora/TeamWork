@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS articles (
     article text,
     category text,
     flag text,
-    createdOn date,
+    createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     userId SERIAL,
     foreign key(userId) references users ON DELETE CASCADE
 )`;
@@ -15,13 +15,13 @@ const addArticle = `insert into articles (
     article,
     category,
     flag,
-    createdOn,
     userId
-)VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT DO NOTHING returning *`;
+)VALUES($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING returning *`;
 
 const searchArticle = 'select * from articles where id = ($1)';
 const updateArticle = 'update articles set title = ($1), article = ($2), category = ($3) where id = ($4)';
 const removeArticle = 'delete from articles where id = ($1)';
+const findAllArticles = 'select * from articles ORDER BY createdon DESC';
 const articles = [
 
 ];
@@ -33,4 +33,5 @@ export default {
   articles,
   updateArticle,
   removeArticle,
+  findAllArticles,
 };

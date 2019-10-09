@@ -1,6 +1,5 @@
 /* eslint-disable consistent-return */
 import bcrypt from 'bcrypt-nodejs';
-import uuid from 'uuid';
 import userValidation from '../helpers/userValidation';
 
 class userValidate {
