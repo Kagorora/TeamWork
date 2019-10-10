@@ -1,4 +1,4 @@
-# TeamWork [![Build Status](https://travis-ci.com/Kagorora/TeamWork.svg?branch=develop)](https://travis-ci.com/Kagorora/TeamWork)  [![Coverage Status](https://coveralls.io/repos/github/Kagorora/TeamWork/badge.svg?branch=develop)](https://coveralls.io/github/Kagorora/TeamWork?branch=develop)
+# TeamWork [![Build Status](https://travis-ci.com/Kagorora/TeamWork.svg?branch=develop)](https://travis-ci.com/Kagorora/TeamWork)  [![Coverage Status](https://coveralls.io/repos/github/Kagorora/TeamWork/badge.svg?branch=develop)](https://coveralls.io/github/Kagorora/TeamWork?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/116839f9ea004dc4867b/maintainability)](https://codeclimate.com/github/Kagorora/Team_Work/maintainability)
 
 Teamwork is an internal social network for organizations’ employees. The goal of this application is to facilitate more interaction between colleagues and facilitate team bonding.
 
