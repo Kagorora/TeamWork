@@ -120,7 +120,6 @@ class articleController {
 
   static async viewByCategories(req, res) {
     const articleCategory = (req.params.category).toLowerCase();
-    console.log(articleCategory);
     const desiredArticle = await con.query(articles.searchAByCategory, [articleCategory]);
     if (desiredArticle.rowCount === 0) {
       return res.status(404).json({
@@ -135,22 +134,20 @@ class articleController {
     });
   }
 
-  //   static FlagArticle(req, res) {
-  //     const desiredArticle = find.searchArtById(parseInt(req.params.id));
-  //     if (!desiredArticle) {
-  //       return res.status(404).json({
-  //         status: 404,
-  //         error: 'article not found',
-  //       });
-  //     }
-  //     const unwantedArticleIndex = articles.indexOf(desiredArticle);
-  //     articles[unwantedArticleIndex].tag = 'inappropriate';
-  //     return res.status(200).json({
-  //       status: 200,
-  //       message: 'marked as inappropriate',
-  //       data: articles,
-  //     });
-  //   }
+  static async FlagArticle(req, res) {
+    const desiredArticle = await con.query(articles.FlagArticle, ['inappropriate', parseInt(req.params.id)]);
+    if (desiredArticle.rowCount === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'article not found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: 'marked as inappropriate',
+      data: desiredArticle.rows[0],
+    });
+  }
 
   //   static FlagComment(req, res) {
   //     const desiredComment = find.searchComment(req.article.value.commentId);
