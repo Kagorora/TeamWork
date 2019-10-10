@@ -9,7 +9,7 @@ class articleValidate {
     const ArticleResult = articleValidation.Articleschema.validate({
       title: req.body.title,
       article: req.body.article,
-      category: req.body.category,
+      category: (req.body.category).toLowerCase(),
       flag: 'normal',
       userId: req.user.id,
     });
@@ -105,22 +105,22 @@ class articleValidate {
   //     }
   //   }
 
-  //   static findByCategory(req, res, next) {
-  //     const categoryResult = articleValidation.findByCategory.validate({
-  //       category: req.params.category,
-  //     });
+  static validateCategory(req, res, next) {
+    const categoryResult = articleValidation.validateCategory.validate({
+      category: (req.params.category).toLowerCase(),
+    });
 
-  //     if (!categoryResult.error) {
-  //       req.article = categoryResult;
-  //       next();
-  //     } else {
-  //       const wrongInput = categoryResult.error.details[0].message.replace('"', ' ').replace('"', '');
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: wrongInput,
-  //       });
-  //     }
-  //   }
+    if (!categoryResult.error) {
+      req.article = categoryResult;
+      next();
+    } else {
+      const wrongInput = categoryResult.error.details[0].message.replace('"', ' ').replace('"', '');
+      return res.status(400).json({
+        status: 400,
+        error: wrongInput,
+      });
+    }
+  }
 
   //   static findComment(req, res, next) {
   //     const comemenResult = articleValidation.findComment.validate({

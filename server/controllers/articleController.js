@@ -16,7 +16,7 @@ class articleController {
     const registeredArticle = await con.query(articles.addArticle, [
       title,
       article,
-      category,
+      category.toLowerCase(),
       flag,
       userId,
     ]);
@@ -118,20 +118,22 @@ class articleController {
     });
   }
 
-  //   static viewByCategories(req, res) {
-  //     const desiredArticle = find.searchByCategory(req.article.value.category);
-  //     if (desiredArticle.length === 0) {
-  //       return res.status(404).json({
-  //         status: 404,
-  //         error: 'article not found',
-  //       });
-  //     }
-  //     return res.status(200).json({
-  //       status: 200,
-  //       message: 'articles found',
-  //       data: desiredArticle,
-  //     });
-  //   }
+  static async viewByCategories(req, res) {
+    const articleCategory = (req.params.category).toLowerCase();
+    console.log(articleCategory);
+    const desiredArticle = await con.query(articles.searchAByCategory, [articleCategory]);
+    if (desiredArticle.rowCount === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'article not found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: 'articles found',
+      data: desiredArticle.rows,
+    });
+  }
 
   //   static FlagArticle(req, res) {
   //     const desiredArticle = find.searchArtById(parseInt(req.params.id));
