@@ -81,14 +81,6 @@ class articleController {
     });
   }
 
-  //   static createComments(req, res) {
-  //     comments.push(req.comment.value);
-  //     return res.status(201).json({
-  //       status: 201,
-  //       data: req.comment.value,
-  //     });
-  //   }
-
   static async viewAllArticles(req, res) {
     const allArticles = await con.query(articles.findAllArticles);
     if (allArticles.rowCount === 0) {

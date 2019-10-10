@@ -18,23 +18,10 @@ const articleIdSchema = Joi.object().keys({
   id: Joi.number().required(),
 });
 
-// const articleIdSchema = id;
-// v.isUUID(id)
-// true
-// v.isUUID('abc')
-// false
-// v.isNull(a)
-// false
-
-// const CommentSchema = Joi.object().keys({
-//   articleId: Joi.number().min(1).max(9999999),
-//   createdOn: Joi.required(),
-//   commentId: Joi.number().required(),
-//   comment: Joi.string().regex(/^[a-zA-Z ]{3,100}$/).required(),
-//   tag: Joi.string().required(),
-//   articleTitle: Joi.string().required(),
-//   article: Joi.string().required(),
-// });
+const CommentSchema = Joi.object().keys({
+  comment: Joi.string().regex(/^[a-zA-Z '.?!()]{3,1000}$/).required(),
+  flag: Joi.string(),
+});
 
 // const findArticleSchema = Joi.object().keys({
 //   id: Joi.string().required(),
@@ -52,7 +39,7 @@ export default {
   Articleschema,
   EditSchema,
   articleIdSchema,
-  //   CommentSchema,
+  CommentSchema,
   //   findArticleSchema,
   validateCategory,
   //   findComment,

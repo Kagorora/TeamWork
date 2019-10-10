@@ -1,10 +1,10 @@
 const CreateArticles = `
 CREATE TABLE IF NOT EXISTS articles (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY ,
     title text UNIQUE,
     article text,
     category text,
-    flag text,
+    flag text DEFAULT 'normal',
     createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     userId SERIAL,
     foreign key(userId) references users ON DELETE CASCADE

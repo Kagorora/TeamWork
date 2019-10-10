@@ -3,6 +3,7 @@
 import moment from 'moment';
 import articleValidation from '../helpers/articleValidation';
 import comments from '../models/comments';
+import articles from '../models/articles';
 
 class articleValidate {
   static article(req, res, next) {
@@ -60,50 +61,24 @@ class articleValidate {
       });
     }
   }
-  //   static comment(req, res, next) {
-  //     const foundArticle = articles.find(a => a.id === parseInt(req.params.id));
-  //     if (foundArticle) {
-  //       const commentResult = articleValidation.CommentSchema.validate({
-  //         createdOn: moment().format,
-  //         commentId: comments.length + 1,
-  //         articleTitle: foundArticle.title,
-  //         article: foundArticle.article,
-  //         comment: req.body.comment,
-  //         tag: 'normal',
-  //       });
 
-  //       if (!commentResult.error) {
-  //         req.comment = commentResult;
-  //         next();
-  //         return;
-  //       }
-  //       const wrongInput = commentResult.error.details[0].message.replace('"', ' ').replace('"', '');
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: wrongInput,
-  //       });
-  //     }
-  //     return res.status(404).json({
-  //       status: 404,
-  //       error: 'article not found',
-  //     });
-  //   }
+  static comment(req, res, next) {
+    const commentResult = articleValidation.CommentSchema.validate({
+      comment: req.body.comment,
+      flag: 'normal',
+    });
 
-  //   static findArticle(req, res, next) {
-  //     const articleResult = articleValidation.findArticleSchema.validate({
-  //       id: req.params.id,
-  //     });
-  //     if (!articleResult.error) {
-  //       req.article = articleResult;
-  //       next();
-  //     } else {
-  //       const wrongInput = articleResult.error.details[0].message.replace('"', ' ').replace('"', '');
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: wrongInput,
-  //       });
-  //     }
-  //   }
+    if (!commentResult.error) {
+      req.comment = commentResult;
+      next();
+      return;
+    }
+    const wrongInput = commentResult.error.details[0].message.replace('"', ' ').replace('"', '');
+    return res.status(400).json({
+      status: 400,
+      error: wrongInput,
+    });
+  }
 
   static validateCategory(req, res, next) {
     const categoryResult = articleValidation.validateCategory.validate({
