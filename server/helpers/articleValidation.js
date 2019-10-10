@@ -3,7 +3,7 @@ import Joi from '@hapi/joi';
 const Articleschema = Joi.object().keys({
   title: Joi.string().regex(/^[a-zA-Z0-9 '"!@#$%^*()_+./]{3,100}$/).required(),
   article: Joi.string().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/).required(),
-  category: Joi.valid('Technology', 'Entertainment', 'Social').required(),
+  category: Joi.valid('technology', 'entertainment', 'social').required(),
   flag: Joi.string().required(),
   userId: Joi.number(),
 });
@@ -11,7 +11,7 @@ const Articleschema = Joi.object().keys({
 const EditSchema = Joi.object().keys({
   title: Joi.string().regex(/^[a-zA-Z0-9 '"!@#$%^&*()_+./]{3,100}$/),
   article: Joi.string().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/),
-  category: Joi.valid('Technology', 'Entertainment', 'Social'),
+  category: Joi.valid('technology', 'entertainment', 'social'),
 });
 
 const articleIdSchema = Joi.object().keys({
@@ -40,9 +40,9 @@ const articleIdSchema = Joi.object().keys({
 //   id: Joi.string().required(),
 // });
 
-// const findByCategory = Joi.object().keys({
-//   category: Joi.valid('Technology', 'Entertainment', 'Social').required(),
-// });
+const validateCategory = Joi.object().keys({
+  category: Joi.valid('technology', 'entertainment', 'social').required(),
+});
 
 // const findComment = Joi.object().keys({
 //   id: Joi.string().required(),
@@ -54,6 +54,6 @@ export default {
   articleIdSchema,
   //   CommentSchema,
   //   findArticleSchema,
-  //   findByCategory,
+  validateCategory,
   //   findComment,
 };
