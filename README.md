@@ -4,7 +4,7 @@ Teamwork is an internal social network for organizations’ employees. The goal 
 
 ## FRONT END DEMO 
 * Use the following link to view the frontend
-https://kagorora.github.io/TeamWork/UI/index.html
+https://kagorora.github.io/Team_Work/UI/index.html
 
 ### BACKEND
 Here is the all routes used in the app:
