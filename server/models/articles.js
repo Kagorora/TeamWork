@@ -23,6 +23,7 @@ const updateArticle = 'update articles set title = ($1), article = ($2), categor
 const removeArticle = 'delete from articles where id = ($1)';
 const findAllArticles = 'select * from articles ORDER BY createdon DESC';
 const searchAByCategory = 'select * from articles where category = ($1)';
+const FlagArticle = 'update articles set flag = ($1) where id = ($2)';
 const articles = [
 
 ];
@@ -36,4 +37,5 @@ export default {
   removeArticle,
   findAllArticles,
   searchAByCategory,
+  FlagArticle,
 };

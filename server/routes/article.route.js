@@ -14,7 +14,7 @@ app.delete('/:id', articleValidation.validateId, checkAuthor.checkAuthor, articl
 app.get('/feeds', articleController.viewAllArticles);
 app.get('/:id', articleValidation.validateId, articleController.findArticle);
 app.get('/category/:category', articleValidation.validateCategory, articleController.viewByCategories);
-// app.patch('/:id/flag', articleValidation.findArticle, articleController.FlagArticle);
+app.patch('/:id/flag', articleValidation.validateId, articleController.FlagArticle);
 // app.delete('/flaged/:id', articleValidation.findArticle, articleController.RemoveFlagedArticles);
 
 export default app;
