@@ -1,7 +1,7 @@
 /* eslint-disable no-tabs */
 const createUsers = `
         CREATE TABLE IF NOT EXISTS users (
-          id SErIAL PRIMARY KEY,
+          id SERIAL PRIMARY KEY,
           firstName text,
           lastName text,
           email text UNIQUE,
