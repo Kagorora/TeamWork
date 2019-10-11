@@ -144,69 +144,7 @@ class articleController {
       data: desiredArticle.rows[0],
     });
   }
-
-  //   static FlagComment(req, res) {
-  //     const desiredComment = find.searchComment(req.article.value.commentId);
-  //     if (!desiredComment) {
-  //       return res.status(404).json({
-  //         status: 404,
-  //         error: 'comment not found',
-  //       });
-  //     }
-  //     const unwantedCommentIndex = comments.indexOf(desiredComment);
-  //     comments[unwantedCommentIndex].tag = 'inappropriate';
-  //     return res.status(200).json({
-  //       status: 200,
-  //       message: 'marked as inappropriate',
-  //       data: comments,
-  //     });
-  //   }
-
-  // static async RemoveFlagedArticles(req, res) {
-  //   console.log(req.user);
-  //   if (req.user.isAdmin === true) {
-  //     const foundArticle = await con.query(articles.searchArticle, [parseInt(req.params.id)]);
-  //     if (foundArticle.rowCount === 0) {
-  //       return res.status(404).json({
-  //         status: 404,
-  //         error: 'article not found',
-  //       });
-  //     }
-  //     if (foundArticle.rows[0].flag === 'inappropriate') {
-  //       await con.query(articles.removeArticle, [parseInt(req.params.id)]);
-  //       return res.status(204).json({
-  //       });
-  //     }
-  //   }
-  // }
-
-  //   static RemoveFlagedComments(req, res) {
-  //     if (req.user.isAdmin === true) {
-  //       const commentId = parseInt(req.params.id);
-  //       const foundComment = find.searchComment(commentId);
-  //       if (!foundComment) {
-  //         return res.status(404).json({
-  //           status: 404,
-  //           error: 'comments not found',
-  //         });
-  //       }
-  //       if (foundComment.tag === 'inappropriate') {
-  //         const unwantedComments = comments.indexOf(foundComment);
-  //         comments.splice(unwantedComments, 1);
-  //         return res.status(204).json({
-  //           status: 204,
-  //         });
-  //       }
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: 'article is normal',
-  //       });
-  //     }
-  //     return res.status(403).json({
-  //       status: 403,
-  //       error: 'Only admin has access',
-  //     });
-  //   }
 }
+
 
 export default articleController;

@@ -96,23 +96,6 @@ class articleValidate {
       });
     }
   }
-
-  //   static findComment(req, res, next) {
-  //     const comemenResult = articleValidation.findComment.validate({
-  //       commentId: req.params.id,
-  //     });
-
-  //     if (!comemenResult.error) {
-  //       req.article = comemenResult;
-  //       next();
-  //     } else {
-  //       const wrongInput = comemenResult.error.details[0].message.replace('"', ' ').replace('"', '');
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: wrongInput,
-  //       });
-  //     }
-  //   }
 }
 
 export default articleValidate;
