@@ -24,24 +24,14 @@ const CommentSchema = Joi.object().keys({
   flag: Joi.string(),
 });
 
-// const findArticleSchema = Joi.object().keys({
-//   id: Joi.string().required(),
-// });
-
 const validateCategory = Joi.object().keys({
   category: Joi.valid('technology', 'entertainment', 'social').required(),
 });
-
-// const findComment = Joi.object().keys({
-//   id: Joi.string().required(),
-// });
 
 export default {
   Articleschema,
   EditSchema,
   articleIdSchema,
   CommentSchema,
-  //   findArticleSchema,
   validateCategory,
-  //   findComment,
 };

@@ -54,7 +54,7 @@ describe('article tests', () => {
         done();
       });
   });
-  
+
   it('Should be able to edit new article', (done) => {
     chai.request(server)
       .patch('/api/v1/articles/1000')
@@ -116,15 +116,4 @@ describe('article tests', () => {
         done();
       });
   });
-
-  // // it('Should be able to edit new article', (done) => {
-  // //   chai.request(server)
-  // //     .patch('/api/v1/article/1')
-  // //     .set('token', userToken)
-  // //     .send(newArticle)
-  // //     .end((err, res) => {
-  // //       res.should.have.status(200);
-  // //       done();
-  // //     });
-  // // });
 });

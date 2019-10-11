@@ -128,6 +128,14 @@ const newArticle = {
   userId: newUser.id,
 };
 
+const similarUpdate = {
+  title: 'How to maka cake',
+  article: 'An application’s',
+  category: 'Technology',
+  tag: 'normal',
+  userId: newUser.id,
+};
+
 const ArticleInvalidCategory = {
   title: 'How to maka cake',
   article: 'An application’s',
@@ -206,4 +214,5 @@ export {
   invalidDepartment,
   shortPassword,
   ArticleInvalidCategory,
+  similarUpdate,
 };
