@@ -8,11 +8,8 @@ const SignUpschema = Joi.object().keys({
   lastName: Joi.string()
     .regex(/^[a-zA-Z]{3,30}$/)
     .required().error(err => ({ message: 'Invalid lastName' })),
-  email: Joi.string()
-    .email()
-    .required(),
-  password: Joi.string()
-    .required(),
+  email: Joi.string().email().trim().required(),
+  password: Joi.string().trim().required(),
   gender: Joi.string()
     .valid('male', 'female')
     .required(),
@@ -29,12 +26,9 @@ const SignUpschema = Joi.object().keys({
 });
 
 const Loginschema = Joi.object().keys({
-  email: Joi.string()
-    .email()
-    .required(),
+  email: Joi.string().email().trim().required(),
   password: Joi.string()
-    .regex(/^[a-zA-Z0-9 !@#$%^&*()_+./]{3,3000}$/)
-    .required(),
+    .regex(/^[a-zA-Z0-9 !@#$%^&*()_+./]{3,3000}$/).required(),
 });
 
 export default {

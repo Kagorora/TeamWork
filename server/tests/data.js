@@ -128,10 +128,20 @@ const newArticle = {
   userId: newUser.id,
 };
 
+const ArticleInvalidCategory = {
+  title: 'How to maka cake',
+  article: 'An application’s',
+  category: 'invalid',
+  tag: 'normal',
+  userId: newUser.id,
+};
+
 const updatedArticle = {
-  title: 'ttttttttt',
-  article: 'updated',
+  title: 'hello',
+  article: 'there',
   category: 'Social',
+  tag: 'normal',
+  userId: newUser.id,
 };
 
 const wrongArticle = {
@@ -151,13 +161,13 @@ const newArticle2 = {
   tag: 'normal',
 };
 
-const newComment = {
-  createdOn: '2019-09-17',
-  commentId: 1,
-  articleTitle: 'hbljhbj',
-  article: 'aaaaaaaaaaaaaaaaaaaaa',
-  comment: 'thanks',
-  tag: 'normal',
+const wrongComment = {
+  id: 1,
+  title: newArticle.title,
+  article: newArticle.article,
+  category: 'normal',
+  ftag: 'normal',
+  userId: 1,
 };
 
 const invalidComment = {
@@ -186,7 +196,7 @@ export {
   wrongArticle,
   updatedArticle,
   newArticle2,
-  newComment,
+  wrongComment,
   invalidComment,
   invalidEditArticle,
   adminToken,
@@ -195,4 +205,5 @@ export {
   invalidAddress,
   invalidDepartment,
   shortPassword,
+  ArticleInvalidCategory,
 };

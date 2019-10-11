@@ -9,8 +9,8 @@ const Articleschema = Joi.object().keys({
 });
 
 const EditSchema = Joi.object().keys({
-  title: Joi.string().regex(/^[a-zA-Z0-9 '"!@#$%^&*()_+./]{3,100}$/),
-  article: Joi.string().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/),
+  title: Joi.string().trim().regex(/^[a-zA-Z0-9 '"!@#$%^&*()_+./]{3,100}$/),
+  article: Joi.string().trim().regex(/^[a-zA-Z0-9 ’!@#$%^&*()_+./]{3,3000}$/),
   category: Joi.valid('technology', 'entertainment', 'social'),
 });
 
@@ -19,7 +19,8 @@ const articleIdSchema = Joi.object().keys({
 });
 
 const CommentSchema = Joi.object().keys({
-  comment: Joi.string().regex(/^[a-zA-Z '.?!()]{3,1000}$/).required(),
+  comment: Joi.string().regex(/^[a-zA-Z '.?!()]{3,1000}$/)
+    .required().error(err => ({ message: 'Invalid comment' })),
   flag: Joi.string(),
 });
 

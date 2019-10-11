@@ -1,3 +1,4 @@
+
 /* eslint-disable max-len */
 /* eslint-disable radix */
 import articles from '../models/articles';
@@ -13,6 +14,13 @@ class articleController {
       userId,
     } = req.article.value;
 
+    const findArticle = await con.query(articles.findByTitle, [title]);
+    if (findArticle.rowCount !== 0) {
+      return res.status(409).json({
+        status: 409,
+        error: `article with title : ${title} exists`,
+      });
+    }
     const registeredArticle = await con.query(articles.addArticle, [
       title,
       article,
@@ -20,16 +28,11 @@ class articleController {
       flag,
       userId,
     ]);
-    if (registeredArticle.rowCount === 1) {
-      return res.status(201).json({
-        status: 201,
-        message: 'article successfuly created',
-        data: registeredArticle.rows[0],
-      });
-    }
-    return res.status(409).json({
-      status: 409,
-      error: `article with title : ${title} exists`,
+
+    return res.status(201).json({
+      status: 201,
+      message: 'article successfuly created',
+      data: registeredArticle.rows[0],
     });
   }
 
@@ -62,6 +65,7 @@ class articleController {
     }
     return res.status(200).json({
       status: 200,
+      message: 'article updated successfully',
       data: newUpdatedArticle.rows[0],
     });
   }
@@ -158,32 +162,23 @@ class articleController {
   //     });
   //   }
 
-  //   static RemoveFlagedArticles(req, res) {
-  //     if (req.user.isAdmin === true) {
-  //       const article = find.searchArtById(parseInt(req.params.id));
-  //       if (!article) {
-  //         return res.status(404).json({
-  //           status: 404,
-  //           error: 'article not found',
-  //         });
-  //       }
-  //       if (article.tag === 'inappropriate') {
-  //         const unwantedArticle = articles.indexOf(article);
-  //         articles.splice(unwantedArticle, 1);
-  //         return res.status(204).json({
-  //           status: 204,
-  //         });
-  //       }
-  //       return res.status(400).json({
-  //         status: 400,
-  //         error: 'article is normal',
+  // static async RemoveFlagedArticles(req, res) {
+  //   console.log(req.user);
+  //   if (req.user.isAdmin === true) {
+  //     const foundArticle = await con.query(articles.searchArticle, [parseInt(req.params.id)]);
+  //     if (foundArticle.rowCount === 0) {
+  //       return res.status(404).json({
+  //         status: 404,
+  //         error: 'article not found',
   //       });
   //     }
-  //     return res.status(403).json({
-  //       status: 403,
-  //       error: 'Only admin has access',
-  //     });
+  //     if (foundArticle.rows[0].flag === 'inappropriate') {
+  //       await con.query(articles.removeArticle, [parseInt(req.params.id)]);
+  //       return res.status(204).json({
+  //       });
+  //     }
   //   }
+  // }
 
   //   static RemoveFlagedComments(req, res) {
   //     if (req.user.isAdmin === true) {
