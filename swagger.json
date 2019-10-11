@@ -1,0 +1,100 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "2",
+      "title": "Tea,work API Endpoints"
+    },
+    "host": "https://teamwork2019.herokuapp.com/",
+    "basePath": "/",
+    "securityDefinitions": {
+      "Headers": {
+        "type": "apiKey",
+        "name": "token",
+        "in": "header"
+      }
+    },
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "definitions": {
+      "signup": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "phoneNo": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "signin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "paths": {
+      "/api/v1/auth/signin": {
+        "post": {
+          "tags": [
+            "User Sign up"
+          ],
+          "description": "Sign up",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "creating user account",
+              "schema": {
+                "$ref": "#/definitions/signin"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "successful signed up",
+              "schema": {
+                "$ref": "#/definitions/signin"
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }

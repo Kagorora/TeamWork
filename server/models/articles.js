@@ -1,6 +1,6 @@
 const CreateArticles = `
 CREATE TABLE IF NOT EXISTS articles (
-    id SERIAL PRIMARY KEY ,
+    id SERIAL NOT NULL PRIMARY KEY,
     title text UNIQUE,
     article text,
     category text,
@@ -24,6 +24,7 @@ const removeArticle = 'delete from articles where id = ($1)';
 const findAllArticles = 'select * from articles ORDER BY createdon DESC';
 const searchAByCategory = 'select * from articles where category = ($1)';
 const FlagArticle = 'update articles set flag = ($1) where id = ($2)';
+const findByTitle = 'select * from articles where title = ($1)';
 const articles = [
 
 ];
@@ -38,4 +39,5 @@ export default {
   findAllArticles,
   searchAByCategory,
   FlagArticle,
+  findByTitle,
 };

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable radix */
 import comments from '../models/comments';
 import con from '../dbConnection';
@@ -6,9 +7,6 @@ import articles from '../models/articles';
 class commentController {
   static async createComments(req, res) {
     const desiredArticle = await con.query(articles.searchArticle, [parseInt(req.params.id)]);
-    // console.log(desiredArticle.rows[0]);
-    // console.log(req.body.comment);
-    // console.log(req.user.id);
     const {
       title,
       article,

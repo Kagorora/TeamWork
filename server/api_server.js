@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 import express from 'express';
+import swaggerUI from 'swagger-ui-express';
 import userRoute from './routes/user.route';
 import articleRoute from './routes/article.route';
 import commentRoute from './routes/comment.route';
+import swagger from '../swagger.json';
 
 const app = express();
 
@@ -11,6 +13,7 @@ const port = process.env.PORT || 3000;
 app.use('/api/v1/auth/', userRoute);
 app.use('/api/v1/articles/', articleRoute);
 app.use('/api/v1/articles/', commentRoute);
+app.use('/', swaggerUI.serve, swaggerUI.setup(swagger));
 
 app.use('*', (req, res) => {
   res.status(404).json({ status: 404, message: 'Routes Not found' });
